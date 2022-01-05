@@ -8,20 +8,24 @@ import {
 	useBreakpointValue,
 	useMediaQuery,
 } from "@chakra-ui/react";
-import Anime, { anime } from "react-animejs-wrapper";
 import Head from "next/head";
-import Image from "next/image";
+import mobile from "is-mobile";
 
 const Home: NextPage = () => {
 	const [isPortrait] = useMediaQuery("(orientation: portrait)");
 
-	const bgURL = useBreakpointValue({
-		base: "/images/wave-haikei-small.svg",
-		md: isPortrait
-			? "/images/wave-haikei-small.svg"
-			: "/images/wave-haikei-med.svg",
-		xl: "/images/wave-haikei-large.svg",
-	});
+	const isMobile = mobile();
+
+	const bgURL = useBreakpointValue(
+		{
+			base: "/images/wave-haikei-small.svg",
+			md: isPortrait
+				? "/images/wave-haikei-small.svg"
+				: "/images/wave-haikei-med.svg",
+			xl: "/images/wave-haikei-large.svg",
+		},
+		isMobile ? "base" : "xl"
+	);
 
 	return (
 		<Box bgImage={bgURL} bgSize="cover" h="100vh" zIndex="3">
@@ -32,31 +36,7 @@ const Home: NextPage = () => {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Anime
-				config={{
-					rotateX: "360deg",
-					rotateY: "360deg",
-					rotateZ: "360deg",
-					duration: 15000,
-					loop: true,
-					easing: "easeInOutQuad",
-				}}
-			>
-				<Box
-					bgColor="transparent"
-					pos="fixed"
-					bottom="10px"
-					right="10px"
-				>
-					<Image
-						src="/images/world.png"
-						alt="World Globe"
-						height={80}
-						width={80}
-						layout="intrinsic"
-					/>
-				</Box>
-			</Anime>
+
 			<Flex
 				p="3rem"
 				w="60vw"

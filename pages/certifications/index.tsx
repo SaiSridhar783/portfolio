@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import { NextPage } from "next";
+import type { NextPage } from "next";
 
 const Certi: NextPage = () => {
 	return <Box>Bankai</Box>;

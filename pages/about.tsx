@@ -1,8 +1,8 @@
 import { Box } from "@chakra-ui/react";
-import { NextPage } from "next";
+import type { NextPage } from "next";
 
 const About: NextPage = () => {
-	return <Box>fsgdf</Box>;
+	return <Box>About</Box>;
 };
 
 export default About;

@@ -1,8 +1,8 @@
 import { Box } from "@chakra-ui/react";
-import { NextPage } from "next";
+import type { NextPage } from "next";
 
 const Projects: NextPage = () => {
-	return <Box>fert</Box>;
+	return <Box>Projects</Box>;
 };
 
 export default Projects;
