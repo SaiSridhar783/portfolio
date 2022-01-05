@@ -1,34 +1,21 @@
 import type { NextPage } from "next";
-
-import {
-	Box,
-	Flex,
-	Heading,
-	Text,
-	useBreakpointValue,
-	useMediaQuery,
-} from "@chakra-ui/react";
+import Link from "next/link";
+import { Button, Flex, Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
-import mobile from "is-mobile";
+import { motion } from "framer-motion";
+import Person from "../components/Person";
 
 const Home: NextPage = () => {
-	const [isPortrait] = useMediaQuery("(orientation: portrait)");
-
-	const isMobile = mobile();
-
-	const bgURL = useBreakpointValue(
-		{
-			base: "/images/wave-haikei-small.svg",
-			md: isPortrait
-				? "/images/wave-haikei-small.svg"
-				: "/images/wave-haikei-med.svg",
-			xl: "/images/wave-haikei-large.svg",
-		},
-		isMobile ? "base" : "xl"
-	);
-
 	return (
-		<Box bgImage={bgURL} bgSize="cover" h="100vh" zIndex="3">
+		<Flex
+			pl="6rem"
+			pt="3rem"
+			flexDir={{ base: "column-reverse", lg: "row" }}
+			alignItems="center"
+			w="100vw"
+			h="100vh"
+			overflow="hidden"
+		>
 			<Head>
 				<meta
 					name="description"
@@ -37,22 +24,53 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<Flex
-				p="3rem"
-				w="60vw"
-				pt="10rem"
-				flexDir="column"
-				justifyContent="center"
+			<motion.div
+				animate={{ opacity: [0, 1] }}
+				style={{ width: "60%", padding: "10rem 1.5rem" }}
 			>
-				<Heading color="white">
-					Hello There! I am{" "}
-					<Text as="span" color="blue.400">
-						Sai Sridhar Akula
-					</Text>
-					, a Fullstack Developer
-				</Heading>
-			</Flex>
-		</Box>
+				<Flex flexDir="column" justifyContent="center">
+					<Heading color="white" fontSize="5xl">
+						Hello There!
+					</Heading>
+					<br />
+					<Heading as="h2" color="whiteAlpha.800">
+						I am&nbsp;
+						<Text as="span" color="blue.400">
+							Sai Sridhar Akula
+						</Text>
+						, a Fullstack and an App Developer specializing in
+						Frontend.
+					</Heading>
+					<Link href="/home" passHref>
+						<motion.button
+							style={{
+								alignSelf: "flex-start",
+								marginTop: "3rem",
+							}}
+							animate={{ scale: [0, 1] }}
+						>
+							<Button
+								variant="solid"
+								colorScheme="green"
+								size="lg"
+							>
+								Click Me!
+							</Button>
+						</motion.button>
+					</Link>
+				</Flex>
+			</motion.div>
+
+			<motion.div
+				style={{ scale: 2.5 }}
+				initial={{ y: -600 }}
+				animate={{ y: [-600, 0] }}
+				viewport={{ once: true }}
+				layoutId="floating-person"
+			>
+				<Person height="200" width="400" />
+			</motion.div>
+		</Flex>
 	);
 };
 

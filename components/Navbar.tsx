@@ -1,6 +1,5 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import Link from "./ActiveLink";
-import MainLink from "next/link";
 import { FunctionComponent } from "react";
 
 const Navbar: FunctionComponent = () => {
@@ -15,21 +14,6 @@ const Navbar: FunctionComponent = () => {
 			w="100vw"
 			position="fixed"
 		>
-			<Box
-				_hover={{ cursor: "pointer" }}
-				border={{ base: "none", md: "3.5px solid #089c42" }}
-				p="0.4rem"
-				fontSize="1.3rem"
-				fontWeight="bold"
-				borderRadius="5px"
-			>
-				<MainLink href="/" passHref={true}>
-					<div>
-						SS <span>.</span>
-					</div>
-				</MainLink>
-			</Box>
-
 			<Flex
 				d={{ base: "none", md: "flex" }}
 				mr="0.5rem"
