@@ -19,14 +19,20 @@ const Home: NextPage = () => {
 					title="Projects"
 					image="/images/projects.png"
 					href="/projects"
+					titleId="nav-projects"
 				/>
-				<motion.div style={{ scale: 2 }} layoutId="floating-person">
+				<motion.div
+					style={{ scale: 2 }}
+					animate={{ opacity: [0, 1] }}
+					layoutId="floating-person"
+				>
 					<Person height="200" width="400" />
 				</motion.div>
 				<NavTab
 					title="Certifications"
 					image="/images/certifications.png"
 					href="/certifications"
+					titleId="nav-certifications"
 				/>
 			</Flex>
 			<Flex justifyContent="space-between" w="44%">
@@ -35,6 +41,7 @@ const Home: NextPage = () => {
 					image="/images/experience.png"
 					href="/about"
 					delay={0.1}
+					titleId="nav-experience"
 				/>
 				<NavTab
 					title="Resume"
@@ -43,12 +50,14 @@ const Home: NextPage = () => {
 					style={{ position: "relative", top: "5rem" }}
 					delay={0.2}
 					link
+					titleId=""
 				/>
 				<NavTab
 					title="Contact Me"
 					image="/images/contact.png"
 					href="/contact"
 					delay={0.1}
+					titleId="nav-contact"
 				/>
 			</Flex>
 		</Flex>

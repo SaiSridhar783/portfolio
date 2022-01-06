@@ -1,11 +1,16 @@
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
+import PageHeader from "../components/PageHeader";
 
 const About: NextPage = () => {
 	return (
 		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-			<Box>About</Box>
+			<PageHeader
+				title="Experience"
+				layoutId="nav-experience"
+				image="/images/experience.png"
+			/>
 		</motion.div>
 	);
 };

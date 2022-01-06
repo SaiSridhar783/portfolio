@@ -10,6 +10,7 @@ interface INavTabProps {
 	href: string;
 	delay?: number;
 	link?: boolean;
+	titleId: string;
 }
 
 const NavTab: NextPage<INavTabProps & FlexProps> = ({
@@ -19,24 +20,33 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 	delay = 0,
 	style,
 	link,
+	titleId,
 }) => {
-	const TextElem = () =>
+	const TextElem = ({ titleId }: any) =>
 		!link ? (
-			<Text color="white" bgColor="rgba(0,0,0,0.6)" w="100%">
-				{title}
-			</Text>
-		) : (
-			<Text
-				as="a"
-				target="_blank"
-				href={href}
-				color="white"
-				bgColor="rgba(0,0,0,0.6)"
-				w="100%"
-				zIndex={10}
+			<motion.p
+				style={{
+					color: "white",
+					backgroundColor: "rgba(0,0,0,0.6)",
+					width: "100%",
+				}}
+				layoutId={titleId}
 			>
 				{title}
-			</Text>
+			</motion.p>
+		) : (
+			<motion.a
+				target="_blank"
+				href={href}
+				style={{
+					color: "white",
+					zIndex: 10,
+					backgroundColor: "rgba(0,0,0,0.6)",
+					width: "100%",
+				}}
+			>
+				{title}
+			</motion.a>
 		);
 
 	let X = Link; //@ts-ignore
@@ -65,8 +75,9 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 				}}
 				animate={{ rotateY: [-90, 0] }}
 				transition={{ delay: delay }}
+				layoutId={`${titleId}-icon`}
 			>
-				<TextElem />
+				<TextElem titleId={titleId} />
 			</motion.div>
 		</X>
 	);

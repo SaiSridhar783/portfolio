@@ -63,8 +63,8 @@ const Home: NextPage = () => {
 
 			<motion.div
 				style={{ scale: 2.5 }}
-				initial={{ y: -600 }}
-				animate={{ y: [-600, 0] }}
+				initial={{ y: -600, x: 500 }}
+				animate={{ y: [-600, 0], x: [500, 0] }}
 				viewport={{ once: true }}
 				layoutId="floating-person"
 			>
