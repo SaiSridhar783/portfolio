@@ -39,18 +39,17 @@ const Home: NextPage = () => {
 				<NavTab
 					title="Experience"
 					image="/images/experience.png"
-					href="/about"
+					href="/experience"
 					delay={0.1}
 					titleId="nav-experience"
 				/>
 				<NavTab
-					title="Resume"
+					title="About Me"
 					image="/images/resume.png"
-					href="https://drive.google.com/file/d/1PLogcZHSrf_AM1c7WIeLbnrxRQ6CmA9M/view?usp=sharing"
+					href="/about"
 					style={{ position: "relative", top: "5rem" }}
 					delay={0.2}
-					link
-					titleId=""
+					titleId="nav-about"
 				/>
 				<NavTab
 					title="Contact Me"

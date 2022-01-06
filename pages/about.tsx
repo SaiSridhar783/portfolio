@@ -7,10 +7,17 @@ const About: NextPage = () => {
 	return (
 		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<PageHeader
-				title="Experience"
-				layoutId="nav-experience"
-				image="/images/experience.png"
+				title="About Me"
+				layoutId="nav-about"
+				image="/images/resume.png"
 			/>
+			<a
+				href="https://drive.google.com/file/d/1PLogcZHSrf_AM1c7WIeLbnrxRQ6CmA9M/view?usp=sharing"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Resume{" "}
+			</a>
 		</motion.div>
 	);
 };

@@ -19,41 +19,10 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 	href,
 	delay = 0,
 	style,
-	link,
 	titleId,
 }) => {
-	const TextElem = ({ titleId }: any) =>
-		!link ? (
-			<motion.p
-				style={{
-					color: "white",
-					backgroundColor: "rgba(0,0,0,0.6)",
-					width: "100%",
-				}}
-				layoutId={titleId}
-			>
-				{title}
-			</motion.p>
-		) : (
-			<motion.a
-				target="_blank"
-				href={href}
-				style={{
-					color: "white",
-					zIndex: 10,
-					backgroundColor: "rgba(0,0,0,0.6)",
-					width: "100%",
-				}}
-			>
-				{title}
-			</motion.a>
-		);
-
-	let X = Link; //@ts-ignore
-	if (link) X = motion.div;
-
 	return (
-		<X href={href}>
+		<Link href={href} passHref>
 			<motion.div
 				style={{
 					width: "120px",
@@ -91,9 +60,18 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 					hovering: { scale: 1.2, opacity: 1 },
 				}}
 			>
-				<TextElem titleId={titleId} />
+				<motion.p
+					style={{
+						color: "white",
+						backgroundColor: "rgba(0,0,0,0.6)",
+						width: "100%",
+					}}
+					layoutId={titleId}
+				>
+					{title}
+				</motion.p>
 			</motion.div>
-		</X>
+		</Link>
 	);
 };
 
