@@ -12,19 +12,29 @@ interface IPageHeaderProps {
 
 const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
 	return (
-		<Flex justifyContent="space-between" alignItems="center" px="2rem" py="1rem">
+		<Flex
+			justifyContent="space-between"
+			alignItems="center"
+			px="2rem"
+			py="1rem"
+		>
 			<Link href="/home" passHref replace>
 				<ArrowBackIcon
 					cursor="pointer"
 					transition="color 200ms"
-                    color="whiteAlpha.500"
+					color="whiteAlpha.500"
 					_hover={{ color: "white", transition: "color 300ms" }}
 					w={10}
 					h={10}
 				/>
 			</Link>
 			<motion.div layoutId={layoutId}>
-				<Heading as="h1" size="xl" color="whiteAlpha.700">
+				<Heading
+					as="h1"
+					size="xl"
+					color="whiteAlpha.800"
+					letterSpacing="2px"
+				>
 					{title}
 				</Heading>
 			</motion.div>

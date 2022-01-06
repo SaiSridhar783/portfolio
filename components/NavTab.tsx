@@ -73,9 +73,23 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 					zIndex: 2,
 					...style,
 				}}
-				animate={{ rotateY: [-90, 0] }}
+				animate={["start", "standing"]}
+				whileHover="hovering"
 				transition={{ delay: delay }}
 				layoutId={`${titleId}-icon`}
+				variants={{
+					standing: {
+						transition: {
+							ease: "easeInOut",
+							duration: 5,
+							repeat: Infinity,
+							delay: delay * 10,
+						},
+						opacity: [0.6, 1, 0.6],
+					},
+					start: { rotateY: [-90, 0] },
+					hovering: { scale: 1.2, opacity: 1 },
+				}}
 			>
 				<TextElem titleId={titleId} />
 			</motion.div>
