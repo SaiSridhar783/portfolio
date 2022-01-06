@@ -42,7 +42,7 @@ const Home: NextPage = () => {
 						Frontend.
 					</Heading>
 					<Link href="/home" passHref>
-						<motion.button
+						<motion.div
 							style={{
 								alignSelf: "flex-start",
 								marginTop: "3rem",
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
 							>
 								Click Me!
 							</Button>
-						</motion.button>
+						</motion.div>
 					</Link>
 				</Flex>
 			</motion.div>
