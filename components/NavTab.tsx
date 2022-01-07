@@ -25,9 +25,9 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 		<Link href={href} passHref>
 			<motion.div
 				style={{
-					width: "120px",
-					height: "120px",
-					borderRadius: "60px",
+					width: "126px",
+					height: "126px",
+					borderRadius: "63px",
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "flex-end",
@@ -50,11 +50,11 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 					standing: {
 						transition: {
 							ease: "easeInOut",
-							duration: 5,
+							duration: 6,
 							repeat: Infinity,
-							delay: delay * 10,
+							delay: delay * 11,
 						},
-						opacity: [0.6, 1, 0.6],
+						opacity: [1, 0.7, 1],
 					},
 					start: { rotateY: [-90, 0] },
 					hovering: { scale: 1.2, opacity: 1 },
@@ -62,9 +62,10 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 			>
 				<motion.p
 					style={{
-						color: "white",
+						color: "whitesmoke",
 						backgroundColor: "rgba(0,0,0,0.6)",
 						width: "100%",
+						mixBlendMode: "multiply",
 					}}
 					layoutId={titleId}
 				>

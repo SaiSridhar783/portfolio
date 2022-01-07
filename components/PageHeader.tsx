@@ -32,6 +32,7 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
 				<Heading
 					as="h1"
 					size="xl"
+					fontFamily="nunito"
 					color="whiteAlpha.800"
 					letterSpacing="2px"
 				>

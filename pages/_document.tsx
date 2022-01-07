@@ -32,7 +32,11 @@ class MyDocument extends Document {
 						rel="stylesheet"
 					/>
 					<link
-						href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&family=Poppins:wght@100&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500&display=swap"
+						rel="stylesheet"
+					></link>
+					<link
+						href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500&display=swap"
 						rel="stylesheet"
 					></link>
 				</Head>
