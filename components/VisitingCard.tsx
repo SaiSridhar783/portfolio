@@ -13,7 +13,7 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 	logo,
 	duration,
 }) => {
-	return <Flex flexDir="column" width="10rem" height="5rem"></Flex>;
+	return <Flex flexDir="column" width="26rem" height="15rem" bg="ButtonShadow"></Flex>;
 };
 
 export default VisitingCard;

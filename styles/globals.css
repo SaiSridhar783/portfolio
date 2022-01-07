@@ -35,44 +35,6 @@ a {
 	background-color: #a8bbbf;
 }
 
-.nav-link {
-	transition: all 0.1s ease-out;
-}
-
-.nav-link:hover {
-	cursor: pointer;
-	filter: contrast(2);
-	font-size: 1.4rem;
-	transition: all 0.3s;
-}
-
-.active {
-	transform: scale(1.05);
-	border-bottom: 2px solid #517e0e;
-	border-radius: 10px;
-	padding: 0.3rem 0.6rem;
-}
-
-.bg-home-animate {
-	background-repeat: repeat-x;
-	background-size: cover;
-	height: 100vh;
-	width: 100vw;
-	animation: background-home 38s infinite linear;
-}
-
-@keyframes background-home {
-	0% {
-		background-position: 0% 30%;
-	}
-	50% {
-		background-position: 50% 50%;
-	}
-	100% {
-		background-position: 0% 30%;
-	}
-}
-
 /* Person SVG */
 #eyeb {
 	transform: translateY(-9px);

@@ -31,7 +31,7 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 					display: "flex",
 					flexDirection: "column",
 					justifyContent: "flex-end",
-					paddingBottom: "1.4rem",
+					paddingBottom: "1.5rem",
 					alignItems: "center",
 					textAlign: "center",
 					background: image ? `url(${image})` : "gray",

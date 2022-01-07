@@ -1,4 +1,4 @@
-import { Flex, Heading } from "@chakra-ui/react";
+import { background, Box, Flex, Heading } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import * as React from "react";
 import { motion } from "framer-motion";
@@ -26,15 +26,42 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
 					_hover={{ color: "white", transition: "color 300ms" }}
 					w={10}
 					h={10}
+					position="relative"
+					zIndex={10}
 				/>
 			</Link>
-			<motion.div layoutId={layoutId}>
+
+			<motion.div
+				layoutId={layoutId}
+				style={{
+					backgroundColor: "#3ba13f",
+					padding: "0.5rem 0",
+				}}
+			>
 				<Heading
 					as="h1"
-					size="xl"
-					fontFamily="nunito"
-					color="whiteAlpha.800"
-					letterSpacing="2px"
+					fontSize="3xl"
+					fontFamily="Montserrat"
+					fontWeight="700"
+					letterSpacing="1px"
+					color="#00070d"
+					_after={{
+						position: "relative",
+						content: `"BBBBBBBB"`,
+						maxW: "50%",
+						bgColor: "#00070d",
+						right: "-10%",
+						p: "1rem",
+						borderRadius: "50%",
+					}}
+					_before={{
+						position: "relative",
+						content: `"BBBBBBBB"`,
+						bgColor: "#00070d",
+						left: "-10%",
+						p: "1rem",
+						borderRadius: "50%",
+					}}
 				>
 					{title}
 				</Heading>
@@ -55,7 +82,6 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
 					backgroundSize: "cover",
 					backgroundPosition: "center",
 					overflow: "hidden",
-					cursor: "pointer",
 					zIndex: 2,
 				}}
 			></motion.div>
