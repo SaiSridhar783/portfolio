@@ -36,7 +36,7 @@ class MyDocument extends Document {
 						rel="stylesheet"
 					></link>
 					<link
-						href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600&display=swap"
 						rel="stylesheet"
 					></link>
 				</Head>

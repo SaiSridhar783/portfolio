@@ -29,11 +29,11 @@ const Home: NextPage = () => {
 				style={{ width: "60%", padding: "10rem 1.5rem" }}
 			>
 				<Flex flexDir="column" justifyContent="center">
-					<Heading color="white" fontSize="5xl">
+					<Heading color="white" fontSize="5xl" fontFamily="nunito">
 						Hello There!
 					</Heading>
 					<br />
-					<Heading as="h2" color="whiteAlpha.800">
+					<Heading as="h2" color="whiteAlpha.800" fontFamily="nunito">
 						I am&nbsp;
 						<Text as="span" color="blue.400">
 							Sai Sridhar Akula

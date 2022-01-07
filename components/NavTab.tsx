@@ -66,6 +66,7 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 						backgroundColor: "rgba(0,0,0,0.6)",
 						width: "100%",
 						mixBlendMode: "multiply",
+						fontFamily: "nunito",
 					}}
 					layoutId={titleId}
 				>
