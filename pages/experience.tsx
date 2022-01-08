@@ -3,8 +3,13 @@ import { motion } from "framer-motion";
 import PageHeader from "../components/PageHeader";
 import { Box, Heading } from "@chakra-ui/react";
 import VisitingCard from "../components/VisitingCard";
+import { cardHover } from "../utils/cardHover";
+import { useEffect } from "react";
 
 const Experience: NextPage = () => {
+	useEffect(() => {
+		cardHover();
+	}, []);
 	return (
 		<motion.div animate={{ opacity: [0, 1] }}>
 			<PageHeader
@@ -13,7 +18,7 @@ const Experience: NextPage = () => {
 				image="/images/experience.png"
 			/>
 			<Box px="5rem">
-				<Heading fontFamily="nunito" color="white">
+				<Heading fontFamily="nunito" color="white" mb="3rem">
 					Work
 				</Heading>
 				<VisitingCard />
