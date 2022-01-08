@@ -1,21 +1,20 @@
 //@ts-nocheck
 
 export function cardHover() {
-	var d = document,
-		de = d.documentElement,
+	let d = document,
 		bd = d.getElementsByTagName("body")[0],
 		htm = d.getElementsByTagName("html")[0],
 		win = window,
 		imgs = d.querySelectorAll(".atvImg"),
 		totalImgs = imgs.length,
-		supportsTouch = "ontouchstart" in win || navigator.msMaxTouchPoints;
+		supportsTouch = "ontouchstart" in win || navigator.maxTouchPoints;
 
 	if (totalImgs <= 0) {
 		return;
 	}
 
-	for (var l = 0; l < totalImgs; l++) {
-		var thisImg = imgs[l],
+	for (let l = 0; l < totalImgs; l++) {
+		let thisImg = imgs[l],
 			layerElems = thisImg.querySelectorAll(".atvImg-layer"),
 			totalLayerElems = layerElems.length;
 
@@ -23,11 +22,11 @@ export function cardHover() {
 			continue;
 		}
 
-		while (thisImg.firstChild) {
+		/* while (thisImg.firstChild) {
 			thisImg.removeChild(thisImg.firstChild);
-		}
+		} */
 
-		var containerHTML = d.createElement("div"),
+		let containerHTML = d.createElement("div"),
 			shineHTML = d.createElement("div"),
 			shadowHTML = d.createElement("div"),
 			layersHTML = d.createElement("div"),
@@ -39,13 +38,11 @@ export function cardHover() {
 		shadowHTML.className = "atvImg-shadow";
 		layersHTML.className = "atvImg-layers";
 
-		for (var i = 0; i < totalLayerElems; i++) {
-			var layer = d.createElement("div"),
-				imgSrc = layerElems[i].getAttribute("data-img");
+		for (let i = 0; i < totalLayerElems; i++) {
+			let layer = d.createElement("div")
 
 			layer.className = "atvImg-rendered-layer";
 			layer.setAttribute("data-layer", i);
-			layer.style.backgroundImage = "url(" + imgSrc + ")";
 			layersHTML.appendChild(layer);
 
 			layers.push(layer);
@@ -56,7 +53,7 @@ export function cardHover() {
 		containerHTML.appendChild(shineHTML);
 		thisImg.appendChild(containerHTML);
 
-		var w =
+		let w =
 			thisImg.clientWidth || thisImg.offsetWidth || thisImg.scrollWidth;
 		thisImg.style.transform = "perspective(" + w * 3 + "px)";
 
@@ -116,7 +113,7 @@ export function cardHover() {
 		totalLayers,
 		shine
 	) {
-		var bdst = bd.scrollTop || htm.scrollTop,
+		let bdst = bd.scrollTop || htm.scrollTop,
 			bdsl = bd.scrollLeft,
 			pageX = touchEnabled ? e.touches[0].pageX : e.pageX,
 			pageY = touchEnabled ? e.touches[0].pageY : e.pageY,
@@ -158,8 +155,8 @@ export function cardHover() {
 			0.1 +
 			"px)";
 
-		var revNum = totalLayers;
-		for (var ly = 0; ly < totalLayers; ly++) {
+		let revNum = totalLayers;
+		for (let ly = 0; ly < totalLayers; ly++) {
 			layers[ly].style.transform =
 				"translateX(" +
 				offsetX * revNum * ((ly * 2.5) / wMultiple) +
@@ -175,13 +172,13 @@ export function cardHover() {
 	}
 
 	function processExit(e, elem, layers, totalLayers, shine) {
-		var container = elem.firstChild;
+		let container = elem.firstChild;
 
 		container.className = container.className.replace(" over", "");
 		container.style.transform = "";
 		shine.style.cssText = "";
 
-		for (var ly = 0; ly < totalLayers; ly++) {
+		for (let ly = 0; ly < totalLayers; ly++) {
 			layers[ly].style.transform = "";
 		}
 	}

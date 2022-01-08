@@ -1,4 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
+import { animated } from "react-spring";
+import { use3dEffect } from "use-3d-effect";
+import React from "react";
 
 interface IVisitingCardProps {
 	company: string;
@@ -13,32 +16,30 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 	logo,
 	duration,
 }) => {
+	const cardRef = React.useRef(null);
+	const { style, ...mouseHandlers } = use3dEffect(cardRef);
+
 	return (
-		<Box
-			position="relative"
-			top={-3}
-			left={5}
-			flexDir="column"
-			width="26rem"
-			height="15rem"
-			bg="white"
-			borderRadius="2.5rem"
-			className="atvImg"
+		<animated.div
+			ref={cardRef}
+			style={{
+				width: "26rem",
+				height: "15rem",
+				marginRight: "3rem",
+				...style,
+			}}
+			{...mouseHandlers}
 		>
 			<Flex
-				style={{
-					position: "relative",
-					top: "2%",
-					left: "-1%",
-					width: "100%",
-					height: "100%",
-					backgroundColor: "#ccc",
-					borderRadius: "2.5rem",
-				}}
-				boxShadow="5px -5px 3px gray"
-				className="atvImg"
-			></Flex>
-		</Box>
+				bg="#ccc"
+				w="100%"
+				h="100%"
+				borderRadius="2rem"
+				padding="1rem"
+			>
+				Bankai
+			</Flex>
+		</animated.div>
 	);
 };
 
