@@ -25,6 +25,7 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 		<Link href={href} passHref>
 			<motion.div
 				style={{
+					position: "relative",
 					width: "126px",
 					height: "126px",
 					borderRadius: "63px",
@@ -42,7 +43,7 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 					zIndex: 2,
 					...style,
 				}}
-				animate={["start", "standing"]}
+				animate={["start"]}
 				whileHover="hovering"
 				transition={{ delay: delay }}
 				layoutId={`${titleId}-icon`}
@@ -59,6 +60,7 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 					start: { rotateY: [-90, 0] },
 					hovering: { scale: 1.2, opacity: 1 },
 				}}
+				className="icon"
 			>
 				<motion.p
 					style={{
