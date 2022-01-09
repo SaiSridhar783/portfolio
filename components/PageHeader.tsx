@@ -68,6 +68,8 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
 			</motion.div>
 			<motion.div
 				layoutId={`${layoutId}-icon`}
+				animate={{ scale: [0.2, 0.5, 1] }}
+				transition={{ duration: 0.8 }}
 				style={{
 					width: "110px",
 					height: "110px",
