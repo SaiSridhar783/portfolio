@@ -7,9 +7,16 @@ interface ICardProps {
 	title: string;
 	src: string;
 	href: string;
+	delay?: number;
 }
 
-const Card: React.FC<ICardProps> = ({ title, src, href, children }) => {
+const Card: React.FC<ICardProps> = ({
+	title,
+	src,
+	href,
+	children,
+	delay = 0,
+}) => {
 	return (
 		<motion.div
 			style={{
@@ -24,6 +31,7 @@ const Card: React.FC<ICardProps> = ({ title, src, href, children }) => {
 				boxShadow: "0px 0px 8px rgba(255, 255, 255, 0.3)",
 			}}
 			whileInView={{ rotateY: [90, 0], opacity: [0.1, 1] }}
+			transition={{ delay: delay }}
 		>
 			<Flex
 				as="a"

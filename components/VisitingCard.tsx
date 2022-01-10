@@ -4,7 +4,7 @@ import { Box, Flex, Text } from "@chakra-ui/react";
 import { animated } from "react-spring";
 import { use3dEffect } from "use-3d-effect";
 import { motion } from "framer-motion";
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import Popup from "./Popup";
 
 interface IVisitingCardProps {
 	company: string;
@@ -15,6 +15,7 @@ interface IVisitingCardProps {
 }
 
 const VisitingCard: React.FC<IVisitingCardProps> = ({
+	children,
 	company,
 	title,
 	logo,
@@ -102,19 +103,9 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 					</Flex>
 				</motion.div>
 			</animated.div>
-			<Text
-				_hover={{
-					cursor: "pointer",
-					color: "white",
-					transition: "color 300ms",
-				}}
-				pr="3rem"
-				mt="2rem"
-				color="dimgray"
-				textAlign="right"
-			>
-				Learn more <ChevronRightIcon />
-			</Text>
+			<Flex justifyContent="flex-end">
+				<Popup heading="Learn More">{children}</Popup>
+			</Flex>
 		</Box>
 	);
 };
