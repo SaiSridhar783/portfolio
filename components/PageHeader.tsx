@@ -1,4 +1,4 @@
-import { background, Box, Flex, Heading } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import * as React from "react";
 import { motion } from "framer-motion";
