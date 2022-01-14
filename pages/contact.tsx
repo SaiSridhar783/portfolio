@@ -1,10 +1,9 @@
+import React from "react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import {
 	Box,
 	Button,
 	Flex,
-	FormControl,
-	FormHelperText,
 	FormLabel,
 	Heading,
 	Input,
@@ -14,7 +13,39 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Link from "next/link";
 
+const mainDelay = 0.1;
+
+const initialState = {
+	name: "",
+	email: "",
+	message: "",
+};
+const reducer = (
+	state: typeof initialState,
+	action: { type: "UPDATE" | "RESET"; val?: string; elem?: string }
+) => {
+	if (action.type === "UPDATE") {
+		return {
+			...state,
+			[action.elem!]: action.val,
+		};
+	}
+	if (action.type === "RESET") {
+		return {
+			...initialState,
+		};
+	}
+	return state;
+};
+
 const Contact: NextPage = () => {
+	const [formState, dispatch] = React.useReducer(reducer, initialState);
+
+	const onSubmitHandler = () => {
+		alert(JSON.stringify(formState));
+		dispatch({ type: "RESET" });
+	};
+
 	return (
 		<Box>
 			<Link href="/home" passHref replace>
@@ -37,7 +68,10 @@ const Contact: NextPage = () => {
 					right: "12vw",
 					zIndex: 3,
 					height: "88vh",
-					backgroundColor: "gray",
+					backgroundColor: "#2f4353",
+					backgroundImage:
+						"linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%)",
+
 					width: "30vw",
 					borderRadius: "0 0 20% 20%",
 					boxShadow: "2px 0 3px rgba(255,255,255,0.8)",
@@ -53,15 +87,15 @@ const Contact: NextPage = () => {
 					<motion.div
 						style={{ position: "relative" }}
 						animate={["start", "bounce"]}
-						transition={{ delay: 0.5 }}
+						transition={{ delay: mainDelay + 0.5 }}
 						variants={{
 							start: {
 								top: [-200, 0],
-								transition: { delay: 0.5 },
+								transition: { delay: mainDelay + 3.5 },
 							},
 							bounce: {
 								scale: [1.2, 0.8, 1],
-								transition: { delay: 1 },
+								transition: { delay: mainDelay + 4 },
 							},
 						}}
 					>
@@ -71,6 +105,9 @@ const Contact: NextPage = () => {
 							mt="1rem"
 							mb="2rem"
 							color="black"
+							bg="linear-gradient(to right, #777 40%, #333)"
+							backgroundClip="text"
+							fill="transparent"
 						>
 							Drop a Quick Message!
 						</Heading>
@@ -83,9 +120,16 @@ const Contact: NextPage = () => {
 							borderRadius: "4rem",
 						}}
 						animate={{ opacity: [0, 1] }}
-						transition={{ delay: 0.5 }}
+						transition={{ delay: mainDelay + 0.5 }}
 					>
-						<FormControl mb="2rem">
+						<motion.div
+							style={{
+								marginBottom: "2rem",
+								position: "relative",
+							}}
+							animate={{ top: [-400, 50, 0] }}
+							transition={{ delay: mainDelay + 3 }}
+						>
 							<FormLabel color="whiteAlpha.600" htmlFor="name">
 								Name
 							</FormLabel>
@@ -95,9 +139,24 @@ const Contact: NextPage = () => {
 								variant="filled"
 								colorScheme="telegram"
 								_focus={{ bg: "white" }}
+								value={formState.name}
+								onChange={(e) => {
+									dispatch({
+										type: "UPDATE",
+										val: e.target.value,
+										elem: e.target.id,
+									});
+								}}
 							/>
-						</FormControl>
-						<FormControl mb="2rem">
+						</motion.div>
+						<motion.div
+							style={{
+								marginBottom: "2rem",
+								position: "relative",
+							}}
+							animate={{ top: [-400, 50, 0] }}
+							transition={{ delay: mainDelay + 2.3 }}
+						>
 							<FormLabel color="whiteAlpha.600" htmlFor="email">
 								Email address
 							</FormLabel>
@@ -107,20 +166,57 @@ const Contact: NextPage = () => {
 								variant="filled"
 								colorScheme="telegram"
 								_focus={{ bg: "white" }}
+								value={formState.email}
+								onChange={(e) => {
+									dispatch({
+										type: "UPDATE",
+										val: e.target.value,
+										elem: e.target.id,
+									});
+								}}
 							/>
-						</FormControl>
-						<FormControl mb="2rem">
+						</motion.div>
+						<motion.div
+							style={{
+								marginBottom: "2rem",
+								position: "relative",
+							}}
+							animate={{ top: [-600, 100, 0] }}
+							transition={{ delay: mainDelay + 1.8 }}
+						>
 							<FormLabel color="whiteAlpha.600" htmlFor="message">
 								Message
 							</FormLabel>
 							<Textarea
+								id="message"
 								variant="filled"
 								_focus={{ bg: "white" }}
+								value={formState.message}
+								onChange={(e) => {
+									dispatch({
+										type: "UPDATE",
+										val: e.target.value,
+										elem: e.target.id,
+									});
+								}}
 							/>
-						</FormControl>
-						<Flex justifyContent="center">
-							<Button colorScheme="green">Submit</Button>
-						</Flex>
+						</motion.div>
+						<motion.div
+							style={{
+								display: "flex",
+								justifyContent: "center",
+								position: "relative",
+							}}
+							animate={{ bottom: [-400, 50, 0] }}
+							transition={{ delay: mainDelay + 1 }}
+						>
+							<Button
+								colorScheme="green"
+								onClick={onSubmitHandler}
+							>
+								Submit
+							</Button>
+						</motion.div>
 					</motion.div>
 				</Flex>
 			</motion.div>
