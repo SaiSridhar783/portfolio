@@ -7,13 +7,16 @@ import {
 	FormLabel,
 	Heading,
 	Input,
+	Text,
 	Textarea,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import Social from "../components/Social";
 
-const mainDelay = 0.1;
+const mainDelay = 1;
 
 const initialState = {
 	name: "",
@@ -41,7 +44,8 @@ const reducer = (
 const Contact: NextPage = () => {
 	const [formState, dispatch] = React.useReducer(reducer, initialState);
 
-	const onSubmitHandler = () => {
+	const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 		alert(JSON.stringify(formState));
 		dispatch({ type: "RESET" });
 	};
@@ -59,8 +63,60 @@ const Contact: NextPage = () => {
 					position="absolute"
 					top={10}
 					left={10}
+					zIndex={10}
 				/>
 			</Link>
+			{/* Main Content */}
+			<motion.div
+				style={{
+					padding: "7rem 10rem",
+					paddingBottom: 0,
+					position: "relative",
+					display: "flex",
+					flexDirection: "column",
+					width: "60%",
+				}}
+				animate={{ bottom: [-600, 0], opacity: [0, 1] }}
+			>
+				<a
+					href="https://www.freepik.com/vectors/people"
+					target="_blank"
+					rel="noopener noreferrer"
+					style={{ position: "absolute", top: 0, opacity: "0.1" }}
+				>
+					People vector created by pch.vector - www.freepik.com
+				</a>
+				<Heading
+					color="white"
+					fontFamily="Montserrat"
+					textAlign="center"
+				>
+					Connect With Me
+				</Heading>
+				<Box position="relative" top={15}>
+					<Image
+						src="/images/bgblur.png"
+						width={600}
+						height={300}
+						alt="Connect"
+						layout="intrinsic"
+					/>
+					<Flex justifyContent="center" mt="1.5rem">
+						<Social />
+					</Flex>
+					<Flex
+						justifyContent="center"
+						alignItems="center"
+						flexWrap="wrap"
+						mt="1.5rem"
+					>
+						<Text w="50%" textAlign="center" color="gray.600">
+							Looking forward to make your acquaintance!
+						</Text>
+					</Flex>
+				</Box>
+			</motion.div>
+			{/* Bookmark */}
 			<motion.div
 				style={{
 					position: "absolute",
@@ -77,6 +133,7 @@ const Contact: NextPage = () => {
 					boxShadow: "2px 0 3px rgba(255,255,255,0.8)",
 				}}
 				animate={{ height: ["0vh", "88vh"] }}
+				transition={{ delay: mainDelay }}
 			>
 				<Flex
 					flexDir="column"
@@ -122,104 +179,116 @@ const Contact: NextPage = () => {
 						animate={{ opacity: [0, 1] }}
 						transition={{ delay: mainDelay + 0.5 }}
 					>
-						<motion.div
-							style={{
-								marginBottom: "2rem",
-								position: "relative",
-							}}
-							animate={{ top: [-400, 50, 0] }}
-							transition={{ delay: mainDelay + 3 }}
-						>
-							<FormLabel color="whiteAlpha.600" htmlFor="name">
-								Name
-							</FormLabel>
-							<Input
-								type="text"
-								id="name"
-								variant="filled"
-								colorScheme="telegram"
-								_focus={{ bg: "white" }}
-								value={formState.name}
-								onChange={(e) => {
-									dispatch({
-										type: "UPDATE",
-										val: e.target.value,
-										elem: e.target.id,
-									});
+						<form onSubmit={(e) => onSubmitHandler(e)}>
+							<motion.div
+								style={{
+									marginBottom: "2rem",
+									position: "relative",
 								}}
-							/>
-						</motion.div>
-						<motion.div
-							style={{
-								marginBottom: "2rem",
-								position: "relative",
-							}}
-							animate={{ top: [-400, 50, 0] }}
-							transition={{ delay: mainDelay + 2.3 }}
-						>
-							<FormLabel color="whiteAlpha.600" htmlFor="email">
-								Email address
-							</FormLabel>
-							<Input
-								id="email"
-								type="email"
-								variant="filled"
-								colorScheme="telegram"
-								_focus={{ bg: "white" }}
-								value={formState.email}
-								onChange={(e) => {
-									dispatch({
-										type: "UPDATE",
-										val: e.target.value,
-										elem: e.target.id,
-									});
-								}}
-							/>
-						</motion.div>
-						<motion.div
-							style={{
-								marginBottom: "2rem",
-								position: "relative",
-							}}
-							animate={{ top: [-600, 100, 0] }}
-							transition={{ delay: mainDelay + 1.8 }}
-						>
-							<FormLabel color="whiteAlpha.600" htmlFor="message">
-								Message
-							</FormLabel>
-							<Textarea
-								id="message"
-								variant="filled"
-								_focus={{ bg: "white" }}
-								value={formState.message}
-								onChange={(e) => {
-									dispatch({
-										type: "UPDATE",
-										val: e.target.value,
-										elem: e.target.id,
-									});
-								}}
-							/>
-						</motion.div>
-						<motion.div
-							style={{
-								display: "flex",
-								justifyContent: "center",
-								position: "relative",
-							}}
-							animate={{ bottom: [-400, 50, 0] }}
-							transition={{ delay: mainDelay + 1 }}
-						>
-							<Button
-								colorScheme="green"
-								onClick={onSubmitHandler}
+								animate={{ top: [-400, 50, 0] }}
+								transition={{ delay: mainDelay + 3 }}
 							>
-								Submit
-							</Button>
-						</motion.div>
+								<FormLabel
+									color="whiteAlpha.600"
+									htmlFor="name"
+								>
+									Name
+								</FormLabel>
+								<Input
+									type="text"
+									id="name"
+									variant="filled"
+									colorScheme="telegram"
+									_focus={{ bg: "white" }}
+									value={formState.name}
+									onChange={(e) => {
+										dispatch({
+											type: "UPDATE",
+											val: e.target.value,
+											elem: e.target.id,
+										});
+									}}
+									required
+								/>
+							</motion.div>
+							<motion.div
+								style={{
+									marginBottom: "2rem",
+									position: "relative",
+								}}
+								animate={{ top: [-400, 50, 0] }}
+								transition={{ delay: mainDelay + 2.3 }}
+							>
+								<FormLabel
+									color="whiteAlpha.600"
+									htmlFor="email"
+								>
+									Email address
+								</FormLabel>
+								<Input
+									id="email"
+									type="email"
+									variant="filled"
+									colorScheme="telegram"
+									_focus={{ bg: "white" }}
+									value={formState.email}
+									onChange={(e) => {
+										dispatch({
+											type: "UPDATE",
+											val: e.target.value,
+											elem: e.target.id,
+										});
+									}}
+									required
+								/>
+							</motion.div>
+							<motion.div
+								style={{
+									marginBottom: "2rem",
+									position: "relative",
+								}}
+								animate={{ top: [-600, 100, 0] }}
+								transition={{ delay: mainDelay + 1.8 }}
+							>
+								<FormLabel
+									color="whiteAlpha.600"
+									htmlFor="message"
+								>
+									Message
+								</FormLabel>
+								<Textarea
+									id="message"
+									variant="filled"
+									_focus={{ bg: "white" }}
+									value={formState.message}
+									onChange={(e) => {
+										dispatch({
+											type: "UPDATE",
+											val: e.target.value,
+											elem: e.target.id,
+										});
+									}}
+									required
+								/>
+							</motion.div>
+							<motion.div
+								style={{
+									display: "flex",
+									justifyContent: "center",
+									position: "relative",
+								}}
+								animate={{ bottom: [-400, 50, 0] }}
+								transition={{ delay: mainDelay + 1 }}
+							>
+								<Button type="submit" colorScheme="green">
+									Submit
+								</Button>
+							</motion.div>
+						</form>
 					</motion.div>
 				</Flex>
 			</motion.div>
+			{/* Badge */}
 			<motion.div
 				layoutId={`nav-contact-icon`}
 				animate={{ scale: [0.2, 0.5, 1] }}

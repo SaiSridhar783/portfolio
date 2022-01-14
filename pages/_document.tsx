@@ -39,6 +39,13 @@ class MyDocument extends Document {
 						href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600&display=swap"
 						rel="stylesheet"
 					></link>
+					{/* FontAwesome */}
+					<link
+						rel="stylesheet"
+						href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+						integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+						crossOrigin="anonymous"
+					/>
 				</Head>
 				<body>
 					<Main />
