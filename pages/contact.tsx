@@ -9,6 +9,7 @@ import {
 	Input,
 	Text,
 	Textarea,
+	useToast,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
@@ -45,9 +46,35 @@ const Contact: NextPage = () => {
 	const [formState, dispatch] = React.useReducer(reducer, initialState);
 	const [showOverlay, setShowOverlay] = React.useState("none");
 
-	const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+	const toast = useToast();
+
+	const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		//alert(JSON.stringify(formState));
+		if (
+			!formState.email.match(
+				/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+			)
+		) {
+			return toast({
+				title: "Invalid Email",
+				description: "Please enter a valid email address.",
+				status: "error",
+				duration: 4000,
+				isClosable: true,
+			});
+		}
+
+		const res = await fetch("/api/hello", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(formState),
+		}).then((resp) => resp.json());
+
+		console.log(res);
+
 		setShowOverlay("block");
 		const timer = setTimeout(() => {
 			setShowOverlay("none");

@@ -18,6 +18,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-spring": "^8.0.27",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2",
     "use-3d-effect": "^1.1.0"
   },
   "devDependencies": {

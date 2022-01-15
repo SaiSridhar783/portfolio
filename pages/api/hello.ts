@@ -1,13 +1,69 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
+import path from "path";
+import { open } from "sqlite";
+import sqlite3 from "sqlite3";
 
 type Data = {
-  name: string
+	message: string;
+	error?: any;
+	data?: any;
+};
+
+let db: sqlite3.Database;
+const databasePath = path.resolve(__dirname, "api", "messages.db");
+
+export const initializeDbAndServer = async (
+	res: NextApiResponse | null = null
+) => {
+	try {
+		// @ts-ignore
+		db = await open({
+			filename: databasePath,
+			driver: sqlite3.Database,
+		});
+	} catch (error: any) {
+		return res?.status(500).json({
+			message: "Internal server error",
+			error: error.message,
+		});
+	}
+};
+
+export async function getRows() {
+	await initializeDbAndServer();
+
+	const query = `SELECT * FROM messages`;
+
+	const rows = await db!.all(query);
+
+	return rows;
 }
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
+export default async function handler(
+	req: NextApiRequest,
+	res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+	await initializeDbAndServer(res);
+
+	if (req.method === "POST") {
+		const { name, email, message } = req.body;
+
+		const createTable = `CREATE TABLE IF NOT EXISTS messages (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name VARCHAR(100) NOT NULL,
+      email TEXT NOT NULL,
+      message TEXT NOT NULL
+    )`;
+
+		const cr = await db!.run(createTable);
+		console.log(cr);
+
+		const query = `INSERT INTO messages (name, email, message) VALUES ('${name}', '${email}', '${message}')`;
+
+		const rc = await db!.run(query);
+		console.log(rc);
+
+		return res.status(200).json({ message: "Message sent successfully" });
+	}
 }
