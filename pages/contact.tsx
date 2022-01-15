@@ -66,7 +66,6 @@ const Contact: NextPage = () => {
 		}
 
 		let res: any;
-		let check = true;
 		try {
 			res = await fetch("/api/hello", {
 				method: "POST",
@@ -77,7 +76,7 @@ const Contact: NextPage = () => {
 			});
 
 			if (!res.ok) {
-				throw new Error(res);
+				throw new Error(res.statusText);
 			}
 		} catch (e: any) {
 			toast({

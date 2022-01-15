@@ -1,14 +1,52 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Flex, Heading, Text, useToast } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import PageHeader from "../components/PageHeader";
-import { getRows } from "./api/hello";
+
+import { PrismaClient } from "@prisma/client";
+
+const client = new PrismaClient();
 
 interface IAdminProps {
 	data: any;
 }
 
 const Admin: NextPage<IAdminProps> = ({ data }) => {
+	const toast = useToast();
+	const deleteHandler = async (id: number) => {
+		let res: any;
+		try {
+			res = await fetch("/api/hello", {
+				method: "DELETE",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(id),
+			});
+
+			if (!res.ok) {
+				throw new Error(res.statusText);
+			}
+
+			toast({
+				title: "Deleted",
+				description: "The message has been deleted.",
+				status: "success",
+				duration: 4000,
+				isClosable: true,
+			});
+		} catch (e: any) {
+			toast({
+				title: "Error",
+				description: "Something went wrong... Please try again later.",
+				status: "error",
+				duration: 4000,
+				isClosable: true,
+			});
+
+			return;
+		}
+	};
 	return (
 		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<PageHeader
@@ -29,9 +67,24 @@ const Admin: NextPage<IAdminProps> = ({ data }) => {
 						justifyContent="space-around"
 						alignItems="center"
 					>
-						<Heading>Name: {row.name}</Heading>
-						<Heading>Email: {row.email}</Heading>
-						<Text>{row.message}</Text>
+						<Text mb="1rem">{row.createdAt}</Text>
+						<Flex justifyContent="space-between" w="100%">
+							<Heading fontSize="xl">Name: {row.name}</Heading>
+							<Heading fontSize="xl">Email: {row.email}</Heading>
+						</Flex>
+						<Flex
+							justifyContent="space-between"
+							w="100%"
+							alignItems="center"
+						>
+							<Text mt="1rem">{row.message}</Text>
+							{/* Font Awesome delete icon */}
+							<i
+								className="fas fa-trash-alt"
+								style={{ color: "maroon", cursor: "pointer" }}
+								onClick={() => deleteHandler(row.id)}
+							></i>
+						</Flex>
 					</Flex>
 				))}
 			</Flex>
@@ -40,10 +93,18 @@ const Admin: NextPage<IAdminProps> = ({ data }) => {
 };
 
 export async function getStaticProps() {
-	const res = await getRows();
+	const res = await client.messages.findMany();
+
 	return {
 		props: {
-			data: res,
+			data: res.map((row) => ({
+				...row,
+				createdAt: row.createdAt.toLocaleString("en-IN", {
+					timeZone: "Asia/Kolkata",
+					dateStyle: "long",
+					timeStyle: "long",
+				}),
+			})),
 		},
 	};
 }
