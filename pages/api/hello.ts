@@ -56,13 +56,11 @@ export default async function handler(
       message TEXT NOT NULL
     )`;
 
-		const cr = await db!.run(createTable);
-		console.log(cr);
+		await db!.run(createTable);
 
 		const query = `INSERT INTO messages (name, email, message) VALUES ('${name}', '${email}', '${message}')`;
 
-		const rc = await db!.run(query);
-		console.log(rc);
+		await db!.run(query);
 
 		return res.status(200).json({ message: "Message sent successfully" });
 	}

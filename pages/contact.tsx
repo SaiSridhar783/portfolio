@@ -65,15 +65,31 @@ const Contact: NextPage = () => {
 			});
 		}
 
-		const res = await fetch("/api/hello", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(formState),
-		}).then((resp) => resp.json());
+		let res: any;
+		let check = true;
+		try {
+			res = await fetch("/api/hello", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formState),
+			});
 
-		console.log(res);
+			if (!res.ok) {
+				throw new Error(res);
+			}
+		} catch (e: any) {
+			toast({
+				title: "Error",
+				description: "Something went wrong... Please try again later.",
+				status: "error",
+				duration: 4000,
+				isClosable: true,
+			});
+
+			return;
+		}
 
 		setShowOverlay("block");
 		const timer = setTimeout(() => {
