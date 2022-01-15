@@ -43,15 +43,49 @@ const reducer = (
 
 const Contact: NextPage = () => {
 	const [formState, dispatch] = React.useReducer(reducer, initialState);
+	const [showOverlay, setShowOverlay] = React.useState("none");
 
 	const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		alert(JSON.stringify(formState));
+		//alert(JSON.stringify(formState));
+		setShowOverlay("block");
+		const timer = setTimeout(() => {
+			setShowOverlay("none");
+			clearTimeout(timer);
+		}, 3000);
 		dispatch({ type: "RESET" });
 	};
 
 	return (
 		<Box>
+			<Flex
+				display={showOverlay}
+				position="fixed"
+				h="100vh"
+				w="100vw"
+				bg="rgba(0,0,0,0.8)"
+				zIndex={100}
+				alignItems="center"
+				justifyContent="center"
+			>
+				<motion.div
+					className="stamp"
+					whileInView={["start", "peel"]}
+					variants={{
+						start: {
+							scale: [10, 2],
+							rotate: [720, -15],
+							opacity: [0.2, 1],
+						},
+						peel: {
+							rotateY: [0, 270],
+							transition: { delay: 2 },
+						},
+					}}
+				>
+					MESSAGE RECIEVED
+				</motion.div>
+			</Flex>
 			<Link href="/home" passHref replace>
 				<ArrowBackIcon
 					cursor="pointer"
@@ -289,15 +323,17 @@ const Contact: NextPage = () => {
 				</Flex>
 			</motion.div>
 			{/* Badge */}
-			<motion.div
+			<motion.a
 				layoutId={`nav-contact-icon`}
 				animate={{ scale: [0.2, 0.5, 1] }}
 				transition={{ duration: 0.8 }}
+				href="https://drive.google.com/file/d/1PLogcZHSrf_AM1c7WIeLbnrxRQ6CmA9M/view?usp=sharing"
+				target="_blank"
+				rel="noopener noreferrer"
 				style={{
 					width: "110px",
 					height: "110px",
 					borderRadius: "55px",
-					paddingBottom: "1.4rem",
 					background: `url("/images/contact.png")`,
 					backgroundSize: "cover",
 					backgroundPosition: "center",
@@ -305,8 +341,26 @@ const Contact: NextPage = () => {
 					position: "absolute",
 					bottom: "20px",
 					right: "20px",
+					cursor: "pointer",
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "flex-end",
+					paddingBottom: "1.8rem",
 				}}
-			></motion.div>
+			>
+				<Text
+					style={{
+						color: "whitesmoke",
+						backgroundColor: "rgba(0,0,0,0.6)",
+						width: "100%",
+						mixBlendMode: "multiply",
+						fontFamily: "nunito",
+						textAlign: "center",
+					}}
+				>
+					Résumé
+				</Text>
+			</motion.a>
 		</Box>
 	);
 };

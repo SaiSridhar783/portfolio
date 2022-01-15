@@ -39,6 +39,79 @@ a {
 	border-radius: 40%;
 }
 
+/* Stamp */
+.stamp {
+	box-shadow: 0 0 0 3px red, 0 0 0 2px red inset;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	position: relative;
+	top: 40%;
+	left: 40%;
+	padding: 5px 2px;
+	line-height: 22px;
+	color: red;
+	font-size: 24px;
+	font-family: "Montserrat", cursive;
+	font-weight: bold;
+	background-color: white;
+	text-transform: uppercase;
+	text-align: center;
+	width: 155px;
+	transform: rotate(-5deg) scale(2);
+}
+/* End */
+
+/* Peel */
+.peel {
+	position: relative;
+	opacity: 0;
+}
+
+.peel-ready {
+	opacity: 1;
+}
+
+.peel-svg-clip-element {
+	position: absolute;
+	top: -10000px;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.peel-layer {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	transform-origin: top left;
+}
+
+/*------------] Some Defaults [------------*/
+
+.peel-top {
+	background-color: #81afcb;
+}
+
+.peel-back {
+	background-color: #a0c7df;
+}
+
+.peel-bottom {
+	background-color: #688394;
+}
+/* End */
+
 /* Shine */
 .icon:after {
 	animation: shine 5s ease-in-out infinite;
