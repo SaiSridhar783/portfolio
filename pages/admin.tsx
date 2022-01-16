@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex, Heading, Text, useToast } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
@@ -12,6 +13,7 @@ interface IAdminProps {
 }
 
 const Admin: NextPage<IAdminProps> = ({ data }) => {
+	const [display, setDisplay] = React.useState(data);
 	const toast = useToast();
 	const deleteHandler = async (id: number) => {
 		let res: any;
@@ -27,6 +29,8 @@ const Admin: NextPage<IAdminProps> = ({ data }) => {
 			if (!res.ok) {
 				throw new Error(res.statusText);
 			}
+
+			setDisplay(display.filter((row: any) => row.id !== id));
 
 			toast({
 				title: "Deleted",
@@ -55,7 +59,7 @@ const Admin: NextPage<IAdminProps> = ({ data }) => {
 				image="/images/resume.png"
 			/>
 			<Flex flexDir="column" justifyContent="center" alignItems="center">
-				{data.map((row: any, idx: any) => (
+				{display.map((row: any, idx: any) => (
 					<Flex
 						key={idx}
 						bg="gray"
