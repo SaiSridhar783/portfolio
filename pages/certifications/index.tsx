@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import PageHeader from "../../components/PageHeader";
