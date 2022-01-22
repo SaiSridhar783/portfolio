@@ -121,6 +121,7 @@ const Contact: NextPage = () => {
 						},
 						peel: {
 							rotateY: [0, 270],
+							skewY: [10, -10],
 							transition: { delay: 2 },
 						},
 					}}

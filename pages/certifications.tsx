@@ -1,8 +1,8 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
-import CertiTab from "../../components/CertiTab";
-import PageHeader from "../../components/PageHeader";
+import CertiTab from "../components/CertiTab";
+import PageHeader from "../components/PageHeader";
 
 const Certi: NextPage = () => {
 	return (
@@ -28,7 +28,7 @@ const Certi: NextPage = () => {
 						top="-10%"
 						left="50.3%"
 						transform="rotateZ(45deg)"
-						zIndex={5}
+						zIndex={1}
 					></Box>
 
 					<motion.div
