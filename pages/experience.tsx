@@ -42,6 +42,7 @@ const Experience: NextPage = () => {
 						company="Dotgo Pvt. Ltd."
 						logo="/images/company/dotgo.jfif"
 						duration="May 03, 2021 - June 30, 2021"
+						compURL="https://dotgo.com/"
 					>
 						Working with ReactJS and NodeJS on a daily basis to
 						assist the company in it&apos;s daily ventures.
@@ -66,6 +67,7 @@ const Experience: NextPage = () => {
 						company="NxtWave Disruptive Tech. Pvt. Ltd."
 						logo="/images/company/nxtwave.png"
 						duration="March 02, 2021 - Present"
+						compURL="https://www.ccbp.in/"
 					>
 						Resolving the queries of learners involving HTML, CSS,
 						JS, NodeJS, ReactJS, SQL and Python.

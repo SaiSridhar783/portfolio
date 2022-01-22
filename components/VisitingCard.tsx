@@ -8,6 +8,7 @@ import Popup from "./Popup";
 
 interface IVisitingCardProps {
 	company: string;
+	compURL: string;
 	title: string;
 	logo: string;
 	duration: string;
@@ -20,6 +21,7 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 	title,
 	logo,
 	duration,
+	compURL,
 	delay = 0,
 }) => {
 	const cardRef = React.useRef(null);
@@ -58,7 +60,15 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 					}}
 					transition={{ delay: delay }}
 				>
-					<Flex alignItems="center" justifyContent="space-between">
+					<Flex
+						as="a"
+						alignItems="center"
+						justifyContent="space-between"
+						target="_blank"
+						rel="noreferrer noopener"
+						href={compURL}
+						cursor="pointer"
+					>
 						<Image
 							src={logo}
 							alt={company}
@@ -66,6 +76,7 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 							height={40}
 							className="company-logo"
 						/>
+
 						<Text
 							backgroundColor="#565656"
 							color="transparent"
