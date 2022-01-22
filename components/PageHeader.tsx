@@ -17,6 +17,8 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
 			alignItems="center"
 			px="2rem"
 			py="1rem"
+			position="relative"
+			zIndex={2}
 		>
 			<Link href="/home" passHref replace>
 				<ArrowBackIcon
