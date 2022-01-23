@@ -1,0 +1,17 @@
+[
+	{
+		"name": "Bachelor of Technology (B.Tech)",
+		"CGPA": "8.64",
+		"type": "Degree"
+	},
+	{
+		"name": "Senior Secondary School (AISSCE)",
+		"Percentage": "92.8%",
+		"type": "Degree"
+	},
+	{
+		"name": "Junior Secondary School (CBSE Class 10)",
+		"CGPA": "10.00",
+		"type": "Degree"
+	}
+]

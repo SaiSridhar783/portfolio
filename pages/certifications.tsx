@@ -1,10 +1,16 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, OrderedList, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
+import { useState } from "react";
+import BookView from "../components/Certifications/BookView";
 import CertiTab from "../components/CertiTab";
 import PageHeader from "../components/PageHeader";
+import eduJSON from "../utils/education.json";
+import certiJSON from "../utils/certificates.json";
 
 const Certi: NextPage = () => {
+	const [badge, setBadge] = useState("Document");
+
 	return (
 		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 			<PageHeader
@@ -52,9 +58,23 @@ const Certi: NextPage = () => {
 							skewY: [-5, 0],
 							preserveAlpha: true,
 						}}
-						transition={{ duration: 2, delay: 1 }}
+						transition={{ duration: 2, delay: 0.5 }}
 					>
 						<CertiTab title="Education" />
+						<OrderedList
+							alignSelf="flex-start"
+							listStyleType="none"
+							margin={0}
+						>
+							{eduJSON.map((item, idx) => (
+								<BookView
+									key={idx + "edu"}
+									item={JSON.stringify(item)}
+									onMouseEnter={() => setBadge(item.type)}
+									onMouseLeave={() => setBadge("Document")}
+								/>
+							))}
+						</OrderedList>
 					</motion.div>
 					<Flex
 						w="50%"
@@ -66,6 +86,21 @@ const Certi: NextPage = () => {
 						overflow="hidden"
 					>
 						<CertiTab title="Technical" />
+						<OrderedList
+							alignSelf="flex-start"
+							listStyleType="none"
+							margin={0}
+							width="100%"
+						>
+							{certiJSON.map((item, idx) => (
+								<BookView
+									key={idx + "edu"}
+									item={JSON.stringify(item)}
+									onMouseEnter={() => setBadge(item.type)}
+									onMouseLeave={() => setBadge("Document")}
+								/>
+							))}
+						</OrderedList>
 					</Flex>
 				</Flex>
 				<Flex
@@ -93,7 +128,7 @@ const Certi: NextPage = () => {
 							mt="10%"
 							ml="38%"
 						>
-							Certificate
+							{badge}
 						</Box>
 						<Flex
 							p="1rem"

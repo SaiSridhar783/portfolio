@@ -35,6 +35,14 @@ a {
 	background-color: #a8bbbf;
 }
 
+ol {
+	counter-reset: list;
+}
+
+ol li {
+	counter-increment: list;
+}
+
 .company-logo {
 	border-radius: 40%;
 }
