@@ -43,6 +43,28 @@ ol li {
 	counter-increment: list;
 }
 
+.tech-list::before {
+	content: "";
+	position: absolute;
+	width: 22%;
+	height: 69.3%;
+	top: 183px;
+	left: 32.5%;
+	z-index: 1;
+	background: #ccc;
+	animation: dissolve 1s ease-in-out forwards;
+}
+
+@keyframes dissolve {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
 .company-logo {
 	border-radius: 40%;
 }

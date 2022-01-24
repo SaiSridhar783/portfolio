@@ -26,6 +26,7 @@ const Certi: NextPage = () => {
 					borderRadius="3xl"
 					ml="5%"
 				>
+					{/* Book Snip */}
 					<Box
 						w="5rem"
 						h="5rem"
@@ -34,9 +35,10 @@ const Certi: NextPage = () => {
 						top="-10%"
 						left="50.3%"
 						transform="rotateZ(45deg)"
-						zIndex={1}
+						zIndex={5}
 					></Box>
 
+					{/* Education List */}
 					<motion.div
 						style={{
 							width: "50%",
@@ -47,6 +49,7 @@ const Certi: NextPage = () => {
 							flexDirection: "column",
 							alignItems: "center",
 							overflow: "hidden",
+							zIndex: 3
 						}}
 						animate={{
 							rotateY: [180, 0],
@@ -55,8 +58,7 @@ const Certi: NextPage = () => {
 								"rgba(200,200,200,1)",
 								"rgba(200,200,200,0.7)",
 							],
-							skewY: [-5, 0],
-							preserveAlpha: true,
+							skewY: [-5, -10, 10, 0],
 						}}
 						transition={{ duration: 2, delay: 0.5 }}
 					>
@@ -76,6 +78,8 @@ const Certi: NextPage = () => {
 							))}
 						</OrderedList>
 					</motion.div>
+
+					{/* Techical List */}
 					<Flex
 						w="50%"
 						bg="rgba(200,200,200,0.6)"
@@ -84,6 +88,7 @@ const Certi: NextPage = () => {
 						flexDirection="column"
 						alignItems="center"
 						overflow="hidden"
+						className="tech-list"
 					>
 						<CertiTab title="Technical" />
 						<OrderedList
@@ -91,6 +96,9 @@ const Certi: NextPage = () => {
 							listStyleType="none"
 							margin={0}
 							width="100%"
+							maxH="max-content"
+							overflowY="auto"
+							overflowX="hidden"
 						>
 							{certiJSON.map((item, idx) => (
 								<BookView
@@ -103,6 +111,7 @@ const Certi: NextPage = () => {
 						</OrderedList>
 					</Flex>
 				</Flex>
+				{/* Hover View */}
 				<Flex
 					flexDir="column"
 					justifyContent="center"
