@@ -39,7 +39,8 @@ ol {
 	counter-reset: list;
 }
 
-ol li {
+ol li,
+ol a {
 	counter-increment: list;
 }
 
@@ -61,7 +62,7 @@ ol li {
 	}
 	100% {
 		opacity: 0;
-		display: none;
+		z-index: -1;
 	}
 }
 

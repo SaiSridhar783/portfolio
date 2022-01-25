@@ -2,16 +2,25 @@
 	{
 		"name": "Bachelor of Technology (B.Tech)",
 		"CGPA": "8.64",
+		"institute": "Indian Institute of Technology, Kharagpur",
+		"year": "Present",
+		"logo": "iitkgp.png",
 		"type": "Degree"
 	},
 	{
 		"name": "Senior Secondary School (AISSCE)",
 		"Percentage": "92.8%",
-		"type": "Degree"
+		"institute": "Royale Concorde International School, Kalyan Nagar",
+		"year": "2019",
+		"logo": "aissce.png",
+		"type": "Intermediate"
 	},
 	{
 		"name": "Junior Secondary School (CBSE Class 10)",
 		"CGPA": "10.00",
-		"type": "Degree"
+		"institute": "Presidency School, Kasturi Nagar",
+		"year": "2017",
+		"logo": "cbsce.png",
+		"type": "Boards"
 	}
 ]

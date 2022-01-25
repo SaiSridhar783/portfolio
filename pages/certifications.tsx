@@ -49,7 +49,7 @@ const Certi: NextPage = () => {
 							flexDirection: "column",
 							alignItems: "center",
 							overflow: "hidden",
-							zIndex: 3
+							zIndex: 3,
 						}}
 						animate={{
 							rotateY: [180, 0],
@@ -70,6 +70,7 @@ const Certi: NextPage = () => {
 						>
 							{eduJSON.map((item, idx) => (
 								<BookView
+									as="li"
 									key={idx + "edu"}
 									item={JSON.stringify(item)}
 									onMouseEnter={() => setBadge(item.type)}
@@ -102,6 +103,8 @@ const Certi: NextPage = () => {
 						>
 							{certiJSON.map((item, idx) => (
 								<BookView
+									as="a"
+									href={item.link}
 									key={idx + "edu"}
 									item={JSON.stringify(item)}
 									onMouseEnter={() => setBadge(item.type)}
@@ -112,12 +115,21 @@ const Certi: NextPage = () => {
 					</Flex>
 				</Flex>
 				{/* Hover View */}
-				<Flex
-					flexDir="column"
-					justifyContent="center"
-					alignItems="flex-end"
-					h="75vh"
-					w="40%"
+				<motion.div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "flex-end",
+						justifyContent: "center",
+						height: "75vh",
+						width: "40%",
+						transformOrigin: "top",
+					}}
+					animate={{
+						rotateX: [-90, 0],
+						skewX: [0, -8, 8, 0],
+					}}
+					transition={{ duration: 1.5, delay: 2.2 }}
 				>
 					<Box
 						w="80%"
@@ -154,7 +166,7 @@ const Certi: NextPage = () => {
 							</Text>
 						</Flex>
 					</Box>
-				</Flex>
+				</motion.div>
 			</Flex>
 		</motion.div>
 	);

@@ -28,7 +28,7 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 	const { style, ...mouseHandlers } = use3dEffect(cardRef);
 
 	return (
-		<Box>
+		<Box position="relative" zIndex={7}>
 			<animated.div
 				ref={cardRef}
 				style={{

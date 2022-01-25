@@ -1,4 +1,4 @@
-import { ListItem } from "@chakra-ui/react";
+import { As, ListItem } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import * as React from "react";
 
@@ -6,20 +6,27 @@ interface IBookViewProps {
 	item: string;
 	onMouseEnter: () => void;
 	onMouseLeave: () => void;
+	as: As;
+	href?: string;
 }
 
 const BookView: React.FC<IBookViewProps> = ({
 	item,
 	onMouseEnter,
 	onMouseLeave,
+	as,
+	href = "#",
 }) => {
 	const parsedItem = JSON.parse(item);
 	return (
 		<motion.div
-			style={{ position: "relative"}}
+			style={{ position: "relative" }}
 			whileInView={{ left: [200, 0] }}
 		>
 			<ListItem
+				as={as}
+				href={href}
+				target={href === "#" ? "_self" : "_blank"}
 				onMouseEnter={onMouseEnter}
 				onMouseLeave={onMouseLeave}
 				width="100%"
