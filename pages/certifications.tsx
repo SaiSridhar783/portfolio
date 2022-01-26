@@ -194,7 +194,8 @@ const Certi: NextPage = () => {
 									// @ts-ignore
 									<Education {...cardProps} />
 								) : (
-									<Technical />
+									// @ts-ignore
+									<Technical {...cardProps} />
 								))}
 							{!hoverDisplay && <Fallback />}
 						</Flex>
