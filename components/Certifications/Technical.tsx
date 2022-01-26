@@ -40,12 +40,12 @@ const Technical: React.FC<ITechnicalProps> = (props) => {
 					layout="intrinsic"
 					className="edu-logo"
 				/>
-				<Text as="h3" ml="0.5rem" fontFamily="nunito" fontWeight="700">
+				<Text as="h3" ml="0.5rem" fontFamily="nunito" fontWeight="700" fontSize="1.2rem">
 					{props.institution}
 				</Text>
 			</Flex>
-			<Flex w="100%" justifyContent="center" alignItems="center">
-				<Text fontFamily="nunito" fontSize="1.5rem">
+			<Flex mt="1rem" w="100%" justifyContent="center" alignItems="center">
+				<Text fontFamily="nunito" fontSize="1.5rem" textAlign="center" noOfLines={1}>
 					{props.name}
 				</Text>
 			</Flex>
