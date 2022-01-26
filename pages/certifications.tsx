@@ -1,15 +1,43 @@
+import React from "react";
+import type { NextPage } from "next";
 import { Box, Flex, OrderedList, Text } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import type { NextPage } from "next";
 import { useState } from "react";
 import BookView from "../components/Certifications/BookView";
 import CertiTab from "../components/CertiTab";
 import PageHeader from "../components/PageHeader";
 import eduJSON from "../utils/education.json";
 import certiJSON from "../utils/certificates.json";
+import Education from "../components/Certifications/Education";
+import Technical from "../components/Certifications/Technical";
+
+const Fallback = () => (
+	<Text color="black" fontSize="2xl" w="50%" textAlign="center">
+		Hover Over a List Item to View Details!
+	</Text>
+);
 
 const Certi: NextPage = () => {
 	const [badge, setBadge] = useState("Document");
+	const [hoverDisplay, setHoverDisplay] = React.useState<string | null>(null);
+	const [cardProps, setCardProps] = React.useState({});
+
+	const onMouseEnterEduHandler = (item: typeof eduJSON[0]) => {
+		setBadge(item.type);
+		setHoverDisplay("edu");
+		setCardProps(item);
+	};
+
+	const onMouseEnterCertiHandler = (item: typeof certiJSON[0]) => {
+		setBadge(item.type);
+		setHoverDisplay("certi");
+		setCardProps(item);
+	};
+
+	const onMouseLeaveHandler = () => {
+		setBadge("Document");
+		setHoverDisplay(null);
+	};
 
 	return (
 		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
@@ -73,8 +101,10 @@ const Certi: NextPage = () => {
 									as="li"
 									key={idx + "edu"}
 									item={JSON.stringify(item)}
-									onMouseEnter={() => setBadge(item.type)}
-									onMouseLeave={() => setBadge("Document")}
+									onMouseEnter={() =>
+										onMouseEnterEduHandler(item)
+									}
+									onMouseLeave={onMouseLeaveHandler}
 								/>
 							))}
 						</OrderedList>
@@ -107,8 +137,10 @@ const Certi: NextPage = () => {
 									href={item.link}
 									key={idx + "edu"}
 									item={JSON.stringify(item)}
-									onMouseEnter={() => setBadge(item.type)}
-									onMouseLeave={() => setBadge("Document")}
+									onMouseEnter={() =>
+										onMouseEnterCertiHandler(item)
+									}
+									onMouseLeave={onMouseLeaveHandler}
 								/>
 							))}
 						</OrderedList>
@@ -148,6 +180,7 @@ const Certi: NextPage = () => {
 							transform="rotate(45deg)"
 							mt="10%"
 							ml="38%"
+							zIndex={5}
 						>
 							{badge}
 						</Box>
@@ -156,14 +189,14 @@ const Certi: NextPage = () => {
 							justifyContent="center"
 							alignItems="center"
 						>
-							<Text
-								color="black"
-								fontSize="2xl"
-								w="50%"
-								textAlign="center"
-							>
-								Hover Over a List Item to View Details!
-							</Text>
+							{hoverDisplay &&
+								(hoverDisplay === "edu" ? (
+									// @ts-ignore
+									<Education {...cardProps} />
+								) : (
+									<Technical />
+								))}
+							{!hoverDisplay && <Fallback />}
 						</Flex>
 					</Box>
 				</motion.div>

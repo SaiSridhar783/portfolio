@@ -44,6 +44,10 @@ ol a {
 	counter-increment: list;
 }
 
+.edu-logo {
+	border-radius: 50%;
+}
+
 .tech-list::before {
 	content: "";
 	position: absolute;
