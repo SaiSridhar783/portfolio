@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 			h="100vh"
 			overflow="hidden"
 		>
-			<Flex justifyContent="space-around" w="70%">
+			<Flex justifyContent="space-around" alignItems="center" w="70%">
 				<NavTab
 					title="Projects"
 					image="/images/projects.png"
