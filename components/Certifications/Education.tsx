@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import Image from "next/image";
-import eduJSON from "../../utils/education.json";
+import eduJSON from "../../data/education.json";
 import { motion } from "framer-motion";
 
 type IEducationProps = {} & typeof eduJSON[0];

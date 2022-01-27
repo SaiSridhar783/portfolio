@@ -6,8 +6,8 @@ import { useState } from "react";
 import BookView from "../components/Certifications/BookView";
 import CertiTab from "../components/CertiTab";
 import PageHeader from "../components/PageHeader";
-import eduJSON from "../utils/education.json";
-import certiJSON from "../utils/certificates.json";
+import eduJSON from "../data/education.json";
+import certiJSON from "../data/certificates.json";
 import Education from "../components/Certifications/Education";
 import Technical from "../components/Certifications/Technical";
 

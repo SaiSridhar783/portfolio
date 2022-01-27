@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Flex, Text, useBreakpointValue } from "@chakra-ui/react";
 import Image from "next/image";
-import certiJSON from "../../utils/certificates.json";
+import certiJSON from "../../data/certificates.json";
 import { motion } from "framer-motion";
 
 type ITechnicalProps = {} & typeof certiJSON[0];

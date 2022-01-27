@@ -1,7 +1,8 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import PageHeader from "../../components/PageHeader";
+import ProjectCard from "../../components/Projects/ProjectCard";
 
 const Projects: NextPage = () => {
 	return (
@@ -11,6 +12,9 @@ const Projects: NextPage = () => {
 				layoutId="nav-projects"
 				image="/images/projects.png"
 			/>
+			<Flex gap="2rem" px="5%">
+				<ProjectCard />
+			</Flex>
 		</motion.div>
 	);
 };
