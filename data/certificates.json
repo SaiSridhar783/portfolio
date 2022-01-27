@@ -1,0 +1,100 @@
+[
+	{
+		"name": "React - The Complete Guide (incl Hooks, React Router, Redux)",
+		"type": "Specialization",
+		"institution": "Academind",
+		"link": "https://www.udemy.com/certificate/UC-82e2377f-4e84-4479-9de3-0023e8b9860d/",
+		"logo": "/images/logos/academind.png"
+	},
+	{
+		"name": "Front-End Web UI Frameworks and Tools: Bootstrap 4",
+		"type": "Course",
+		"institution": "The Hong Kong University of Science and Technology",
+		"link": "https://coursera.org/share/7750910366a542dc9210890830b44a53",
+		"logo": "/images/logos/hongkong.png"
+	},
+	{
+		"name": "Python for Everybody",
+		"type": "Specialization",
+		"institution": "University of Michigan",
+		"link": "https://coursera.org/share/08aa345fb5eff485c59691d8c1c93bb8",
+		"logo": "/images/logos/michigan.png"
+	},
+	{
+		"name": "Google IT Automation with Python",
+		"type": "Specialization",
+		"institution": "Google",
+		"link": "https://coursera.org/share/6f19360d23caf63cd2391efc016d129f",
+		"logo": "/images/logos/google.png"
+	},
+	{
+		"name": "Google IT Support",
+		"type": "Specialization",
+		"institution": "Google",
+		"link": "https://coursera.org/share/9141ab8e51a105a7a018631d96370192",
+		"logo": "/images/logos/google.png"
+	},
+	{
+		"name": "Excel Skills for Business",
+		"type": "Specialization",
+		"institution": "Macquarie University",
+		"link": "https://coursera.org/share/cfe1c40dc00e6293e491cdada8e80b38",
+		"logo": "/images/logos/macq.png"
+	},
+	{
+		"name": "SQL for Data Science",
+		"type": "Course",
+		"institution": "University of California, Davis",
+		"link": "https://coursera.org/share/e3499605f8d2c24eb9dfa4500ac6b2a2",
+		"logo": "/images/logos/ucdavis.png"
+	},
+	{
+		"name": "Python & OOP Concepts",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/YZCGGKMELK",
+		"logo": "/images/logos/ibhubs.png"
+	},
+	{
+		"name": "Elementary Data Structures and Algorithms",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/VQLHEBCVUC",
+		"logo": "/images/logos/ibhubs.png"
+	},
+	{
+		"name": "Algorithms on Graphs",
+		"type": "Course",
+		"institution": "University of California San Diego",
+		"link": "https://coursera.org/share/115a9ae50791181392cae8a3728ee4f3",
+		"logo": "/images/logos/ucsan.png"
+	},
+	{
+		"name": "Machine Learning",
+		"type": "Specialization",
+		"institution": "University of Washington",
+		"link": "https://coursera.org/share/f04a389e204f41f3fbbfebcf086df231",
+		"logo": "/images/logos/washington.png"
+	},
+	{
+		"name": "Introduction to Data Science in Python",
+		"type": "Course",
+		"institution": "University of Michigan",
+		"link": "https://coursera.org/share/477e8d21bdab7fd2b382f33047539c9c",
+		"logo": "/images/logos/michigan.png"
+	},
+	{
+		"name": "C Programming Language",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/KGRGOTOWCM",
+		"logo": "/images/logos/ibhubs.png"
+	},
+	{
+		"name": "C++ and Foundations of STL",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/WEDZDRYIUY",
+		"logo": "/images/logos/ibhubs.png"
+	}
+]
