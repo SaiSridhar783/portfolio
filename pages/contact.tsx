@@ -17,7 +17,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Social from "../components/Social";
 
-const mainDelay = 1;
+const mainDelay = 0.6;
 
 const initialState = {
 	name: "",
@@ -154,6 +154,7 @@ const Contact: NextPage = () => {
 					width: "60%",
 				}}
 				animate={{ bottom: [-600, 0], opacity: [0, 1] }}
+				transition={{ duration: 1.3 }}
 			>
 				<a
 					href="https://www.freepik.com/vectors/people"
@@ -210,7 +211,7 @@ const Contact: NextPage = () => {
 					boxShadow: "2px 0 3px rgba(255,255,255,0.8)",
 				}}
 				animate={{ height: ["0vh", "88vh"] }}
-				transition={{ delay: mainDelay }}
+				transition={{ duration: 1.3 }}
 			>
 				<Flex
 					flexDir="column"
@@ -229,6 +230,7 @@ const Contact: NextPage = () => {
 							},
 							bounce: {
 								scale: [1.2, 0.8, 1],
+								skewX: [-15, 15, 0],
 								transition: { delay: mainDelay + 4 },
 							},
 						}}
