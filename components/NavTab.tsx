@@ -45,7 +45,11 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 				}}
 				animate={["start"]}
 				whileHover="hovering"
-				transition={{ delay: delay }}
+				transition={{
+					delay: delay,
+					type: "spring",
+					damping: 50,
+				}}
 				layoutId={`${titleId}-icon`}
 				variants={{
 					standing: {
@@ -58,7 +62,7 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 						opacity: [1, 0.7, 1],
 					},
 					start: { rotateY: [-90, 0] },
-					hovering: { scale: 1.2, opacity: 1 },
+					hovering: { scale: 1.2, transition: { duration: 0.2 } },
 				}}
 				className="icon"
 			>

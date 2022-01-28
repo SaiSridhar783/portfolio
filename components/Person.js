@@ -7,7 +7,7 @@ function Icon(props) {
 				position="relative"
 				top="5.6rem"
 				left="25%"
-				bgImage="https://img.shields.io/badge/NextJS-000000?style=for-the-badge&logo=vercel&logoColor=white"
+				bgImage="https://img.shields.io/badge/NextJS-black?style=for-the-badge&logo=next.js&logoColor=white"
 				bgSize="contain"
 				width="3.5rem"
 				height="1rem"

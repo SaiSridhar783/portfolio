@@ -225,13 +225,19 @@ const Contact: NextPage = () => {
 						transition={{ delay: mainDelay + 0.5 }}
 						variants={{
 							start: {
-								top: [-200, 0],
-								transition: { delay: mainDelay + 3.5 },
+								top: [-200, 10, 0],
+								transition: {
+									delay: mainDelay + 3.5,
+									type: "spring",
+									bounce: 1,
+								},
 							},
 							bounce: {
 								scale: [1.2, 0.8, 1],
 								skewX: [-15, 15, 0],
-								transition: { delay: mainDelay + 4 },
+								transition: {
+									delay: mainDelay + 4,
+								},
 							},
 						}}
 					>
@@ -264,8 +270,11 @@ const Contact: NextPage = () => {
 									marginBottom: "2rem",
 									position: "relative",
 								}}
-								animate={{ top: [-400, 50, 0] }}
-								transition={{ delay: mainDelay + 3 }}
+								animate={{ top: [-400, 50, -20, 0] }}
+								transition={{
+									delay: mainDelay + 3,
+									ease: "easeInOut",
+								}}
 							>
 								<FormLabel
 									color="whiteAlpha.600"
@@ -295,8 +304,11 @@ const Contact: NextPage = () => {
 									marginBottom: "2rem",
 									position: "relative",
 								}}
-								animate={{ top: [-400, 50, 0] }}
-								transition={{ delay: mainDelay + 2.3 }}
+								animate={{ top: [-400, 50, -20, 0] }}
+								transition={{
+									delay: mainDelay + 2.3,
+									ease: "easeInOut",
+								}}
 							>
 								<FormLabel
 									color="whiteAlpha.600"
@@ -326,8 +338,11 @@ const Contact: NextPage = () => {
 									marginBottom: "2rem",
 									position: "relative",
 								}}
-								animate={{ top: [-600, 100, 0] }}
-								transition={{ delay: mainDelay + 1.8 }}
+								animate={{ top: [-600, 100, -15, 0] }}
+								transition={{
+									delay: mainDelay + 1.8,
+									ease: "easeInOut",
+								}}
 							>
 								<FormLabel
 									color="whiteAlpha.600"
@@ -356,8 +371,13 @@ const Contact: NextPage = () => {
 									justifyContent: "center",
 									position: "relative",
 								}}
-								animate={{ bottom: [-400, 50, 0] }}
-								transition={{ delay: mainDelay + 1 }}
+								animate={{ bottom: [-400, 50, -10, 0] }}
+								transition={{
+									delay: mainDelay + 1,
+									type: "spring",
+									stiffness: 200,
+									damping: 20,
+								}}
 							>
 								<Button type="submit" colorScheme="green">
 									Submit
