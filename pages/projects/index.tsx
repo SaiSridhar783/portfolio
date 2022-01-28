@@ -3,19 +3,23 @@ import { motion } from "framer-motion";
 import type { NextPage } from "next";
 import PageHeader from "../../components/PageHeader";
 import ProjectCard from "../../components/Projects/ProjectCard";
+import proJSON from "../../data/projects.json";
 
 const Projects: NextPage = () => {
 	return (
-		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+		<Box>
 			<PageHeader
 				title="Projects"
 				layoutId="nav-projects"
 				image="/images/projects.png"
 			/>
-			<Flex gap="2rem" px="5%">
-				<ProjectCard />
+			<Flex gap="3rem" px="5%">
+				{proJSON.map((proj, idx) => (
+					// @ts-ignore
+					<ProjectCard key={idx + "pro"} {...proj} />
+				))}
 			</Flex>
-		</motion.div>
+		</Box>
 	);
 };
 
