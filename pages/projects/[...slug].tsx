@@ -25,7 +25,7 @@ const EachProject: NextPage<IProProps> = (props) => {
 	};
 
 	return (
-		<Center w="100vw" h="100vh" p="5%">
+		<Center w="100vw" maxH="100vh" h="100vh" p="5%" overflow="hidden">
 			<ArrowBackIcon
 				cursor="pointer"
 				transition="color 200ms"
@@ -61,6 +61,8 @@ const EachProject: NextPage<IProProps> = (props) => {
 						w="100%"
 						h="100%"
 						borderRadius="1.5rem"
+						position="relative"
+						top={props.apk? "250px" : "0"}
 					/>
 				</motion.div>
 				<Flex
@@ -185,6 +187,18 @@ const EachProject: NextPage<IProProps> = (props) => {
 								fontWeight="900"
 							>
 								Visit Site
+							</Button>
+						)}
+						{props.apk && (
+							<Button
+								colorScheme="cyan"
+								width="10rem"
+								as="a"
+								href={props.apk}
+								target="_blank"
+								fontWeight="900"
+							>
+								Download APK
 							</Button>
 						)}
 						{props.github && (

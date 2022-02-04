@@ -12,7 +12,7 @@ const Projects: NextPage = () => {
 				layoutId="nav-projects"
 				image="/images/projects.png"
 			/>
-			<Flex gap="3rem" px="5%">
+			<Flex gap="3rem" pl="3%" flexWrap="wrap" pb="5rem">
 				{proJSON.map((proj, idx) => (
 					// @ts-ignore
 					<ProjectCard key={idx + "pro"} {...proj} />
