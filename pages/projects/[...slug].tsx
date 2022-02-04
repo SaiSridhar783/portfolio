@@ -17,6 +17,8 @@ import ImageNext from "next/image";
 
 type IProProps = {} & typeof proJSON[0];
 
+const mainDelay = 0;
+
 const EachProject: NextPage<IProProps> = (props) => {
 	const clickHandler = () => {
 		router.replace(`/projects`);
@@ -46,7 +48,11 @@ const EachProject: NextPage<IProProps> = (props) => {
 						width: "50%",
 						position: "relative",
 					}}
-					transition={{ type: "spring", damping: 42 }}
+					transition={{
+						type: "spring",
+						damping: 32 + props.num * 10,
+					}}
+					animate={{ scale: [1.2, 1] }}
 					layoutId={props.slug}
 				>
 					<Image
@@ -66,38 +72,109 @@ const EachProject: NextPage<IProProps> = (props) => {
 					gap="1.5rem"
 					fontFamily="nunito"
 				>
-					<Heading>{props.name}</Heading>
-					<Text color="whiteAlpha.800" fontSize="1.2rem">
-						{props.description}
-					</Text>
-					<Flex gap="1rem">
+					<motion.div
+						animate={{
+							translateX: ["50vw", "0vw"],
+							opacity: [0.3, 1],
+						}}
+						transition={{
+							duration: 3,
+							ease: "circOut",
+							delay: mainDelay,
+						}}
+					>
+						<Heading>{props.name}</Heading>
+					</motion.div>
+					<motion.div
+						animate={{
+							translateX: ["50vw", "0vw"],
+							opacity: [0.3, 1],
+						}}
+						transition={{
+							duration: 3,
+							ease: "circOut",
+							delay: mainDelay + 0.4,
+						}}
+					>
+						<Text
+							color="whiteAlpha.800"
+							fontSize="1.2rem"
+							textAlign="justify"
+						>
+							{props.description}
+						</Text>
+					</motion.div>
+					<motion.div
+						style={{
+							display: "flex",
+							gap: "1rem",
+							maxWidth: "100%",
+							overflow: "hidden",
+						}}
+						animate={{
+							translateX: ["50vw", "0vw"],
+							opacity: [0.3, 1],
+						}}
+						transition={{
+							duration: 3,
+							ease: "circOut",
+							delay: mainDelay + 0.8,
+						}}
+					>
 						{props.languages.map((lang, idx) => (
-							<Tooltip
-								d="block"
+							<motion.div
 								key={lang + idx}
-								hasArrow
-								label={lang.toLocaleUpperCase()}
+								style={{ position: "relative" }}
+								animate={{ right: [-500, 0] }}
+								transition={{
+									delay: mainDelay + 1 + idx / 5,
+									ease: "backOut",
+									duration: 3,
+								}}
 							>
-								<Box
-									bg="rgba(255,255,255,0.2)"
-									p="0.3rem"
-									borderRadius="50%"
-									h="60px"
-									w="60px"
-									position="relative"
-									border="1.2px solid white"
-									overflow="hidden"
+								<Tooltip
+									d="block"
+									hasArrow
+									label={lang.toLocaleUpperCase()}
+									transitionDelay={idx * 10 + "ms"}
 								>
-									<ImageNext
-										src={`/images/lang/icons8-${lang}.svg`}
-										alt="Waka"
-										layout="fill"
-									/>
-								</Box>
-							</Tooltip>
+									<Box
+										bg="rgba(255,255,255,0.2)"
+										p="0.3rem"
+										borderRadius="50%"
+										h="60px"
+										w="60px"
+										position="relative"
+										border="1.2px solid white"
+										overflow="hidden"
+									>
+										<ImageNext
+											src={`/images/lang/icons8-${lang}.svg`}
+											alt="Waka"
+											layout="fill"
+										/>
+									</Box>
+								</Tooltip>
+							</motion.div>
 						))}
-					</Flex>
-					<Flex justifyContent="flex-start" gap="3rem" w="100%">
+					</motion.div>
+					<motion.div
+						style={{
+							display: "flex",
+							justifyContent: "flex-start",
+							gap: "3rem",
+							width: "100%",
+						}}
+						animate={{
+							translateX: ["50vw", "0vw"],
+							opacity: [0.3, 1],
+						}}
+						transition={{
+							duration: 3,
+							ease: "circOut",
+							delay: mainDelay + 1.2,
+						}}
+					>
 						{props.url && (
 							<Button
 								colorScheme="cyan"
@@ -116,6 +193,7 @@ const EachProject: NextPage<IProProps> = (props) => {
 								href={props.github}
 								target="_blank"
 								bg="gray.700"
+								width="10rem"
 								color="whiteAlpha.700"
 								_hover={{ bg: "gray.800" }}
 								_active={{ bg: "gray.800" }}
@@ -124,7 +202,7 @@ const EachProject: NextPage<IProProps> = (props) => {
 								View on Github
 							</Button>
 						)}
-					</Flex>
+					</motion.div>
 				</Flex>
 			</Flex>
 		</Center>

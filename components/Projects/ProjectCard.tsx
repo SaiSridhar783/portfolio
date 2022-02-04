@@ -14,9 +14,19 @@ const ProjectCard: React.FC<IProProps> = (props) => {
 
 	return (
 		<motion.div
-			whileHover={{ scale: 1.1 }}
-			transition={{ duration: 0.4 }}
-			style={{ position: "relative", zIndex: 8 }}
+			whileHover="hover"
+			animate={{ skewY: [10, 0], opacity: [0, 1] }}
+			transition={{ duration: 2 }}
+			variants={{
+				hover: {
+					filter: "contrast(1.2)",
+					transition: { duration: 0.4 },
+				},
+			}}
+			style={{
+				position: "relative",
+				zIndex: 8,
+			}}
 		>
 			<Center cursor="pointer" onClick={onclickHandler}>
 				<Box
@@ -37,7 +47,7 @@ const ProjectCard: React.FC<IProProps> = (props) => {
 						layoutId={props.slug}
 						transition={{
 							type: "spring",
-							damping: 42,
+							damping: 32 + props.num * 10,
 						}}
 					>
 						<Image

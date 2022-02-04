@@ -49,14 +49,16 @@ a:active,
 button:hover,
 button:active {
 	box-shadow: none !important;
+	outline: none !important;
 }
 
 .lang-badge {
-	animation: badge-bounce 4s ease-in-out infinite alternate;
+	animation: badge-bounce 8s ease-in-out infinite alternate;
 }
 
 .lang-badge:nth-child(2) {
 	animation-delay: 0.5s;
+	transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .lang-badge:nth-child(3) {
@@ -70,8 +72,13 @@ button:active {
 @keyframes badge-bounce {
 	0% {
 		transform: translateY(0);
-		rotate: -10deg;
+		rotate: 0deg;
 		scale: 0.8;
+	}
+	30% {
+		transform: translateY(-7px);
+		rotate: -10deg;
+		scale: 0.9;
 	}
 	50% {
 		transform: translateY(-10px);

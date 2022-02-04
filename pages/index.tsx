@@ -71,8 +71,8 @@ const Home: NextPage = () => {
 			<motion.div
 				style={{ scale: 2.5 }}
 				initial={{ y: -600, x: 500 }}
-				animate={{ y: [-600, 0], x: [500, 0] }}
-				transition={{ duration: 1.5 }}
+				animate={{ y: [-600, 0], x: [500, 0], opacity: [0, 1] }}
+				transition={{ duration: 2 }}
 				layoutId="floating-person"
 			>
 				<Person height="200" width="400" />

@@ -11,13 +11,13 @@ const About: NextPage = () => {
 				layoutId="nav-about"
 				image="/images/resume.png"
 			/>
-			<a
-				href="https://drive.google.com/file/d/1PLogcZHSrf_AM1c7WIeLbnrxRQ6CmA9M/view?usp=sharing"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Resume{" "}
-			</a>
+			<Box
+				w="100vw"
+				h="100vh"
+				overflowX="hidden"
+				overflowY="auto"
+				style={{ perspective: "38px" }}
+			></Box>
 		</motion.div>
 	);
 };

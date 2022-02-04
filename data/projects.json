@@ -7,8 +7,9 @@
 		"url": "https://next-js-blog-lac.vercel.app/",
 		"github": "https://github.com/SaiSridhar783/NextJS-blog",
 		"languages": ["nextjs", "mongodb", "css3"],
-		"description": "A simple and straightforward blog built with NextJS and MongoDB with a featured section and provision to send a message.",
-		"date": "June, 2021"
+		"description": "A simple and functional blog built using NextJS framework and MongoDB for storage of comments with a featured section and provision to send a message.",
+		"date": "June, 2021",
+		"num": 1
 	},
 	{
 		"name": "E-commerce Website",
@@ -18,7 +19,8 @@
 		"url": "https://saisridhar783.pythonanywhere.com/#/",
 		"github": "https://github.com/SaiSridhar783/react-django-ecommerce",
 		"languages": ["python", "django", "react", "bootstrap"],
-		"description": "",
-		"date": "July, 2021"
+		"description": "A template E commerce website design including a shopping cart, checkout and payment gateway, with a user authentication and registration as well as product reviews. Utilizing Django framework for backend and React for frontend.",
+		"date": "July, 2021",
+		"num": 2
 	}
 ]
