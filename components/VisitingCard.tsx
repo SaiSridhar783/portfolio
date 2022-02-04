@@ -58,7 +58,11 @@ const VisitingCard: React.FC<IVisitingCardProps> = ({
 						skewY: [20, 0],
 						skewX: [20, 0],
 					}}
-					transition={{ delay: delay }}
+					transition={{
+						delay: delay * 2,
+						ease: "anticipate",
+						duration: 3,
+					}}
 				>
 					<Flex
 						as="a"
