@@ -49,6 +49,34 @@
 		"logo": "/images/logos/ucdavis.png"
 	},
 	{
+		"name": "Build Your Own Dynamic Web Application",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/GQIBYARXFM",
+		"logo": "/images/logos/ibhubs.png"
+	},
+	{
+		"name": "Responsive Web Design using Flexbox",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/XFNTPCWOXZ",
+		"logo": "/images/logos/ibhubs.png"
+	},
+	{
+		"name": "Build Your Own Responsive Website",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/RXBCPCFTDV",
+		"logo": "/images/logos/ibhubs.png"
+	},
+	{
+		"name": "Build Your Own Static Website",
+		"type": "Course",
+		"institution": "iB HUBS",
+		"link": "https://10xiitian.ccbp.in/certificate/OPOEHNMXYA",
+		"logo": "/images/logos/ibhubs.png"
+	},
+	{
 		"name": "Python & OOP Concepts",
 		"type": "Course",
 		"institution": "iB HUBS",
