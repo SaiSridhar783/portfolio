@@ -46,7 +46,7 @@ const NavTab: NextPage<INavTabProps & FlexProps> = ({
 				animate={["start"]}
 				whileHover="hovering"
 				transition={{
-					delay: delay,
+					delay: 1 + delay,
 					type: "spring",
 					damping: 50,
 				}}

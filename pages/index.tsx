@@ -27,8 +27,13 @@ const Home: NextPage = () => {
 			</Head>
 
 			<motion.div
-				animate={{ opacity: [0, 1] }}
-				style={{ width: "60%", padding: "10rem 1.5rem" }}
+				animate={{ left: ["-70%", "0%"] }}
+				transition={{ duration: 3, ease: "circOut" }}
+				style={{
+					width: "60%",
+					padding: "10rem 1.5rem",
+					position: "relative",
+				}}
 			>
 				<Flex flexDir="column" justifyContent="center">
 					<Heading
@@ -72,7 +77,7 @@ const Home: NextPage = () => {
 				style={{ scale: 2.5 }}
 				initial={{ y: -600, x: 500 }}
 				animate={{ y: [-600, 0], x: [500, 0], opacity: [0, 1] }}
-				transition={{ duration: 2 }}
+				transition={{ duration: 2.5, ease: "circOut" }}
 				layoutId="floating-person"
 			>
 				<Person height="200" width="400" />

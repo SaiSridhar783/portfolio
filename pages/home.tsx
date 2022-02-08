@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 				/>
 				<motion.div
 					style={{ scale: 2 }}
-					animate={{ opacity: [0, 1] }}
+					transition={{ duration: 2 }}
 					layoutId="floating-person"
 				>
 					<Person height="200" width="400" />
