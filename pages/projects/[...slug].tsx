@@ -62,7 +62,7 @@ const EachProject: NextPage<IProProps> = (props) => {
 						h="100%"
 						borderRadius="1.5rem"
 						position="relative"
-						top={props.apk? "250px" : "0"}
+						top={props.apk ? "250px" : "0"}
 					/>
 				</motion.div>
 				<Flex
@@ -147,7 +147,7 @@ const EachProject: NextPage<IProProps> = (props) => {
 										h="60px"
 										w="60px"
 										position="relative"
-										border="1.2px solid white"
+										border="2px solid white"
 										overflow="hidden"
 									>
 										<ImageNext

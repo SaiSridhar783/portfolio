@@ -13,9 +13,9 @@ interface IOverviewProps {}
 
 const Overview: React.FC<IOverviewProps> = (props) => {
 	const textSize = useBreakpointValue({
-		base: "1.6rem",
-		md: "2.5rem",
-		lg: "3rem",
+		base: "1.3rem",
+		md: "2.2rem",
+		lg: "2.8rem",
 	});
 	return (
 		<Box
@@ -24,7 +24,7 @@ const Overview: React.FC<IOverviewProps> = (props) => {
 			transform="translateZ(-20px) scale(1.3)"
 			style={{ transformStyle: "preserve-3d" }}
 			color="whiteAlpha.800"
-			fontFamily="nunito"
+			fontFamily="Montserrat"
 		>
 			<Box
 				transform="translateZ(-30px) scale(3.5) translateX(-250px) translateY(-160px)"

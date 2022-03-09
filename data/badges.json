@@ -1,0 +1,116 @@
+[
+	{
+		"id": 1,
+		"name": "reactjs",
+		"icon": "https://cdn.svgporn.com/logos/react.svg",
+		"color": "#00070d"
+	},
+	{
+		"id": 2,
+		"name": "nodejs",
+		"icon": "https://cdn.svgporn.com/logos/nodejs.svg",
+		"color": "#89bb3c"
+	},
+	{
+		"id": 3,
+		"name": "mongodb",
+		"icon": "https://cdn.svgporn.com/logos/mongodb.svg",
+		"color": "#031a0e"
+	},
+	{
+		"id": 4,
+		"name": "expressjs",
+		"icon": "https://cdn.svgporn.com/logos/express.svg",
+		"color": "whitesmoke"
+	},
+	{
+		"id": 5,
+		"name": "html5",
+		"icon": "https://cdn.svgporn.com/logos/html-5.svg",
+		"color": "#ccc"
+	},
+	{
+		"id": 6,
+		"name": "css3",
+		"icon": "https://cdn.svgporn.com/logos/css-3.svg",
+		"color": "#ddd"
+	},
+	{
+		"id": 7,
+		"name": "javascript",
+		"icon": "https://cdn.svgporn.com/logos/javascript.svg",
+		"color": "#f7df1e"
+	},
+	{
+		"id": 8,
+		"name": "typescript",
+		"icon": "https://cdn.svgporn.com/logos/typescript.svg",
+		"color": "#082e5c"
+	},
+	{
+		"id": 10,
+		"name": "bootstrap",
+		"icon": "https://cdn.svgporn.com/logos/bootstrap.svg",
+		"color": "#563d7c"
+	},
+	{
+		"id": 11,
+		"name": "git",
+		"icon": "https://cdn.svgporn.com/logos/git.svg",
+		"color": "#ccc"
+	},
+	{
+		"id": 12,
+		"name": "nextjs",
+		"icon": "https://cdn.svgporn.com/logos/nextjs.svg",
+		"color": "black"
+	},
+	{
+		"id": 13,
+		"name": "python",
+		"icon": "https://cdn.svgporn.com/logos/python.svg",
+		"color": "#343434"
+	},
+	{
+		"id": 14,
+		"name": "django",
+		"icon": "https://static.djangoproject.com/img/logos/django-logo-negative.svg",
+		"color": "rgb(9, 46, 32)"
+	},
+	{
+		"id": 15,
+		"name": "sqlite",
+		"icon": "https://cdn.svgporn.com/logos/sqlite.svg",
+		"color": "whitesmoke"
+	},
+	{
+		"id": 16,
+		"name": "markdown",
+		"icon": "https://cdn.svgporn.com/logos/markdown.svg",
+		"color": "#ffffff80"
+	},
+	{
+		"id": 19,
+		"name": "firebase",
+		"icon": "https://cdn.svgporn.com/logos/firebase.svg",
+		"color": "gray"
+	},
+	{
+		"id": 20,
+		"name": "redux",
+		"icon": "https://cdn.svgporn.com/logos/redux.svg",
+		"color": "whitesmoke"
+	},
+	{
+		"id": 21,
+		"name": "heroku",
+		"icon": "https://www.svgrepo.com/show/349404/heroku.svg",
+		"color": "#440099"
+	},
+	{
+		"id": 22,
+		"name": "numpy",
+		"icon": "https://cdn.svgporn.com/logos/numpy.svg",
+		"color": "whitesmoke"
+	}
+]

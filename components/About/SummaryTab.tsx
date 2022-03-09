@@ -14,15 +14,15 @@ const SummaryTab: React.FC<ISummaryTabProps & TextProps> = ({
 	...props
 }) => {
 	const textSize = useBreakpointValue({
-		base: "1.3rem",
-		md: "1.6rem",
-		xl: "2rem",
+		base: "1rem",
+		md: "1.3rem",
+		xl: "1.6rem",
 	});
 
 	const linkSize = useBreakpointValue({
-		base: "0.8rem",
-		md: "1.2rem",
-		xl: "1.5rem",
+		base: "0.7rem",
+		md: "0.8rem",
+		xl: "1.2rem",
 	});
 
 	return (
