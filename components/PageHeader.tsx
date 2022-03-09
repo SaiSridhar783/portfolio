@@ -1,8 +1,9 @@
 import { Flex, Heading } from "@chakra-ui/react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon, ArrowLeftIcon } from "@chakra-ui/icons";
 import * as React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 interface IPageHeaderProps {
 	title: string;
@@ -11,6 +12,12 @@ interface IPageHeaderProps {
 }
 
 const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
+	const router = useRouter();
+
+	const clickHandler = () => {
+		router.back();
+	};
+
 	return (
 		<Flex
 			justifyContent="space-between"
@@ -20,21 +27,19 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title, layoutId, image }) => {
 			position="relative"
 			zIndex={6}
 		>
-			<Link href="/home" passHref replace>
-				<ArrowBackIcon
-					cursor="pointer"
-					transition="color 200ms"
-					color="whiteAlpha.500"
-					_hover={{ color: "white", transition: "color 300ms" }}
-					w={10}
-					h={10}
-					position="relative"
-					zIndex={10}
-				/>
-			</Link>
+			<ArrowLeftIcon
+				cursor="pointer"
+				transition="color 200ms"
+				color="whiteAlpha.500"
+				_hover={{ color: "white", transition: "color 300ms" }}
+				w={7}
+				h={10}
+				position="relative"
+				zIndex={10}
+				onClick={clickHandler}
+			/>
 
 			<motion.div
-				layoutId={layoutId}
 				style={{
 					backgroundColor: "#3ba13f",
 					padding: "0.5rem 0",

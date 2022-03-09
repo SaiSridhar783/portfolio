@@ -1,23 +1,39 @@
+import React from "react";
+import { ArrowLeftIcon } from "@chakra-ui/icons";
 import { Box } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import type { NextPage } from "next";
-import PageHeader from "../components/PageHeader";
+import Link from "next/link";
+import Overview from "../components/About/Overview";
+import SkillsSection from "../components/About/SkillsSection";
+import BottomSection from "../components/About/BottomSection";
 
 const About: NextPage = () => {
 	return (
-		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-			<PageHeader
-				title="About Me"
-				layoutId="nav-about"
-				image="/images/resume.png"
-			/>
+		<motion.div animate={{ opacity: [0, 1] }}>
+			<Link href="/home" passHref>
+				<ArrowLeftIcon
+					position="absolute"
+					zIndex={20}
+					top={8}
+					left={8}
+					height="30px"
+					width="25px"
+					_hover={{ cursor: "pointer", color: "white" }}
+					color="whiteAlpha.600"
+				/>
+			</Link>
 			<Box
 				w="100vw"
 				h="100vh"
 				overflowX="hidden"
 				overflowY="auto"
-				style={{ perspective: "38px" }}
-			></Box>
+				style={{ perspective: "10px" }}
+			>
+				<Overview />
+				<SkillsSection />
+				<BottomSection />
+			</Box>
 		</motion.div>
 	);
 };

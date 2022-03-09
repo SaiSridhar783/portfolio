@@ -26,7 +26,7 @@ const Experience: NextPage = () => {
 				layoutId="nav-experience"
 				image="/images/experience.png"
 			/>
-			<Box px="5rem">
+			<Box px="5rem" pt="2rem">
 				<Heading
 					as="h3"
 					fontSize="4xl"
