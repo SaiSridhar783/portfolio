@@ -43,7 +43,7 @@ const ProjectCard: React.FC<IProProps> = (props) => {
 							background: "#171c23",
 							margin: "-6px -6px 6px -6px",
 							position: "relative",
-							filter: "blur(1.5px)",
+							filter: "blur(.5px)",
 						}}
 						layoutId={props.slug}
 						transition={{

@@ -46,17 +46,20 @@ const reducer = (
 const Contact: NextPage = () => {
 	const [formState, dispatch] = React.useReducer(reducer, initialState);
 	const [showOverlay, setShowOverlay] = React.useState("none");
+	const [isLoading, setIsLoading] = React.useState(false);
 
 	const toast = useToast();
 
 	const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		//alert(JSON.stringify(formState));
+		setIsLoading(true);
 		if (
 			!formState.email.match(
 				/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 			)
 		) {
+			setIsLoading(false);
 			return toast({
 				title: "Invalid Email",
 				description: "Please enter a valid email address.",
@@ -80,6 +83,7 @@ const Contact: NextPage = () => {
 				throw new Error(res.statusText);
 			}
 		} catch (e: any) {
+			setIsLoading(false);
 			toast({
 				title: "Error",
 				description: "Something went wrong... Please try again later.",
@@ -91,6 +95,7 @@ const Contact: NextPage = () => {
 			return;
 		}
 
+		setIsLoading(false);
 		setShowOverlay("block");
 		const timer = setTimeout(() => {
 			setShowOverlay("none");
@@ -383,7 +388,11 @@ const Contact: NextPage = () => {
 									damping: 20,
 								}}
 							>
-								<Button type="submit" colorScheme="green">
+								<Button
+									type="submit"
+									colorScheme="green"
+									isLoading={isLoading}
+								>
 									Submit
 								</Button>
 							</motion.div>
