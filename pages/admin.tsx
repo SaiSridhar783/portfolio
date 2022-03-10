@@ -58,7 +58,12 @@ const Admin: NextPage<IAdminProps> = ({ data }) => {
 				layoutId="nav-admin"
 				image="/images/resume.png"
 			/>
-			<Flex flexDir="column" justifyContent="center" alignItems="center">
+			<Flex
+				flexDir="column"
+				justifyContent="center"
+				alignItems="center"
+				w="95%"
+			>
 				{display.map((row: any, idx: any) => (
 					<Flex
 						key={idx}
