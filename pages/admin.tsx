@@ -101,7 +101,7 @@ const Admin: NextPage<IAdminProps> = ({ data }) => {
 	);
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	const res = await client.messages.findMany();
 
 	return {
