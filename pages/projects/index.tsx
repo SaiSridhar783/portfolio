@@ -1,5 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 import type { NextPage } from "next";
+import Head from "next/head";
 import PageHeader from "../../components/PageHeader";
 import ProjectCard from "../../components/Projects/ProjectCard";
 import proJSON from "../../data/projects.json";
@@ -12,6 +13,9 @@ const Projects: NextPage = () => {
 				layoutId="nav-projects"
 				image="/images/projects.png"
 			/>
+			<Head>
+				<title>Projects of Sai Sridhar</title>
+			</Head>
 			<Flex gap="3rem" pl="3%" flexWrap="wrap" pb="5rem">
 				{proJSON.map((proj, idx) => (
 					// @ts-ignore

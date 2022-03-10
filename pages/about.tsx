@@ -7,10 +7,14 @@ import Link from "next/link";
 import Overview from "../components/About/Overview";
 import SkillsSection from "../components/About/SkillsSection";
 import BottomSection from "../components/About/BottomSection";
+import Head from "next/head";
 
 const About: NextPage = () => {
 	return (
 		<motion.div animate={{ opacity: [0, 1] }}>
+			<Head>
+				<title>Info on Sai Sridhar</title>
+			</Head>
 			<Link href="/home" passHref>
 				<ArrowLeftIcon
 					position="absolute"

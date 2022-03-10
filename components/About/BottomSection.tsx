@@ -12,7 +12,7 @@ const BottomSection: React.FC<IBottomSectionProps> = (props) => {
 			position="relative"
 			zIndex={2}
 			top="100%"
-			transform="translateZ(-10px) scale(2)"
+			transform="translateZ(-10px) scale(2) translateY(20rem)"
 			style={{ transformStyle: "preserve-3d" }}
 		>
 			Bankai

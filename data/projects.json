@@ -78,7 +78,7 @@
 		"image": "/images/projects/vr.png",
 		"url": "https://saisridhar783.github.io/Web-Development/VR%20Website/main-vr.html",
 		"github": "https://github.com/SaiSridhar783/Web-Development/tree/main/VR%20Website",
-		"languages": ["hmtl5", "css3", "bootstrap"],
+		"languages": ["html5", "css3", "bootstrap"],
 		"description": "A template for a VR website built using HTML5, CSS3 and Bootstrap. The website is responsive and can be viewed on mobile and desktop. No Dynamic content.",
 		"date": "June, 2021",
 		"num": 2

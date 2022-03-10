@@ -16,6 +16,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import Social from "../components/Social";
+import Head from "next/head";
 
 const mainDelay = 0.6;
 
@@ -100,6 +101,9 @@ const Contact: NextPage = () => {
 
 	return (
 		<Box>
+			<Head>
+				<title>Contact Sai Sridhar</title>
+			</Head>
 			<Flex
 				display={showOverlay}
 				position="fixed"

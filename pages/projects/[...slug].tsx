@@ -21,7 +21,8 @@ const mainDelay = 0;
 
 const EachProject: NextPage<IProProps> = (props) => {
 	const clickHandler = () => {
-		router.replace(`/projects`);
+		router.back()
+		//router.replace(`/projects`);
 	};
 
 	return (

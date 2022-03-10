@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Person from "../components/Person";
 import type { NextPage } from "next";
 import NavTab from "../components/NavTab";
+import Head from "next/head";
 
 const Home: NextPage = () => {
 	return (
@@ -14,6 +15,9 @@ const Home: NextPage = () => {
 			h="100vh"
 			overflow="hidden"
 		>
+			<Head>
+				<title>Sai&apos;s Portfolio Navigation</title>
+			</Head>
 			<Flex justifyContent="space-around" alignItems="center" w="70%">
 				<NavTab
 					title="Projects"

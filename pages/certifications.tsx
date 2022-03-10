@@ -10,6 +10,7 @@ import eduJSON from "../data/education.json";
 import certiJSON from "../data/certificates.json";
 import Education from "../components/Certifications/Education";
 import Technical from "../components/Certifications/Technical";
+import Head from "next/head";
 
 const Fallback = () => (
 	<Text color="black" fontSize="2xl" w="50%" textAlign="center">
@@ -41,6 +42,9 @@ const Certi: NextPage = () => {
 
 	return (
 		<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+			<Head>
+				<title>Certifications of Sai Sridhar</title>
+			</Head>
 			<PageHeader
 				title="Certifications"
 				layoutId="nav-certifications"

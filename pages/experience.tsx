@@ -12,6 +12,7 @@ import {
 import VisitingCard from "../components/VisitingCard";
 import Card from "../components/Card";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import Head from "next/head";
 
 const Experience: NextPage = () => {
 	return (
@@ -21,6 +22,9 @@ const Experience: NextPage = () => {
 				paddingBottom: "3rem",
 			}}
 		>
+			<Head>
+				<title>Experience of Sai Sridhar</title>
+			</Head>
 			<PageHeader
 				title="Experience"
 				layoutId="nav-experience"
