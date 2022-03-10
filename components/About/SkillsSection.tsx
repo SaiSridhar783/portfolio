@@ -22,7 +22,7 @@ const SkillsSection: React.FC<ISkillsSectionProps> = (props) => {
 			flexDirection={{ base: "column", xl: "row" }}
 		>
 			<Heading
-				w={{ base: "50%", xl: "40%" }}
+				w={{ base: "80%", lg: "50%", xl: "30%" }}
 				textAlign="center"
 				color="whiteAlpha.700"
 				textTransform="capitalize"
@@ -31,6 +31,8 @@ const SkillsSection: React.FC<ISkillsSectionProps> = (props) => {
 					xl: "translateZ(10px) scale(0.5) translateX(500px)",
 				}}
 				zIndex={4}
+				fontSize={{ base: "1.9rem", lg: "2.2rem", xl: "2.5rem" }}
+				mb={{ base: "-2rem", lg: 0 }}
 			>
 				Here are some of the skills you can count on me for
 			</Heading>
@@ -40,7 +42,7 @@ const SkillsSection: React.FC<ISkillsSectionProps> = (props) => {
 				w="60%"
 				justifyContent="center"
 				alignItems="center"
-				//transform="translateZ(5px) scale(0.7) translateX(-100px)"
+				transform={{ base: "scale(0.9)", lg: "scale(1)" }}
 			>
 				{badgesData.map((badge, idx) => (
 					<motion.div
@@ -64,7 +66,7 @@ const SkillsSection: React.FC<ISkillsSectionProps> = (props) => {
 							<Box
 								mx="3"
 								my="6"
-								p="2"
+								p="1.5"
 								backgroundColor={badge.color}
 								border="2px solid black"
 								borderRadius={10}

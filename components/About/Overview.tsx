@@ -20,14 +20,22 @@ const Overview: React.FC<IOverviewProps> = (props) => {
 	return (
 		<Box
 			h="100vh"
-			w="80vw"
-			transform="translateZ(-20px) scale(1.3)"
+			w="100%"
+			px="10vw"
+			transform={{
+				base: "",
+				lg: "translateZ(-20px) scale(1.2)",
+				xl: "translateZ(-20px) scale(1.3)",
+			}}
 			style={{ transformStyle: "preserve-3d" }}
 			color="whiteAlpha.800"
 			fontFamily="Montserrat"
 		>
 			<Box
-				transform="translateZ(-30px) scale(3.5) translateX(-250px) translateY(-160px)"
+				transform={{
+					base: "translateZ(-30px) scale(3.5) translateY(-160px)",
+					lg: "translateZ(-30px) scale(3.5) translateX(-250px) translateY(-160px)",
+				}}
 				style={{ transformStyle: "preserve-3d" }}
 				color="white"
 			>
@@ -42,7 +50,10 @@ const Overview: React.FC<IOverviewProps> = (props) => {
 				</Heading>
 			</Box>
 			<Flex
-				transform="translateZ(-80px) scale(7) translateX(-230px)"
+				transform={{
+					base: "translateZ(-20px) scale(4)",
+					lg: "translateZ(-80px) scale(7) translateX(-230px)",
+				}}
 				style={{ transformStyle: "preserve-3d" }}
 				mt="1rem"
 				textAlign="justify"
@@ -62,31 +73,39 @@ const Overview: React.FC<IOverviewProps> = (props) => {
 					left="3rem"
 					top={-3}
 				>
-					Currently pursuing my Bachelors in Mining Engineering from
-					Indian Institute of Technology, Kharagpur.
+					Pursuing my Bachelors in Mining Engineering from Indian
+					Institute of Technology, Kharagpur.
 				</SummaryTab>
 			</Flex>
 			<Flex
-				transform="translateZ(-100px) scale(8) translateX(-230px) translateY(250px)"
+				transform={{
+					base: "translateZ(-20px) scale(5) translateY(250px)",
+					lg: "translateZ(-100px) scale(8) translateX(-230px) translateY(250px)",
+				}}
 				style={{ transformStyle: "preserve-3d" }}
 				mt="3rem"
 				textAlign="justify"
 			>
 				<SummaryTab
-					transform="translateZ(-64px) scale(1.4)"
+					transform={{
+						md: "translateZ(-32px) scale(0.95) translateY(-100px) translateX(-70px)",
+						lg: "translateZ(-64px) scale(1.4) translateX(-200px)",
+					}}
 					link="/experience"
 					linkText="More about my experience"
 					top={50}
-					left={-290}
 				>
 					I have some experience as a UI developer intern and actively
 					contribute to open source.
 				</SummaryTab>
 				<SummaryTab
-					transform="translateZ(-32px) scale(1.16)"
+					transform={{
+						md: "translateZ(-32px) scale(0.95) translateY(-100px)",
+						lg: "translateZ(-64px) scale(1.4) translateX(48px)",
+					}}
 					link="/contact"
 					linkText="Connect with me!"
-					left={10}
+					top={50}
 				>
 					Whats that? You would like to know more about me? Or perhaps
 					you would like to get in touch?
@@ -100,11 +119,15 @@ const Overview: React.FC<IOverviewProps> = (props) => {
 				h="850px"
 				border="2px solid rgb(0,7,13)"
 				pointerEvents="none"
-				transform="translateZ(-5px) scale(1.4) translateX(35rem)"
+				transform={{
+					md: "translateZ(-5px) scale(1.4) translateX(20rem)",
+					xl: "translateZ(-5px) scale(1.4) translateX(30rem)",
+				}}
 				style={{ transformStyle: "preserve-3d" }}
 				position="absolute"
 				top={-100}
 				right={-80}
+				display={{ base: "none", lg: "block" }}
 			/>
 		</Box>
 	);

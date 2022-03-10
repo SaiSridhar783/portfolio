@@ -13,7 +13,7 @@ const About: NextPage = () => {
 	return (
 		<motion.div animate={{ opacity: [0, 1] }}>
 			<Head>
-				<title>Info on Sai Sridhar</title>
+				<title>Information on Sai Sridhar</title>
 			</Head>
 			<Link href="/home" passHref>
 				<ArrowLeftIcon

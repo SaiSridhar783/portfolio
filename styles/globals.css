@@ -344,6 +344,20 @@ button:active {
 	color: #fff;
 }
 
+@media screen and (max-width: 1280px) {
+	.social-button {
+		scale: 0.8;
+	}
+}
+
+.social-wrapper {
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	min-width: max-content;
+}
+
 /* End */
 
 /* Person SVG */
