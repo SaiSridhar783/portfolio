@@ -1,5 +1,17 @@
 [
 	{
+		"name": "Hoek and Brown",
+		"slug": "hoek-and-brown",
+		"type": "desktop app",
+		"image": "/images/projects/hoek-brown.png",
+		"file": "https://github.com/SaiSridhar783/ARE_Project/releases/tag/v1.0.4",
+		"github": "https://github.com/SaiSridhar783/ARE_Project",
+		"languages": ["nextjs", "html5", "css3", "electron"],
+		"description": "Cross Platform app built using Nextron that aloows to compute Hoek and Brown parameters for rock mass. The program has been compiled for linux and windows operating systems.",
+		"date": "March, 2022",
+		"num": 1
+	},
+	{
 		"name": "Personal Blog",
 		"slug": "next-js-blog",
 		"type": "website",

@@ -21,7 +21,7 @@ const mainDelay = 0;
 
 const EachProject: NextPage<IProProps> = (props) => {
 	const clickHandler = () => {
-		router.back()
+		router.back();
 		//router.replace(`/projects`);
 	};
 
@@ -200,6 +200,19 @@ const EachProject: NextPage<IProProps> = (props) => {
 								fontWeight="900"
 							>
 								Download APK
+							</Button>
+						)}
+						{props.file && (
+							<Button
+								colorScheme="cyan"
+								width="10rem"
+								as="a"
+								href={props.file}
+								target="_blank"
+								fontWeight="900"
+								cursor="pointer"
+							>
+								Download File
 							</Button>
 						)}
 						{props.github && (
