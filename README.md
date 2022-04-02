@@ -8,5 +8,5 @@ Explore all the animations! Any feedback is welcome.
 
 ### TODO
 
-- [X] Make a desktop version
+- [x] Make a desktop version
 - [ ] Make it responsive
