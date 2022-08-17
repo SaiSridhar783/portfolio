@@ -2,16 +2,17 @@ import * as React from "react";
 import Head from "next/head";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import isMobile from "is-mobile";
-import Block from "../components/Block";
+import { useRouter } from "next/router";
 
 const Layout: React.FC = ({ children }) => {
+	const { replace } = useRouter();
 	const isMobileBool = isMobile();
 	const [isPortrait] = useMediaQuery("(orientation: portrait)");
-	const [loaded, setLoaded] = React.useState(false);
 
 	React.useEffect(() => {
-		setLoaded(true);
-	}, []);
+		if (isMobileBool || isPortrait) replace("/mobile");
+		else replace("/"); //@ts-ignore
+	}, [isPortrait, isMobileBool]);
 
 	return (
 		<Box fontFamily="Poppins" bg="#00070d" minH="100vh" minW="100vw">
@@ -22,8 +23,7 @@ const Layout: React.FC = ({ children }) => {
 					content="width=device-width, initial-scale=1.0"
 				/>
 			</Head>
-			{loaded && (isPortrait || isMobileBool) && <Block />}
-			{!isPortrait && !isMobileBool && children}
+			{children}
 		</Box>
 	);
 };

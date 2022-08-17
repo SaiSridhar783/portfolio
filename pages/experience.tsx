@@ -42,6 +42,32 @@ const Experience: NextPage = () => {
 				</Heading>
 				<Flex alignItems="center">
 					<VisitingCard
+						title="SDE Intern"
+						company="NoBroker Technologies Pvt. Ltd."
+						logo="/images/company/Nobroker.png"
+						duration="May 09, 2022 - July 08, 2022"
+						compURL="https://www.nobroker.in/"
+					>
+						Created a Tree visualizer for the entire services
+						catalog to allow for easy updation of the data and added
+						a few APIs to make the process of updation more
+						efficient.
+						<Text
+							as="a"
+							d="block"
+							mt="1rem"
+							fontSize="1rem"
+							textAlign="right"
+							color="blue"
+							_hover={{ color: "blue.600" }}
+							target="_blank"
+							href="https://drive.google.com/file/d/1bwEg0b8nKAm9UA2GID9Mhf22OHuZ60SC/view?usp=sharing"
+							rel="noreferrer noopener"
+						>
+							View Credential <ChevronRightIcon />
+						</Text>
+					</VisitingCard>
+					<VisitingCard
 						title="UI Development Intern"
 						company="Dotgo Pvt. Ltd."
 						logo="/images/company/dotgo.jfif"

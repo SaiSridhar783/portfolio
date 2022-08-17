@@ -240,7 +240,7 @@ const EachProject: NextPage<IProProps> = (props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
 	const paths = proJSON.map((pro) => ({ params: { slug: [pro.slug] } }));
 	return {
-		paths: [...paths],
+		paths,
 		fallback: false,
 	};
 };
