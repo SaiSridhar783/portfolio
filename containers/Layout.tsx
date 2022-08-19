@@ -5,13 +5,14 @@ import isMobile from "is-mobile";
 import { useRouter } from "next/router";
 
 const Layout: React.FC = ({ children }) => {
-	const { replace } = useRouter();
+	const { replace, asPath } = useRouter();
 	const isMobileBool = isMobile();
 	const [isPortrait] = useMediaQuery("(orientation: portrait)");
 
 	React.useEffect(() => {
-		if (isMobileBool || isPortrait) replace("/mobile");
-		else replace("/"); //@ts-ignore
+		if (isMobileBool || isPortrait) replace("/mobile" + asPath);
+		else replace(asPath);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isPortrait, isMobileBool]);
 
 	return (
