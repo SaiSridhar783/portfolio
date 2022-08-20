@@ -9,9 +9,16 @@ const Layout: React.FC = ({ children }) => {
 	const isMobileBool = isMobile();
 	const [isPortrait] = useMediaQuery("(orientation: portrait)");
 
+	console.log("Layout Page");
+
 	React.useEffect(() => {
-		if (isMobileBool || isPortrait) replace("/mobile" + asPath);
-		else replace(asPath);
+		if (asPath.startsWith("/mobile")) {
+			if (isMobileBool || isPortrait) replace(asPath);
+			else replace(asPath.slice(7) || "/");
+		} else {
+			if (isMobileBool || isPortrait) replace("/mobile" + asPath);
+			else replace(asPath);
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isPortrait, isMobileBool]);
 
