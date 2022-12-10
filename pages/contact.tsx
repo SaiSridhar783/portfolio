@@ -405,7 +405,7 @@ const Contact: NextPage = () => {
 				layoutId={`nav-contact-icon`}
 				animate={{ scale: [0.2, 0.5, 1] }}
 				transition={{ duration: 0.8 }}
-				href="https://drive.google.com/file/d/1PLogcZHSrf_AM1c7WIeLbnrxRQ6CmA9M/view?usp=sharing"
+				href="https://drive.google.com/file/d/1AfiPwjBUNrcnJ2ORvGKAZevBWPcQzmwE/view?usp=sharing"
 				target="_blank"
 				rel="noopener noreferrer"
 				style={{
