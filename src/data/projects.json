@@ -1,0 +1,131 @@
+[
+	{
+		"name": "Hoek and Brown",
+		"slug": "hoek-and-brown",
+		"type": "desktop app",
+		"image": "/images/projects/hoek-brown.png",
+		"file": "https://github.com/SaiSridhar783/ARE_Project/releases/tag/v1.0.4",
+		"github": "https://github.com/SaiSridhar783/ARE_Project",
+		"languages": ["nextjs", "html5", "css3", "electron"],
+		"description": "Cross Platform app built using Nextron that aloows to compute Hoek and Brown parameters for rock mass. The program has been compiled for linux and windows operating systems.",
+		"date": "March, 2022",
+		"num": 1
+	},
+	{
+		"name": "Personal Blog",
+		"slug": "next-js-blog",
+		"type": "website",
+		"image": "/images/projects/next-blog.jpeg",
+		"url": "https://next-js-blog-lac.vercel.app/",
+		"github": "https://github.com/SaiSridhar783/NextJS-blog",
+		"languages": ["nextjs", "mongodb", "css3"],
+		"description": "A simple and functional blog built using NextJS framework and MongoDB for storage of comments with a featured section and provision to send a message.",
+		"date": "June, 2021",
+		"num": 1
+	},
+	{
+		"name": "E-Commerce Website",
+		"slug": "e-commerce-django",
+		"type": "website",
+		"image": "/images/projects/django.jpeg",
+		"url": "https://saisridhar783.pythonanywhere.com/#/",
+		"github": "https://github.com/SaiSridhar783/react-django-ecommerce",
+		"languages": ["python", "django", "react", "bootstrap"],
+		"description": "A template E commerce website design including a shopping cart, checkout and payment gateway, with a user authentication and registration as well as product reviews. Utilizing Django framework for backend and React for frontend.",
+		"date": "July, 2021",
+		"num": 2
+	},
+	{
+		"name": "Burger Builder",
+		"slug": "burger-builder",
+		"type": "website",
+		"image": "/images/projects/burger.jpeg",
+		"url": "https://react-my-burger-8cf74.web.app/",
+		"github": "https://github.com/SaiSridhar783/burger-builder",
+		"languages": ["react", "firebase", "css3", "html5"],
+		"description": "A burger builder app built using React and Firebase for authentication and storage of orders that are segregated by user. Responsive design with a drawer for mobile.",
+		"date": "March, 2021",
+		"num": 3
+	},
+	{
+		"name": "E-Commerce Shop",
+		"slug": "react-native-shop",
+		"type": "app",
+		"image": "/images/projects/shop.jpeg",
+		"apk": "https://drive.google.com/file/d/1kn9ufL1N9Y6AwKaBiiaAkbmooIyXdGj1/view?usp=sharing",
+		"github": "https://github.com/SaiSridhar783/React-Native/tree/Shop",
+		"languages": ["reactnative", "firebase", "redux", "typescript"],
+		"description": "A shopping app built using React Native, Firebase for authentication and storage of orders and Redux for state management. Push Notifications implemented as well",
+		"date": "November, 2021",
+		"num": 2
+	},
+	{
+		"name": "Great Places",
+		"slug": "great-places",
+		"type": "app",
+		"image": "/images/projects/great-places.jpeg",
+		"apk": "https://drive.google.com/file/d/1L_y7RPbFjOTpymDPkwsd4HOj7hgqCItd/view?usp=sharing",
+		"github": "https://github.com/SaiSridhar783/React-Native/tree/Great-Places",
+		"languages": ["reactnative", "typescript"],
+		"description": "A mobile app that uses native device features such as Camera, Geolocation, and MapView to record a list of places by the user. Data is locally stored for each user.",
+		"date": "December, 2021",
+		"num": 3
+	},
+	{
+		"name": "Solidity Wave",
+		"slug": "solidity-wave",
+		"type": "website",
+		"image": "/images/projects/wave.png",
+		"url": "https://solidity-wave--saisridhar783.repl.co/",
+		"github": "https://github.com/SaiSridhar783/SolidityWave",
+		"languages": ["solidity", "react"],
+		"description": "A web app that uses React for the frontend and implements a Solidity contract. The contract in deployed on the Rinkeby testnet. Contract can be interacted with by 'Waving' at me through the website.",
+		"date": "October, 2021",
+		"num": 4
+	},
+	{
+		"name": "VR Website Template",
+		"slug": "vr-template",
+		"type": "website",
+		"image": "/images/projects/vr.png",
+		"url": "https://saisridhar783.github.io/Web-Development/VR%20Website/main-vr.html",
+		"github": "https://github.com/SaiSridhar783/Web-Development/tree/main/VR%20Website",
+		"languages": ["html5", "css3", "bootstrap"],
+		"description": "A template for a VR website built using HTML5, CSS3 and Bootstrap. The website is responsive and can be viewed on mobile and desktop. No Dynamic content.",
+		"date": "June, 2021",
+		"num": 2
+	},
+	{
+		"name": "Whatsapp Bot",
+		"slug": "what-bot",
+		"type": "application",
+		"image": "/images/projects/bot.jpg",
+		"github": "https://github.com/SaiSridhar783/WATS-bail",
+		"languages": ["nodejs", "typescript"],
+		"description": "A simple whatsapp bot built upon the Baileys library that makes a socket connection. The bot can send messages, media, and stickers to the user based on certain commands.",
+		"date": "June, 2021",
+		"num": 2
+	},
+	{
+		"name": "PyBot",
+		"slug": "py-bot",
+		"type": "application",
+		"image": "/images/projects/pybot.png",
+		"github": "https://github.com/IAmOZRules/PyBot/tree/Django",
+		"languages": ["python", "django", "react"],
+		"description": "A contextual chatbot made using PyTorch and the NLTK Library for Python. The underlying model was converted into an API using Django with a frontend in ReactJS by me.",
+		"date": "August, 2021",
+		"num": 3
+	},
+	{
+		"name": "Machine Learning",
+		"slug": "machine-learning",
+		"type": "application",
+		"image": "/images/projects/ml.jpeg",
+		"github": "https://github.com/SaiSridhar783/Machine-Learning",
+		"languages": ["python", "sklearn", "numpy"],
+		"description": "A collection of machine learning projects that includes implementation of models from scratch such as linear regression and random forests.",
+		"date": "June, 2021",
+		"num": 2
+	}
+]

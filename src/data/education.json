@@ -1,0 +1,29 @@
+[
+	{
+		"name": "Bachelor of Technology (B.Tech)",
+		"CGPA": "8.64",
+		"institute": "Indian Institute of Technology, Kharagpur",
+		"year": "2019-Present",
+		"logo": "/images/logos/iitkgp.png",
+		"stream": "Mining Engineering",
+		"type": "Degree"
+	},
+	{
+		"name": "Senior Secondary School (AISSCE)",
+		"Percentage": "92.8%",
+		"institute": "Royale Concorde International School, Kalyan Nagar",
+		"year": "2019",
+		"logo": "/images/logos/rcis.png",
+		"stream": "PCMC",
+		"type": "Intermediate"
+	},
+	{
+		"name": "Junior Secondary School (CBSE)",
+		"CGPA": "10.00",
+		"institute": "Presidency School Bangalore East, Kasturi Nagar",
+		"year": "2017",
+		"logo": "/images/logos/psbe.jfif",
+		"stream": "Class 10",
+		"type": "Boards"
+	}
+]
