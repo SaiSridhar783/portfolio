@@ -1,0 +1,339 @@
+@import "variables";
+
+.contact {
+	.contact-container {
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.contact-main {
+		padding: 7rem 10rem;
+		padding-bottom: 0;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 60%;
+		animation: slideInAndFadeIn 1.3s forwards ease-in-out;
+
+		h1 {
+			color: white;
+			text-align: center;
+			margin-bottom: 1.5rem;
+		}
+
+		img {
+			aspect-ratio: 2 / 1;
+			height: 100%;
+
+			@media screen and (width < 1050px) {
+				display: none;
+			}
+		}
+	}
+
+	.social-container {
+		display: flex;
+		justify-content: center;
+		margin-top: 1.5rem;
+	}
+
+	.acquaint {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+
+		p {
+			width: 80%;
+			text-align: center;
+			color: #718096;
+		}
+	}
+}
+
+.bookmark {
+	position: absolute;
+	top: 0;
+	right: 12vw;
+	z-index: 3;
+	height: 88vh;
+	background-color: #2f4353;
+	background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+	width: 30vw;
+	border-radius: 0 0 20% 20%;
+	box-shadow: 2px 0 3px rgba(255, 255, 255, 0.8);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	animation: expandHeight 1.3s forwards ease-in-out;
+
+	.bookmark-label {
+		color: transparent;
+		font-weight: 700;
+		font-size: 1.8rem;
+		background-image: linear-gradient(to right, #777 40%, #333);
+		background-clip: text;
+		max-width: 80%;
+		text-align: center;
+		margin: 0 auto;
+		animation: scaleAndFadeIn 1.3s forwards ease-in-out;
+	}
+
+	label {
+		color: rgba(255, 255, 255, 0.6);
+		display: block;
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+	}
+
+	input,
+	textarea {
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		background-color: rgba(255, 255, 255, 0.9);
+		transition: all 0.3s ease-in-out;
+
+		&:focus,
+		&:hover {
+			background-color: white;
+		}
+	}
+
+	button {
+		cursor: pointer;
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		background-color: $green;
+		color: white;
+		font-weight: 600;
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			background-color: $greenHover;
+		}
+	}
+}
+
+.stamp {
+	box-shadow: 0 0 0 3px red, 0 0 0 2px red inset;
+	border: 2px solid transparent;
+	border-radius: 4px;
+	position: relative;
+	top: 40%;
+	left: 40%;
+	padding: 5px 2px;
+	line-height: 22px;
+	color: red;
+	font-size: 24px;
+	font-family: "Montserrat", cursive;
+	font-weight: bold;
+	background-color: white;
+	text-transform: uppercase;
+	text-align: center;
+	width: 155px;
+	transform: rotate(-5deg) scale(2);
+}
+
+.resume-badge {
+	height: 110px;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	background: url("/images/contact.jpg");
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	padding-bottom: 1.8rem;
+	animation: scaleAnimation 0.8s ease-in-out;
+
+	.resume-text {
+		color: whitesmoke;
+		background-color: rgba(0, 0, 0, 0.6);
+		width: 100%;
+		mix-blend-mode: multiply;
+		text-align: center;
+	}
+}
+
+.form-element {
+	position: relative;
+	top: -600px;
+	margin-bottom: 2rem;
+	animation: slideIn 1s ease-in-out forwards;
+}
+
+.form-last {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	bottom: -400px;
+	animation: slideInBottom 1s ease-in-out forwards;
+}
+
+.small-form {
+	display: none;
+	background-color: #2f4353;
+	padding: 2rem;
+
+	.form-element {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 320px;
+
+		label {
+			color: rgba(255, 255, 255, 0.6);
+			display: block;
+			font-weight: 600;
+			margin-bottom: 0.5rem;
+		}
+
+		input,
+		textarea {
+			border-radius: 5px;
+			padding: 0.5rem 1rem;
+			background-color: rgba(255, 255, 255, 0.9);
+			transition: all 0.3s ease-in-out;
+
+			&:focus,
+			&:hover {
+				background-color: white;
+			}
+		}
+	}
+
+	.form-last {
+		cursor: pointer;
+		border-radius: 5px;
+		padding: 0.5rem 1rem;
+		background-color: $green;
+		color: white;
+		font-weight: 600;
+		transition: all 0.3s ease-in-out;
+		box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.3);
+
+		&:hover {
+			background-color: $greenHover;
+		}
+	}
+}
+
+@keyframes scaleAnimation {
+	0% {
+		scale: 0.2;
+	}
+	50% {
+		scale: 0.5;
+	}
+	100% {
+		scale: 1;
+	}
+}
+
+@keyframes slideInAndFadeIn {
+	from {
+		bottom: -600px;
+		opacity: 0;
+	}
+	to {
+		bottom: 0;
+		opacity: 1;
+	}
+}
+
+@keyframes expandHeight {
+	from {
+		height: 0vh;
+	}
+	to {
+		height: 88vh;
+	}
+}
+
+@keyframes slideIn {
+	0% {
+		top: -600px;
+	}
+	25% {
+		top: 100px;
+	}
+	50% {
+		top: -15px;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+@keyframes slideInBottom {
+	0% {
+		bottom: -400px;
+	}
+	25% {
+		bottom: 50px;
+	}
+	50% {
+		bottom: -10px;
+	}
+	100% {
+		bottom: 0;
+	}
+}
+
+@keyframes scaleAndFadeIn {
+	from {
+		scale: 0;
+		opacity: 0;
+	}
+	to {
+		scale: 1;
+		opacity: 1;
+	}
+}
+
+@media screen and (width < 1050px) {
+	.bookmark {
+		display: none;
+	}
+
+	.contact {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		.contact-main {
+			width: 100%;
+			padding: 0;
+		}
+
+		.acquaint {
+			p {
+				width: 100%;
+			}
+		}
+	}
+
+	.small-form {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}

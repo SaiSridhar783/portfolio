@@ -1,0 +1,227 @@
+.experience {
+	animation: fadeIn 1.5s ease-in-out;
+	padding: 2rem 4rem;
+
+	.experience-heading {
+		font-size: 2rem;
+		font-weight: 600;
+		color: white;
+		margin-bottom: 3rem;
+
+		&:last-of-type {
+			margin-top: 2.5rem;
+		}
+	}
+
+	.experience-cards {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 2.5rem;
+
+		> div {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			> button {
+				display: flex;
+				align-items: center;
+				align-self: flex-end;
+				gap: 0.5rem;
+			}
+		}
+	}
+
+	.cred-link {
+		display: block;
+		margin-top: 1rem;
+		font-size: 1rem;
+		text-align: right;
+		color: blue;
+
+		&:hover {
+			color: #3182ce;
+		}
+	}
+}
+
+.parallax {
+	border-radius: 2rem;
+}
+
+.visiting-card {
+	position: relative;
+	z-index: 12;
+	min-width: 25rem;
+	height: 15rem;
+	animation: slideAndSkew 1.5s ease-in-out;
+	background-color: #ccc;
+	border-radius: 2rem;
+	padding: 1rem;
+	margin: 0.2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	box-shadow: rgb(0 0 0 / 90%) 2px -1px 4px,
+		rgb(255 255 255 / 60%) 3px -2px 0px 1px;
+
+	.company-text {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		cursor: pointer;
+
+		p {
+			background-color: #565656;
+			color: transparent;
+			text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+			background-clip: text;
+			font-weight: 700;
+		}
+	}
+
+	.card-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.4rem;
+		font-weight: 800;
+		background-color: #565656;
+		color: transparent;
+		text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.5);
+		background-clip: text;
+	}
+
+	.card-duration {
+		display: flex;
+		justify-content: flex-end;
+		font-weight: 600;
+		font-size: 0.95rem;
+		background-color: #565656;
+		color: transparent;
+		text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+		background-clip: text;
+	}
+}
+
+.learn-more-btn {
+	position: relative;
+	top: 1rem;
+	padding: 0.5rem 1rem;
+	background-color: transparent;
+	color: #aaa;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+.mini-card {
+	display: flex;
+	flex-direction: column;
+	width: 18rem;
+	height: 18rem;
+	background-color: #9a9a95;
+	border-radius: 2rem;
+	overflow: hidden;
+	margin-right: 0.5rem;
+	box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.3);
+	animation: mini-card-hover 3s ease-in-out infinite;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 0 0.5rem;
+	}
+
+	.mini-card__link {
+		width: 100%;
+		height: 25%;
+		padding: 1.5rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.6);
+		cursor: pointer;
+
+		p {
+			color: white;
+		}
+	}
+
+	div {
+		padding: 1.5rem;
+	}
+}
+
+div[popover] {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	animation: fadeInOnly 0.5s ease-in-out;
+	padding: 2rem;
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	&::backdrop {
+		transition: all 1s;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: 1000;
+	}
+
+	.close-btn {
+		margin-left: 42vw;
+		margin-top: 1.5rem;
+		background-color: darkred;
+		color: white;
+		font-weight: 600;
+		padding: 0.5rem 1rem;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+}
+
+@keyframes mini-card-hover {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.02);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes slideAndSkew {
+	from {
+		transform: translateY(-500px) skewY(20deg) skewX(20deg);
+	}
+	to {
+		transform: translateY(0) skewY(0deg) skewX(0deg);
+	}
+}
+
+@keyframes fadeInOnly {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

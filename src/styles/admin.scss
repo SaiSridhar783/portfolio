@@ -1,0 +1,41 @@
+.admin {
+	animation: fadeIn 1.5s ease-in-out;
+
+	.admin-display {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 95%;
+	}
+
+	.admin-card {
+		background-color: gray;
+		margin-bottom: 2rem;
+		border-radius: 1rem;
+		padding: 1.2rem;
+		width: 500px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.admin-info {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+
+		.heading {
+			font-weight: 600;
+			font-size: 1.2rem;
+		}
+	}
+
+	.admin-message {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+}

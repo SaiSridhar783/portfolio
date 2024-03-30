@@ -1,0 +1,249 @@
+@import "variables";
+
+.home-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden;
+	padding: 2rem;
+
+	.home-intro {
+		width: 60%;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		animation: slideInFromLeft 3s ease-out;
+	}
+
+	.home-hello {
+		color: white;
+		font-size: clamp(2.5rem, 4vw, 2.8rem);
+	}
+
+	h2 {
+		color: #ffffffcc;
+		font-size: clamp(1.6rem, 3vw, 2rem);
+		line-height: 1.1cm;
+		font-weight: 500;
+
+		span {
+			color: #4299e1;
+		}
+	}
+
+	button {
+		padding: 0.6rem 1.2rem;
+		border-radius: 5px;
+		background-color: $green;
+		color: white;
+		font-weight: bolder;
+		margin-top: 2rem;
+		transition: all 300ms;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $greenHover;
+		}
+	}
+
+	a {
+		align-self: flex-start;
+	}
+
+	.floating-person {
+		z-index: 1;
+		animation: floatingPersonAnimation 2.5s ease-out;
+	}
+
+	@media screen and (width<1000px) {
+		flex-direction: column-reverse;
+
+		.home-intro {
+			align-items: center;
+		}
+
+		h2 {
+			text-align: center;
+		}
+
+		a {
+			align-self: center;
+		}
+	}
+}
+
+.homepanel {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100vw;
+	min-height: 100vh;
+	overflow-x: hidden;
+
+	.nav-mid {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		width: 70%;
+	}
+
+	.nav-sides {
+		display: flex;
+		justify-content: space-around;
+		width: 45%;
+		gap: 5vw;
+		margin-top: -12vw;
+	}
+
+	.float-person-nav {
+		animation: floatingNav 3s ease-out;
+		margin-bottom: 5vw;
+	}
+	@media screen and (width<1024px) {
+		.float-person-nav {
+			display: none;
+		}
+
+		.nav-mid {
+			padding: 4rem;
+			width: 80%;
+		}
+
+		.nav-sides {
+			margin-top: 0;
+			width: 60%;
+		}
+
+		justify-content: center;
+	}
+}
+
+.nav-tab {
+	rotate: y -90deg;
+	position: relative;
+	height: 126px;
+	aspect-ratio: 1/1;
+	border-radius: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+	text-align: center;
+	padding-bottom: 1.5rem;
+	background-size: contain !important;
+	background-position: center !important;
+	overflow: hidden;
+	z-index: 2;
+	cursor: pointer;
+	animation: flip 1s ease-out forwards;
+	animation-delay: var(--delay);
+	transition: scale 300ms;
+
+	&:hover {
+		scale: 1.2;
+		transition: scale 300ms;
+	}
+
+	.nav-tab-title {
+		color: whitesmoke;
+		background-color: rgba(0, 0, 0, 0.6);
+		width: 100%;
+		mix-blend-mode: multiply;
+	}
+}
+
+/* Shine */
+.icon:after {
+	animation: shine 5s ease-in-out infinite;
+	animation-fill-mode: forwards;
+	animation-delay: 300ms;
+	content: "";
+	position: absolute;
+	top: -110%;
+	left: -210%;
+	width: 200%;
+	height: 200%;
+	opacity: 0;
+	transform: rotate(30deg);
+
+	background: rgba(255, 255, 255, 0.13);
+	background: linear-gradient(
+		to right,
+		rgba(255, 255, 255, 0.13) 0%,
+		rgba(255, 255, 255, 0.13) 77%,
+		rgba(255, 255, 255, 0.5) 92%,
+		rgba(255, 255, 255, 0) 100%
+	);
+}
+
+/* Hover state - trigger effect */
+
+/* Active state */
+
+.icon:active:after,
+.icon:hover:after {
+	opacity: 0;
+}
+
+@keyframes shine {
+	10% {
+		opacity: 1;
+		top: -30%;
+		left: -30%;
+		transition-property: left, top, opacity;
+		transition-duration: 0.7s, 0.7s, 0.15s;
+		transition-timing-function: ease;
+	}
+	100% {
+		opacity: 0;
+		top: -30%;
+		left: -30%;
+		transition-property: left, top, opacity;
+	}
+}
+/* End */
+
+@keyframes slideInFromLeft {
+	0% {
+		translate: -500px;
+		opacity: 0.1;
+	}
+	70% {
+		opacity: 0.6;
+	}
+	100% {
+		translate: 0px;
+		opacity: 1;
+	}
+}
+
+@keyframes floatingPersonAnimation {
+	0% {
+		translate: 500px -600px;
+		opacity: 0;
+	}
+	100% {
+		transform: translate(0, 0);
+		opacity: 1;
+	}
+}
+
+@keyframes floatingNav {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes flip {
+	from {
+		rotate: y -90deg;
+	}
+	to {
+		rotate: y 0deg;
+	}
+}
