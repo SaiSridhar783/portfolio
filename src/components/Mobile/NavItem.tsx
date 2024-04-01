@@ -1,38 +1,39 @@
-import { Flex, Image, Text } from "@chakra-ui/react";
+"use client";
+
 import Link from "next/link";
-import { useRouter } from "next/router";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface INavItemProps {
 	title: string;
 	image: string;
 	href: string;
+	closeDrawer: () => void;
 }
 
 const NavItem: React.FC<INavItemProps> = (props) => {
-	const { pathname } = useRouter();
-
+	const pathname = usePathname();
 	return (
-		<Link href={"/mobile" + props.href} passHref>
-			<Flex
-				fontFamily="nunito"
-				gap="1rem"
-				alignItems="center"
-				padding="0.8rem"
-				borderRadius="1rem"
-				marginBottom="0.5rem"
-				backgroundColor={
-					pathname === `/mobile${props.href}` ? "#eee" : "transparent"
-				}
+		<Link href={"/v2" + props.href} passHref>
+			<div
+				className="nav-item"
+				style={{
+					backgroundColor:
+						pathname === `/v2${props.href}`
+							? "#eee"
+							: "transparent",
+				}}
+				onClick={props.closeDrawer}
 			>
 				<Image
 					src={props.image}
 					alt={props.title}
 					width={50}
 					height={50}
-					borderRadius={25}
+					style={{ borderRadius: "25px" }}
 				/>
-				<Text textTransform="capitalize">{props.title}</Text>
-			</Flex>
+				<p style={{ textTransform: "capitalize" }}>{props.title}</p>
+			</div>
 		</Link>
 	);
 };

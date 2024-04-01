@@ -1,7 +1,7 @@
-interface IHomeMobProps {}
+import { redirect } from "next/navigation";
 
-const HomeMob: React.FC<IHomeMobProps> = (props) => {
-	return <div>Home Mob</div>;
+const HomeMob: React.FC = () => {
+	redirect("/v2");
 };
 
 export default HomeMob;

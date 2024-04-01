@@ -39,6 +39,48 @@
 	animation-delay: 1.5s;
 }
 
+.lang-badge-mob {
+	position: relative;
+	background-size: contain;
+	background-repeat: no-repeat;
+	border-radius: 1rem;
+	height: 28px;
+	scale: 0.5;
+	animation: badgeBounce2 8s ease-in-out infinite alternate;
+}
+
+.lang-badge-mob:first-of-type {
+	top: 3.5rem;
+	left: -50%;
+	background-image: url(https://img.shields.io/badge/NextJS-000000?style=for-the-badge&logo=next.js&logoColor=white);
+	width: 93.5px;
+}
+
+.lang-badge-mob:nth-of-type(2) {
+	top: 9rem;
+	left: -65%;
+	background-image: url(https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white);
+	width: 126.5px;
+	animation-delay: 0.5s;
+	transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.lang-badge-mob:nth-of-type(3) {
+	top: 0;
+	left: 100%;
+	background-image: url(https://img.shields.io/badge/Python-366c9c?style=for-the-badge&logo=python&logoColor=f7cb3f);
+	width: 97.5px;
+	animation-delay: 1s;
+}
+
+.lang-badge-mob:nth-of-type(4) {
+	top: 6rem;
+	left: 90%;
+	background-image: url(https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka);
+	width: 145px;
+	animation-delay: 1.5s;
+}
+
 /* Person SVG */
 #eyeb {
 	transform: translateY(-9px);
@@ -369,5 +411,28 @@
 		translate: 0 0px;
 		rotate: 10deg;
 		scale: 0.9;
+	}
+}
+
+@keyframes badgeBounce2 {
+	0% {
+		translate: 0 0px;
+		rotate: 0deg;
+		scale: 0.5;
+	}
+	30% {
+		translate: 0 -7px;
+		rotate: -10deg;
+		scale: 0.55;
+	}
+	50% {
+		translate: 0 -10px;
+		rotate: 0deg;
+		scale: 0.45;
+	}
+	100% {
+		translate: 0 0px;
+		rotate: 10deg;
+		scale: 0.6;
 	}
 }

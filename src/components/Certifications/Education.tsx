@@ -10,9 +10,8 @@ const Education: React.FC<IEducationProps> = (props) => {
 				<Image
 					src={props.logo}
 					alt={props.name}
-					height={80}
-					width={80}
-					layout="intrinsic"
+					height={60}
+					width={60}
 					className="edu-logo"
 				/>
 				<p style={{ fontWeight: 600, marginLeft: "0.5rem" }}>

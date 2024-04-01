@@ -1,6 +1,3 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
-import { motion } from "framer-motion";
-
 interface IInfoCardProps {
 	orientation: "left" | "right";
 	children: React.ReactNode;
@@ -8,7 +5,7 @@ interface IInfoCardProps {
 
 const InfoCard: React.FC<IInfoCardProps> = ({ orientation, children }) => {
 	return (
-		<motion.div
+		<div
 			style={{
 				display: "flex",
 				flexDirection: "column",
@@ -18,7 +15,7 @@ const InfoCard: React.FC<IInfoCardProps> = ({ orientation, children }) => {
 				padding: "1rem",
 				marginTop: "1.5rem",
 				textAlign: orientation,
-				fontFamily: "Montserrat",
+				fontSize: "0.9rem",
 				borderRight:
 					orientation === "left" ? "3px solid whitesmoke" : "none",
 				borderLeft:
@@ -28,19 +25,11 @@ const InfoCard: React.FC<IInfoCardProps> = ({ orientation, children }) => {
 				borderTopLeftRadius: orientation === "right" ? "10px" : 0,
 				borderBottomLeftRadius: orientation === "right" ? "10px" : 0,
 			}}
-			transition={{ duration: 3 }}
-			animate={{ x: orientation === "left" ? [-500, 0] : [500, 0] }}
+			className={orientation === "left" ? "card-left" : "card-right"}
 		>
 			{children}
-			<Text
-				as="span"
-				fontSize="0.7rem"
-				bgColor="#ffffff10"
-				p="0.2rem"
-				mt="0.2rem"
-				borderRadius="50%"
-			></Text>
-		</motion.div>
+			<span className="info-card-arrow"></span>
+		</div>
 	);
 };
 
