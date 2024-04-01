@@ -251,7 +251,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-top: 5rem;
 	padding-bottom: 3rem;
 	gap: 2.5rem;
 	color: rgba(255, 255, 255, 0.8);
@@ -263,10 +262,14 @@
 		align-items: center;
 		width: 100%;
 		padding: 0.6rem;
-		font-size: 1.2rem;
+		font-size: 1.8rem;
 		color: white;
 		background-color: #050c12;
 		margin-bottom: 4rem;
+		font-weight: 500;
+		position: sticky;
+		top: 0;
+		z-index: 1;
 	}
 
 	.edu-card {
@@ -302,6 +305,13 @@
 	h1 {
 		margin-top: 0.5rem;
 		font-size: 2rem;
+		position: sticky;
+		top: 0;
+		background-color: #050c12;
+		width: 100%;
+		text-align: center;
+		z-index: 1;
+		font-weight: 600;
 	}
 }
 
@@ -398,6 +408,111 @@
 		justify-content: space-around;
 		width: 100%;
 		animation: slideBottomIn 2s ease-out;
+	}
+}
+
+.experience-mob {
+	.experience-heading {
+		font-size: 1.8rem;
+		font-weight: 500;
+		color: white;
+		margin-bottom: 2rem;
+		padding: 0.5rem;
+		width: 100%;
+		text-align: center;
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		background-color: #050c12;
+	}
+
+	.experience-cards {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: center;
+		margin-bottom: 2rem;
+	}
+
+	.experience-card {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-radius: 8px;
+		padding: 1rem 0.5rem;
+		gap: 1rem;
+		width: 90%;
+		color: rgba(255, 255, 255, 0.8);
+		background-color: #171923;
+		box-shadow: 0 2px 3px 0 rgba(255, 255, 255, 0.3),
+			0 1px 2px 0 rgba(255, 255, 255, 0.1);
+		transform: rotateY(90deg);
+		animation: flip 1.5s ease-in-out forwards;
+
+		.logo-box {
+			display: flex;
+			align-items: center;
+			padding: 1rem;
+			gap: 1rem;
+			border-radius: 8px;
+			width: 100%;
+			background-color: rgba(255, 255, 255, 0.2);
+			box-shadow: 0 2px 2px 0 rgba(255, 255, 255, 0.3),
+				0 1px 2px 0 rgba(255, 255, 255, 0.1);
+
+			p {
+				font-size: 1rem;
+				font-weight: 600;
+			}
+		}
+
+		.info-box {
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-self: flex-start;
+			gap: 0.5rem;
+
+			.title {
+				font-size: 1.2rem;
+				font-weight: 700;
+			}
+
+			.duration {
+				font-size: 0.8rem;
+				font-weight: 600;
+			}
+
+			.text {
+				text-align: justify;
+				font-size: 0.9rem;
+				margin-bottom: 1rem;
+			}
+		}
+
+		.bottom {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		.learn-more {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			background-color: #48bb78;
+			color: white;
+			font-weight: 600;
+			padding: 0.5rem 0.8rem;
+			border-radius: 8px;
+			font-size: 0.8rem;
+		}
+
+		li {
+			font-size: 0.8rem;
+		}
 	}
 }
 
@@ -525,5 +640,16 @@
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@keyframes flip {
+	0% {
+		opacity: 0;
+		transform: rotateX(5deg) rotateY(90deg);
+	}
+	100% {
+		opacity: 1;
+		transform: rotateX(0deg) rotateY(0deg);
 	}
 }

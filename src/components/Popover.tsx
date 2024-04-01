@@ -4,9 +4,10 @@ import { FaChevronRight } from "react-icons/fa";
 interface IPopoverProps {
 	children: React.ReactNode;
 	id: string;
+	hide?: boolean;
 }
 
-const Popover: React.FC<IPopoverProps> = ({ children, id }) => {
+const Popover: React.FC<IPopoverProps> = ({ children, id, hide }) => {
 	return (
 		<>
 			<div popover="true" id={id}>
@@ -16,9 +17,15 @@ const Popover: React.FC<IPopoverProps> = ({ children, id }) => {
 				</button>
 			</div>
 
-			<button type="button" className="learn-more-btn" popovertarget={id}>
-				Learn More <FaChevronRight size={15} />
-			</button>
+			{!hide && (
+				<button
+					type="button"
+					className="learn-more-btn"
+					popovertarget={id}
+				>
+					Learn More <FaChevronRight size={15} />
+				</button>
+			)}
 		</>
 	);
 };
