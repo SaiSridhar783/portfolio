@@ -4,18 +4,10 @@ import "@/styles/admin.scss";
 import AdminMain from "@/components/AdminMain";
 import { prisma } from "@/utils/prisma";
 
-type Mess = {
-	id: string;
-	name: string;
-	email: string;
-	message: string;
-	createdAt: Date;
-};
-
 async function getData() {
 	const messages = await prisma.messages.findMany();
 
-	const data = messages.map((row: Mess) => ({
+	const data = messages.map((row) => ({
 		...row,
 		createdAt: row.createdAt.toLocaleString("en-IN", {
 			timeZone: "Asia/Kolkata",
