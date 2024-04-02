@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 		description:
 			"A portfolio of Akula Sai Sridhar showcasing his skills and experience as a Fullstack and an App Developer. Learn more about his work and experience.",
 		siteName: "Sai Sridhar's Portfolio",
+		images: "https://res.cloudinary.com/djkp8vliu/image/upload/v1712044200/opengraph-image_kjemky.png",
 	},
 	twitter: {
 		title: "Portfolio of Sai Sridhar",
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 			"A portfolio of Akula Sai Sridhar showcasing his skills and experience as a Fullstack and an App Developer. Learn more about his work and experience.",
 		site: "https://saisridhar.vercel.app",
 		card: "summary_large_image",
+		images: "https://res.cloudinary.com/djkp8vliu/image/upload/v1712044200/opengraph-image_kjemky.png",
 	},
 };
 
