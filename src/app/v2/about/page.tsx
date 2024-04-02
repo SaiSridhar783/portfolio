@@ -37,7 +37,7 @@ const AboutMob: React.FC = () => {
 			</InfoCard> */}
 			<Link href="/v2/contact">
 				<button type="button">
-					Connect with me! <FaArrowCircleRight />
+					Get In Touch! <FaArrowCircleRight />
 				</button>
 			</Link>
 			<h2>My Skillset</h2>

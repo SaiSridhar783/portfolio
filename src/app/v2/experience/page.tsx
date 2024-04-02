@@ -17,18 +17,16 @@ const ExperienceMob: React.FC = () => {
 					logo="/images/company/tcg.png"
 					duration="Aug 01, 2023 - Present"
 					compURL="https://www.tcgdigital.com/"
-					text="Played a key role in designing and developing a
-					scalable framework that streamlines new project
-					initiation and enhances existing application
-					performance."
+					text="Played a crucial role in designing and developing several scalable and reusable frameworks, streamlining new project initiation, and enhancing existing application performance with an integrated system for monitoring and alerts."
 					delay="0s"
 				>
 					<ul>
 						<li>
-							Played a key role in designing and developing a
-							scalable framework that streamlines new project
-							initiation and enhances existing application
-							performance.
+							Played a crucial role in designing and developing
+							several scalable and reusable frameworks,
+							streamlining new project initiation, and enhancing
+							existing application performance with an integrated
+							system for monitoring and alerts.
 						</li>
 						<li>
 							Built containerized services for data production and

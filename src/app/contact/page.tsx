@@ -280,7 +280,7 @@ const ContactPage: React.FC = () => {
 			{/* Badge */}
 			<a
 				className="resume-badge"
-				href="https://drive.google.com/file/d/1AfiPwjBUNrcnJ2ORvGKAZevBWPcQzmwE/view?usp=sharing"
+				href="https://drive.google.com/file/d/1nX-D6T81UhOkbOiVNzUyFOZjHDKXHHyj/view?usp=sharing"
 				target="_blank"
 				rel="noopener noreferrer"
 			>

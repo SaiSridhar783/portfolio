@@ -65,7 +65,7 @@ const SideDrawer: React.FC = () => {
 				/>
 				<NavItem
 					closeDrawer={toggleDrawer}
-					title="Contact Me"
+					title="Get In Touch"
 					image="/images/contact.jpg"
 					href="/contact"
 				/>
