@@ -27,7 +27,7 @@ const ProjectCard: React.FC<IProProps> = (props) => {
 							src={props.image}
 							alt="Waka"
 							height={220}
-							width={500}
+							width={450}
 						/>
 					</motion.div>
 					<div className="project-info">
