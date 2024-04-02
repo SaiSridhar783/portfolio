@@ -75,11 +75,12 @@
 }
 
 .homepanel {
+	margin-top: -2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100vw;
-	min-height: 100vh;
+	min-height: 110vh;
 	overflow-x: hidden;
 
 	.nav-mid {
