@@ -46,6 +46,7 @@
 
 .home-mob {
 	padding: 5rem 1rem;
+	padding-bottom: 1rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -62,14 +63,14 @@
 
 		.hello {
 			color: white;
-			font-size: 2.25rem;
+			font-size: 1.9rem;
 			font-weight: 700;
 			text-align: center;
 			margin-bottom: 1rem;
 		}
 
 		.intro {
-			font-size: 1.5rem;
+			font-size: 1.2rem;
 			color: rgba(255, 255, 255, 0.8);
 			text-align: center;
 			font-weight: 500;
@@ -87,7 +88,6 @@
 			padding: 0.6rem 1rem;
 			font-weight: 600;
 			border-radius: 8px;
-			margin-top: 10rem;
 			display: flex;
 			align-items: center;
 
@@ -97,10 +97,9 @@
 		}
 
 		.float-person-home {
-			scale: 1;
-			position: absolute;
-			top: 40%;
-			left: 9vw;
+			// scale: 1;
+			margin-top: -5rem;
+			position: relative;
 		}
 	}
 }
@@ -116,9 +115,10 @@
 	animation: fadeInOnly 1.5s ease-in-out;
 
 	.text-head {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		padding: 0 1rem;
 		font-weight: 700;
+		word-break: break-word;
 
 		span {
 			color: rgb(78, 168, 78);
@@ -132,7 +132,7 @@
 		padding-bottom: 1rem;
 		background-color: rgba(255, 255, 255, 0.1);
 		font-weight: bold;
-		font-size: 1.5rem;
+		font-size: 1.4rem;
 	}
 
 	.badges-container {
@@ -149,7 +149,7 @@
 		background-color: #48bb78;
 		color: white;
 		border: none;
-		font-size: 1rem;
+		font-size: 0.8rem;
 		padding: 0.6rem 1rem;
 		font-weight: 600;
 		border-radius: 8px;
@@ -185,6 +185,7 @@
 		animation: fadeInBottom 1.5s ease-in-out;
 
 		h1 {
+			font-size: 1.5rem;
 			color: white;
 			text-align: center;
 			margin-bottom: 1.5rem;
@@ -214,8 +215,15 @@
 			}
 
 			.social-button {
+				height: 50px;
+				width: 50px;
+
 				&:hover {
-					width: 60px;
+					width: 50px;
+				}
+
+				.social-icon {
+					height: 50px;
 				}
 
 				svg {
@@ -275,11 +283,56 @@
 	.edu-card {
 		width: 85%;
 		box-shadow: 0 0 0 8px #8c8e90;
+
+		&:focus,
+		&:hover {
+			box-shadow: 0 0 0 8px #8c8e90;
+		}
+
+		.edu-card-top {
+			p {
+				font-size: 0.9rem;
+			}
+		}
+
+		.edu-bottom {
+			p {
+				font-size: 0.9rem !important;
+			}
+		}
 	}
 
 	.tech-card {
 		width: 85%;
 		box-shadow: 0 0 0 8px #8c8e90;
+
+		&:focus,
+		&:hover {
+			box-shadow: 0 0 0 8px #8c8e90;
+		}
+
+		.tech-card-top {
+			p {
+				font-size: 1rem !important;
+			}
+
+			img {
+				height: 60px;
+				width: 60px;
+			}
+		}
+
+		.tech-card-bottom {
+			p {
+				font-size: 1.2rem;
+			}
+		}
+
+		.tech-card-last {
+			p {
+				font-size: 0.9rem;
+			}
+		}
 	}
 }
 
@@ -323,12 +376,17 @@
 	align-items: center;
 	gap: 10%;
 
+	h1 {
+		color: #ddd;
+		padding: 0.5rem 0;
+		text-align: center;
+		font-size: 1.6rem;
+		animation: slideTopIn 1.5s ease-out;
+	}
+
 	.project-image {
-		min-height: 20rem;
-		min-width: 500px;
 		position: relative;
-		border-radius: 1.5rem;
-		width: 45vw;
+		width: 100%;
 		height: 100%;
 		animation: slideTopIn 1.5s ease-out;
 	}
@@ -369,7 +427,7 @@
 
 	.github-link {
 		background-color: #2d3748;
-		width: 9rem;
+		width: 8.5rem;
 		color: rgba(255, 255, 255, 0.7);
 		font-weight: 600;
 		display: grid;
@@ -382,7 +440,7 @@
 
 	.download-link {
 		font-weight: 600;
-		width: 9rem;
+		width: 8.5rem;
 		display: grid;
 		place-items: center;
 		border-radius: 8px;
@@ -407,6 +465,7 @@
 		display: flex;
 		justify-content: space-around;
 		width: 100%;
+		margin-bottom: 1rem;
 		animation: slideBottomIn 2s ease-out;
 	}
 }
@@ -450,6 +509,10 @@
 		transform: rotateY(90deg);
 		animation: flip 1.5s ease-in-out forwards;
 
+		img {
+			border-radius: 5px;
+		}
+
 		.logo-box {
 			display: flex;
 			align-items: center;
@@ -480,7 +543,7 @@
 			}
 
 			.duration {
-				font-size: 0.8rem;
+				font-size: 0.7rem;
 				font-weight: 600;
 			}
 
@@ -505,13 +568,19 @@
 			background-color: #48bb78;
 			color: white;
 			font-weight: 600;
-			padding: 0.5rem 0.8rem;
-			border-radius: 8px;
-			font-size: 0.8rem;
+			padding: 0.4rem 0.6rem;
+			border-radius: 5px;
+			font-size: 0.7rem;
+		}
+
+		ul {
+			list-style-type: none;
 		}
 
 		li {
-			font-size: 0.8rem;
+			font-size: 0.7rem;
+			padding: 0.5rem;
+			text-align: justify;
 		}
 	}
 }
@@ -532,13 +601,14 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: 320px;
+		width: 300px;
 
 		label {
 			color: rgba(255, 255, 255, 0.6);
 			display: block;
 			font-weight: 600;
 			margin-bottom: 0.5rem;
+			font-size: 1rem;
 		}
 
 		input,

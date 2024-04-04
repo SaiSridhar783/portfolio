@@ -50,15 +50,14 @@
 }
 
 .lang-badge-mob:first-of-type {
-	top: 3.5rem;
-	left: -50%;
+	top: 4rem;
 	background-image: url(https://img.shields.io/badge/NextJS-000000?style=for-the-badge&logo=next.js&logoColor=white);
 	width: 93.5px;
 }
 
 .lang-badge-mob:nth-of-type(2) {
-	top: 9rem;
-	left: -65%;
+	top: 8.8rem;
+	left: -20px;
 	background-image: url(https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white);
 	width: 126.5px;
 	animation-delay: 0.5s;
@@ -66,16 +65,16 @@
 }
 
 .lang-badge-mob:nth-of-type(3) {
-	top: 0;
-	left: 100%;
+	top: 1rem;
+	left: 60%;
 	background-image: url(https://img.shields.io/badge/Python-366c9c?style=for-the-badge&logo=python&logoColor=f7cb3f);
 	width: 97.5px;
 	animation-delay: 1s;
 }
 
 .lang-badge-mob:nth-of-type(4) {
-	top: 6rem;
-	left: 90%;
+	top: 5.5rem;
+	left: 60%;
 	background-image: url(https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka);
 	width: 145px;
 	animation-delay: 1.5s;

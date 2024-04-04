@@ -15,6 +15,7 @@ const EachProjectMob: React.FC<IProjectdata> = ({ params }) => {
 
 	return (
 		<div className="each-project-mob">
+			<h1>{data!.name}</h1>
 			<Image
 				className="project-image"
 				src={data!.image}
@@ -29,7 +30,7 @@ const EachProjectMob: React.FC<IProjectdata> = ({ params }) => {
 
 			<div className="project-info">
 				<div className="info">
-					<h1>{data!.name}</h1>
+					{/* <h1>{data!.name}</h1> */}
 					<p className="project-desc">{data!.description}</p>
 				</div>
 

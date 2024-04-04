@@ -22,11 +22,9 @@ const ExperienceMob: React.FC = () => {
 				>
 					<ul>
 						<li>
-							Played a crucial role in designing and developing
-							several scalable and reusable frameworks,
-							streamlining new project initiation, and enhancing
-							existing application performance with an integrated
-							system for monitoring and alerts.
+							Designed and developed scalable and reusable
+							frameworks, streamlining new project initiation, and
+							enhancing application performance.
 						</li>
 						<li>
 							Built containerized services for data production and

@@ -17,8 +17,8 @@ const Home2: React.FC = () => {
 
 				<PersonMob
 					className="float-person-home"
-					height="300"
-					width="350"
+					height="240"
+					width="300"
 				/>
 
 				<Link href="/v2/about">
