@@ -11,7 +11,7 @@ const Home2: React.FC = () => {
 					<p className="intro">
 						I am&nbsp;<span>Akula Sai Sridhar</span>, a Fullstack
 						Javascript Developer skilled in building scalable
-						appilcations.
+						applications.
 					</p>
 				</div>
 

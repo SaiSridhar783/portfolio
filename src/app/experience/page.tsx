@@ -1,15 +1,14 @@
-// @ts-nocheck
-
-import { FaChevronRight } from "react-icons/fa";
 import VisitingCard from "@/components/VisitingCard";
 import Card from "@/components/Card";
-import "@/styles/experience.scss";
 import Popover from "@/components/Popover";
+import "@/styles/experience.scss";
 
 const Experience: React.FC = () => {
 	return (
 		<div className="experience">
-			<p className="experience-heading">Work</p>
+			<h1 className="experience-heading" style={{ paddingTop: "0.5rem" }}>
+				Work
+			</h1>
 			<div className="experience-cards">
 				<div>
 					<VisitingCard
@@ -115,9 +114,10 @@ const Experience: React.FC = () => {
 					</Popover>
 				</div>
 			</div>
-			<p className="experience-heading" style={{ paddingTop: "1.5rem" }}>
+
+			<h2 className="experience-heading" style={{ paddingTop: "1.5rem" }}>
 				Others
-			</p>
+			</h2>
 			<div className="experience-cards">
 				<Card
 					title="Freelance Mentor"

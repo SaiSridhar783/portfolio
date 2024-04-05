@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 					I am&nbsp;
 					<span color="blue.400">Akula Sai Sridhar</span>, a Fullstack
 					Javascript Developer skilled in building scalable
-					appilcations.
+					applications.
 				</h2>
 				<Link href="/home" passHref>
 					<button type="button">Click Me!</button>

@@ -17,7 +17,7 @@ const NavTab: React.FC<INavTabProps> = ({
 	style,
 }) => {
 	return (
-		<Link href={href} passHref>
+		<Link href={href} scroll={false}>
 			<div
 				style={
 					{

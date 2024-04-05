@@ -88,6 +88,11 @@ const ContactPage: React.FC = () => {
 			<div style={{ display: showOverlay }} className="contact-container">
 				<motion.div
 					className="stamp"
+					initial={{
+						scale: 0,
+						rotate: 0,
+						opacity: 0,
+					}}
 					whileInView={["start", "peel"]}
 					variants={{
 						start: {

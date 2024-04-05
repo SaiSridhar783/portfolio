@@ -4,19 +4,20 @@
 	background-repeat: no-repeat;
 	border-radius: 1rem;
 	height: 28px;
-	scale: 0.6;
+	scale: 0.5;
 	animation: badgeBounce 8s ease-in-out infinite alternate;
 }
 
 .lang-badge:first-of-type {
-	top: 11rem;
-	left: 5%;
+	top: 10.5rem;
+	left: 10px;
 	background-image: url(https://img.shields.io/badge/NextJS-black?style=for-the-badge&logo=next.js&logoColor=white);
 	width: 93.5px;
 }
 
 .lang-badge:nth-of-type(2) {
-	top: 20rem;
+	top: 18rem;
+	left: -20px;
 	background-image: url(https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white);
 	width: 126.5px;
 	animation-delay: 0.5s;
@@ -24,16 +25,16 @@
 }
 
 .lang-badge:nth-of-type(3) {
-	top: 8rem;
-	right: -20rem;
+	top: 7rem;
+	right: -18rem;
 	background-image: url(https://img.shields.io/badge/Python-366c9c?style=for-the-badge&logo=python&logoColor=f7cb3f);
 	width: 97.5px;
 	animation-delay: 1s;
 }
 
 .lang-badge:nth-of-type(4) {
-	top: 18rem;
-	right: -20rem;
+	top: 14rem;
+	right: -18rem;
 	background-image: url(https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka);
 	width: 145px;
 	animation-delay: 1.5s;

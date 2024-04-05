@@ -8,8 +8,6 @@ type IProjectdata = {
 	};
 };
 
-const mainDelay = 0;
-
 const EachProjectMob: React.FC<IProjectdata> = ({ params }) => {
 	const data = proJSON.find((pro) => pro.slug === params.slug);
 
