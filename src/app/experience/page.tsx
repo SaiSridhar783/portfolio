@@ -6,7 +6,7 @@ import "@/styles/experience.scss";
 const Experience: React.FC = () => {
 	return (
 		<div className="experience">
-			<h1 className="experience-heading" style={{ paddingTop: "0.5rem" }}>
+			<h1 className="experience-heading" style={{ marginTop: "-0.5rem" }}>
 				Work
 			</h1>
 			<div className="experience-cards">
