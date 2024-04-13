@@ -55,10 +55,15 @@
 	.floating-person {
 		z-index: 1;
 		animation: floatingPersonAnimation 2.5s ease-out;
+		scale: 1.2;
 	}
 
 	@media screen and (width<1000px) {
 		flex-direction: column-reverse;
+
+		.floating-person {
+			scale: 1;
+		}
 
 		.home-intro {
 			align-items: center;

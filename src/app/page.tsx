@@ -20,7 +20,7 @@ const Home: React.FC = () => {
 
 			{/* Floating Person */}
 			<div className="floating-person">
-				<Person height="420" width="450" />
+				<Person height="350" width="400" />
 			</div>
 		</div>
 	);

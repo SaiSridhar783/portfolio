@@ -171,6 +171,10 @@
 		mix-blend-mode: multiply;
 		text-align: center;
 	}
+
+	@media screen and (width < 715px) {
+		display: none;
+	}
 }
 
 .form-element {
