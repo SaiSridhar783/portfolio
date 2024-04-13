@@ -84,6 +84,10 @@
 		transform: rotateX(-90deg);
 		z-index: 10;
 
+		@media screen and (max-width: 1310px) {
+			align-items: center;
+		}
+
 		// animation: hoverCard 2.5s forwards ease-out;
 		// animation-delay: 2.2s;
 	}
@@ -147,6 +151,7 @@
 			margin-left: -15%;
 			height: 300px;
 			width: 520px;
+			align-items: flex-end;
 		}
 
 		.hover-card {

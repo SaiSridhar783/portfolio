@@ -14,7 +14,7 @@ const Home: React.FC = () => {
 					applications.
 				</h2>
 				<Link href="/home" passHref>
-					<button type="button">Click Me!</button>
+					<button type="button">Dive In!</button>
 				</Link>
 			</div>
 

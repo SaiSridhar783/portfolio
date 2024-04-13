@@ -17,7 +17,7 @@ const ExperienceMob: React.FC = () => {
 					logo="/images/company/tcg.png"
 					duration="Aug 01, 2023 - Present"
 					compURL="https://www.tcgdigital.com/"
-					text="Played a crucial role in designing and developing several scalable and reusable frameworks, streamlining new project initiation, and enhancing existing application performance with an integrated system for monitoring and alerts."
+					text="Played a crucial role in the design and development of different scalable and reusable frameworks. Streamlined new project initiation, and enhanced application performance with an integrated system for alerts and monitoring."
 					delay="0s"
 				>
 					<ul>

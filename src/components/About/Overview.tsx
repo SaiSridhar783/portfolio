@@ -69,8 +69,8 @@ const Overview: React.FC = () => {
 					link="/contact"
 					linkText="Connect with me!"
 				>
-					What&apos;s that? You would like to know more about me? Or
-					perhaps you would like to get in touch?
+					Curious to learn more about me or simply want to say hi?
+					Feel free to message me anytime!
 				</SummaryTab>
 			</div>
 
