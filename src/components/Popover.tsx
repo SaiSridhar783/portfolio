@@ -10,7 +10,7 @@ interface IPopoverProps {
 const Popover: React.FC<IPopoverProps> = ({ children, id, hide }) => {
 	return (
 		<>
-			<div popover="true" id={id}>
+			<div popover="auto" className="popover-content" id={id}>
 				{children}
 				<button type="button" className="close-btn" popovertarget={id}>
 					Close

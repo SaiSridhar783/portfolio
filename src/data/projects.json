@@ -1,5 +1,16 @@
 [
 	{
+		"name": "OpenAI RAG Application",
+		"slug": "openai-rag-app",
+		"type": "website",
+		"image": "/images/projects/rag.png",
+		"github": "https://github.com/Soumadip-Saha/openai-RAG-Application",
+		"languages": ["docker", "fastapi", "python", "nextjs", "html5", "css3"],
+		"description": "A highly configurable fullstack app to quickly build a RAG based chat UI that uses openai APIs and a vector database for storing embeddings and allows to stream the LLM response real time.",
+		"date": "July, 2024",
+		"num": 1
+	},
+	{
 		"name": "Hoek and Brown",
 		"slug": "hoek-and-brown",
 		"type": "desktop app",
@@ -12,18 +23,6 @@
 		"num": 1
 	},
 	{
-		"name": "Personal Blog",
-		"slug": "next-js-blog",
-		"type": "website",
-		"image": "/images/projects/next-blog.jpeg",
-		"url": "https://next-js-blog-lac.vercel.app/",
-		"github": "https://github.com/SaiSridhar783/NextJS-blog",
-		"languages": ["nextjs", "mongodb", "css3"],
-		"description": "A simple and functional blog built using NextJS framework and MongoDB for storage of comments with a featured section and provision to send a message.",
-		"date": "June, 2021",
-		"num": 1
-	},
-	{
 		"name": "E-Commerce Website",
 		"slug": "e-commerce-django",
 		"type": "website",
@@ -33,6 +32,18 @@
 		"languages": ["python", "django", "react", "bootstrap"],
 		"description": "A template E commerce website design including a shopping cart, checkout and payment gateway, with a user authentication and registration as well as product reviews. Utilizing Django framework for backend and React for frontend.",
 		"date": "July, 2021",
+		"num": 2
+	},
+	{
+		"name": "Personal Blog",
+		"slug": "next-js-blog",
+		"type": "website",
+		"image": "/images/projects/next-blog.jpeg",
+		"url": "https://next-js-blog-lac.vercel.app/",
+		"github": "https://github.com/SaiSridhar783/NextJS-blog",
+		"languages": ["nextjs", "mongodb", "css3"],
+		"description": "A simple and functional blog built using NextJS framework and MongoDB for storage of comments with a featured section and provision to send a message.",
+		"date": "June, 2021",
 		"num": 2
 	},
 	{

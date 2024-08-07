@@ -20,32 +20,36 @@ const ExperienceMob: React.FC = () => {
 					text="Played a crucial role in the design and development of different scalable and reusable frameworks. Streamlined new project initiation, and enhanced application performance with an integrated system for alerts and monitoring."
 					delay="0s"
 				>
+					<h2>Achievements</h2>
 					<ul>
 						<li>
-							Designed and developed scalable and reusable
-							frameworks, streamlining new project initiation, and
-							enhancing application performance.
+							Developed a highly configurable and Dockerized Kafka
+							solution, featuring a modular set of push and pull
+							processors, enabling seamless integration with
+							client projects and significantly reducing project
+							setup time by up to 50%.
 						</li>
 						<li>
-							Built containerized services for data production and
-							leveraged Kafka for efficient message handling,
-							leading to reduced errors and improved application
-							performance.
+							Led a team in developing a full-stack solution to
+							streamline functional requirements and cost
+							calculations for the company’s flagship product,
+							increasing efficiency by up to 30% and successfully
+							meeting all project deadlines.
 						</li>
 						<li>
-							Streamlined user experience and refined audits
-							through UI/logic enhancements for an internal
-							service used widely.
+							Designed and implemented a versatile solution to
+							generate statistical charts and email them to
+							relevant stakeholders.
 						</li>
 						<li>
-							Quickly mastered the internal low-code platform,
-							accelerating dashboard development and gathering
-							data insights.
+							Product analysis from deployment to functional view,
+							creating documentation and diagrams for easy
+							understanding.
 						</li>
 						<li>
-							Engineered a real-time video processing application
-							that achieved low latency, optimizing performance
-							for live videos.
+							Engineered real-time streaming pipelines to cloud
+							GPU services based on RTMP protocol achieving low
+							latency.
 						</li>
 					</ul>
 				</ExperienceCard>
@@ -60,26 +64,26 @@ const ExperienceMob: React.FC = () => {
 					relations quickly."
 					delay="0.5s"
 				>
+					<h2>Achievements</h2>
 					<ul>
 						<li>
 							Developed an interactive Tree Visualizer for the
-							service catalog, empowering users to analyze service
-							relations quickly.
+							service catalog, enabling quick analysis of service
+							relationships.
 						</li>
 						<li>
-							Implemented a GUI with node management capabilities
-							for the service catalog, enhancing data update
+							Implemented node management capabilities for
+							multiple concurrent users, enhancing data update
 							functionalities.
 						</li>
 						<li>
-							Enabled seamless data reorganization through ability
-							to merge network hierarchies and export data in CSV
-							format.
+							Enabled seamless data reorganization by
+							incorporating network hierarchy merging and CSV data
+							export features.
 						</li>
 						<li>
-							Enhanced data management of the catalog by
-							provisioning bulk updates via a downloadable and
-							uploadable CSV file.
+							Enhanced service catalog data handling by supporting
+							bulk updates through CSV file uploads and downloads.
 						</li>
 					</ul>
 				</ExperienceCard>
@@ -94,20 +98,21 @@ const ExperienceMob: React.FC = () => {
 					specific carriers."
 					delay="1s"
 				>
+					<h2>Achievements</h2>
 					<ul>
 						<li>
-							Improved user onboarding experience by adding
-							functionalities to filter by country and search for
-							specific carriers.
+							Enhanced the user onboarding experience by adding
+							filters for country selection and search
+							functionalities for carriers.
 						</li>
 						<li>
-							Introduced advanced filtering with nested search
-							functionalities, allowing users to efficiently
-							search through the data.
+							Implemented advanced filtering and nested search
+							features, allowing users to efficiently navigate
+							through the data.
 						</li>
 						<li>
 							Enhanced search functionality with alphabetical
-							sorting that persists through filters, allowing
+							sorting that persists through filters, enabling
 							quicker user navigation.
 						</li>
 					</ul>

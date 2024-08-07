@@ -471,6 +471,11 @@
 }
 
 .experience-mob {
+	h2 {
+		color: white;
+		margin-bottom: 1rem;
+	}
+
 	.experience-heading {
 		font-size: 1.8rem;
 		font-weight: 500;
@@ -582,6 +587,11 @@
 			padding: 0.5rem;
 			text-align: justify;
 		}
+	}
+
+	.popover-content {
+		overflow-x: auto;
+		max-height: 90vh;
 	}
 }
 

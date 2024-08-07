@@ -1,6 +1,6 @@
-import VisitingCard from "@/components/VisitingCard";
+import ExperienceCard from "@/components/Mobile/ExperienceCard";
 import Card from "@/components/Card";
-import Popover from "@/components/Popover";
+import Image from "next/image";
 import "@/styles/experience.scss";
 
 const Experience: React.FC = () => {
@@ -10,109 +10,115 @@ const Experience: React.FC = () => {
 				Work
 			</h1>
 			<div className="experience-cards">
-				<div>
-					<VisitingCard
-						title="Consultant"
-						company="TCG Digital Solutions Pvt. Ltd."
-						logo="/images/company/tcg.png"
-						duration="Aug 01, 2023 - Present"
-						compURL="https://www.tcgdigital.com/"
+				<ExperienceCard
+					title="Software Consultant"
+					company="TCG Digital Solutions Pvt. Ltd."
+					logo="/images/company/tcg.png"
+					duration="Aug 01, 2023 - Present"
+					compURL="https://www.tcgdigital.com/"
+					text="Developed a highly configurable Kafka solution, enabling rapid integration with client projects and significantly reducing project setup time by up to 50%."
+					delay="0.5s"
+				>
+					<h2>Testimonials</h2>
+					<Image
+						src="/images/company/award.jpg"
+						alt="award"
+						width={600}
+						height={300}
 					/>
-					<Popover id="tcg">
-						<ul>
-							<li>
-								Played a crucial role in designing and
-								developing several scalable and reusable
-								frameworks, streamlining new project initiation,
-								and enhancing existing application performance
-								with an integrated system for monitoring and
-								alerts.
-							</li>
-							<li>
-								Built containerized services for data production
-								and leveraged Kafka for efficient message
-								handling, leading to reduced errors and improved
-								application performance.
-							</li>
-							<li>
-								Streamlined user experience and refined audits
-								through UI/logic enhancements for an internal
-								service used widely.
-							</li>
-							<li>
-								Quickly mastered the internal low-code platform,
-								accelerating dashboard development and gathering
-								data insights.
-							</li>
-							<li>
-								Engineered a real-time video processing
-								application that achieved low latency,
-								optimizing performance for live videos.
-							</li>
-						</ul>
-					</Popover>
-				</div>
-				<div>
-					<VisitingCard
-						title="SDE Intern"
-						company="NoBroker Technologies Pvt. Ltd."
-						logo="/images/company/Nobroker.png"
-						duration="May 09, 2022 - July 08, 2022"
-						compURL="https://www.nobroker.in/"
-					/>
-					<Popover id="nobroker">
-						<ul>
-							<li>
-								Developed an interactive Tree Visualizer for the
-								service catalog, empowering users to analyze
-								service relations quickly.
-							</li>
-							<li>
-								Implemented a GUI with node management
-								capabilities for the service catalog, enhancing
-								data update functionalities.
-							</li>
-							<li>
-								Enabled seamless data reorganization through
-								ability to merge network hierarchies and export
-								data in CSV format.
-							</li>
-							<li>
-								Enhanced data management of the catalog by
-								provisioning bulk updates via a downloadable and
-								uploadable CSV file.
-							</li>
-						</ul>
-					</Popover>
-				</div>
-				<div>
-					<VisitingCard
-						title="UI Development Intern"
-						company="Dotgo Pvt. Ltd."
-						logo="/images/company/dotgo.jfif"
-						duration="May 03, 2021 - June 30, 2021"
-						compURL="https://dotgo.com/"
-					/>
-					<Popover id="dotgo">
-						<ul>
-							<li>
-								Improved user onboarding experience by adding
-								functionalities to filter by country and search
-								for specific carriers.
-							</li>
-							<li>
-								Introduced advanced filtering with nested search
-								functionalities, allowing users to efficiently
-								search through the data.
-							</li>
-							<li>
-								Enhanced search functionality with alphabetical
-								sorting that persists through filters, allowing
-								quicker user navigation.
-							</li>
-						</ul>
-					</Popover>
-				</div>
+					<h2>Achievements</h2>
+					<ul>
+						<li>
+							Developed a highly configurable and Dockerized Kafka
+							solution, featuring a modular set of push and pull
+							processors, enabling seamless integration with
+							client projects and significantly reducing project
+							setup time by up to 50%.
+						</li>
+						<li>
+							Led a team in developing a full-stack solution to
+							streamline functional requirements and cost
+							calculations for the company’s flagship product,
+							increasing efficiency by up to 30% and successfully
+							meeting all project deadlines.
+						</li>
+						<li>
+							Designed and implemented a versatile solution to
+							generate statistical charts and email them to
+							relevant stakeholders.
+						</li>
+						<li>
+							Product analysis from deployment to functional view,
+							creating documentation and diagrams for easy
+							understanding.
+						</li>
+						<li>
+							Engineered real-time streaming pipelines to cloud
+							GPU services based on RTMP protocol achieving low
+							latency.
+						</li>
+					</ul>
+				</ExperienceCard>
+				<ExperienceCard
+					title="SDE Intern"
+					company="NoBroker Technologies Pvt. Ltd."
+					logo="/images/company/Nobroker.png"
+					duration="May 09, 2022 - July 08, 2022"
+					compURL="https://www.nobroker.in/"
+					text="Developed an interactive Tree Visualizer for the service catalog, empowering users to analyze service relations quickly and modify the data more efficiently."
+					delay="1s"
+				>
+					<h2>Achievements</h2>
+					<ul>
+						<li>
+							Developed an interactive Tree Visualizer for the
+							service catalog, enabling quick analysis of service
+							relationships.
+						</li>
+						<li>
+							Implemented node management capabilities for
+							multiple concurrent users, enhancing data update
+							functionalities.
+						</li>
+						<li>
+							Enabled seamless data reorganization by
+							incorporating network hierarchy merging and CSV data
+							export features.
+						</li>
+						<li>
+							Enhanced service catalog data handling by supporting
+							bulk updates through CSV file uploads and downloads.
+						</li>
+					</ul>
+				</ExperienceCard>
+				<ExperienceCard
+					title="UI Development Intern"
+					company="Dotgo Pvt. Ltd."
+					logo="/images/company/dotgo.jfif"
+					duration="May 03, 2021 - June 30, 2021"
+					compURL="https://dotgo.com/"
+					text="Enhanced the user onboarding experience by adding filters for country selection and search functionalities for carriers enabling quick user navigation."
+					delay="1.5s"
+				>
+					<h2>Achievements</h2>
+					<ul>
+						<li>
+							Enhanced the user onboarding experience by adding
+							filters for country selection and search
+							functionalities for carriers.
+						</li>
+						<li>
+							Implemented advanced filtering and nested search
+							features, allowing users to efficiently navigate
+							through the data.
+						</li>
+						<li>
+							Enhanced search functionality with alphabetical
+							sorting that persists through filters, enabling
+							quicker user navigation.
+						</li>
+					</ul>
+				</ExperienceCard>
 			</div>
 
 			<h2 className="experience-heading" style={{ paddingTop: "1.5rem" }}>
