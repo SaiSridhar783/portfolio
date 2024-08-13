@@ -9,9 +9,9 @@ const Home2: React.FC = () => {
 				<div>
 					<p className="hello">Hello There!</p>
 					<p className="intro">
-						I am&nbsp;<span>Akula Sai Sridhar</span>, a Fullstack
-						Javascript Developer skilled in building scalable
-						applications.
+						I am&nbsp;<span>Akula Sai Sridhar</span>, a proficient
+						Software Developer skilled in building scalable and
+						reliable applications.
 					</p>
 				</div>
 

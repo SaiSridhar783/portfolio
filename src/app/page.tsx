@@ -9,9 +9,9 @@ const Home: React.FC = () => {
 				<h1 className="home-hello">Hello There!</h1>
 				<h2>
 					I am&nbsp;
-					<span color="blue.400">Akula Sai Sridhar</span>, a Fullstack
-					Javascript Developer skilled in building scalable
-					applications.
+					<span color="blue.400">Akula Sai Sridhar</span>, a
+					proficient Software Developer skilled in building scalable
+					and reliable applications.
 				</h2>
 				<Link href="/home" passHref>
 					<button type="button">Dive In!</button>
