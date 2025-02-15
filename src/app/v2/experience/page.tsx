@@ -14,7 +14,7 @@ const ExperienceMob: React.FC = () => {
 				<ExperienceCard
 					title="Software Consultant"
 					company="TCG Digital Solutions Pvt. Ltd."
-					logo="/images/company/tcg.png"
+					logo="/images/company/tcgdigital.jpg"
 					duration="Aug 01, 2023 - Present"
 					compURL="https://www.tcgdigital.com/"
 					text="Played a crucial role in the design and development of different scalable and reusable frameworks. Streamlined new project initiation, and enhanced application performance with an integrated system for alerts and monitoring."

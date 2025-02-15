@@ -1,6 +1,6 @@
-@import "variables";
-@import "base";
-@import "animations";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 a {
 	color: inherit;
@@ -137,5 +137,11 @@ button:active {
 	&:hover {
 		color: white;
 		transition: color 300ms;
+	}
+}
+
+@layer base {
+  :root {
+		--radius: 0.5rem;
 	}
 }

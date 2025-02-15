@@ -108,6 +108,12 @@
 		"color": "#fff"
 	},
 	{
+		"id": 28,
+		"name": "Kubernetes",
+		"icon": "https://cdn.svgporn.com/logos/kubernetes.svg",
+		"color": "#eee"
+	},
+	{
 		"id": 19,
 		"name": "Expo (React Native)",
 		"icon": "https://cdn.svgporn.com/logos/expo.svg",

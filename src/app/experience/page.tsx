@@ -2,6 +2,7 @@ import ExperienceCard from "@/components/Mobile/ExperienceCard";
 import Card from "@/components/Card";
 import Image from "next/image";
 import "@/styles/experience.scss";
+import TCGTestimonials from "@/components/Experience/TCGTestimonials";
 
 const Experience: React.FC = () => {
 	return (
@@ -13,27 +14,21 @@ const Experience: React.FC = () => {
 				<ExperienceCard
 					title="Software Consultant"
 					company="TCG Digital Solutions Pvt. Ltd."
-					logo="/images/company/tcg.png"
+					logo="/images/company/tcgdigital.jpg"
 					duration="Aug 01, 2023 - Present"
 					compURL="https://www.tcgdigital.com/"
-					text="Developed a highly configurable Kafka solution, enabling rapid integration with client projects and significantly reducing project setup time by up to 50%."
+					text="Developed a real-time distributed solution, utilizing Kafka and Redis, deployed on Kubernetes achieving a throughput of 700+ requests per second."
 					delay="0.5s"
 				>
 					<h2>Testimonials</h2>
-					<Image
-						src="/images/company/award.jpg"
-						alt="award"
-						width={600}
-						height={300}
-					/>
+					<TCGTestimonials />
 					<h2>Achievements</h2>
 					<ul>
 						<li>
-							Developed a highly configurable and Dockerized Kafka
-							solution, featuring a modular set of push and pull
-							processors, enabling seamless integration with
-							client projects and significantly reducing project
-							setup time by up to 50%.
+							Developed a real-time distributed processing
+							solution following a microservicses architecture,
+							utilizing Kafka and Redis, deployed on Kubernetes
+							achieving a throughput of 700+ requests per second.
 						</li>
 						<li>
 							Led a team in developing a full-stack solution to

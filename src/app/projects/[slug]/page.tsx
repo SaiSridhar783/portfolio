@@ -57,7 +57,7 @@ const EachProject: React.FC<IProjectdata> = ({ params }) => {
 							delay: mainDelay,
 						}}
 					>
-						<h1>{data!.name}</h1>
+						<h1 className="font-bold text-3xl">{data!.name}</h1>
 					</motion.div>
 					<motion.div
 						animate={{

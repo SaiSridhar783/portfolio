@@ -17,11 +17,11 @@ const AboutMob: React.FC = () => {
 					<span>Akula Sai Sridhar&nbsp;</span>
 					is my name.
 				</p>
-				<p className="text-head">Fullstack Development is my domain.</p>
+				<p className="text-head">Fullstack Engineering is my domain.</p>
 			</div>
 			<InfoCard orientation="left">
 				I build fullstack applications that are scalable and reliable.
-				My expertise lies in JavaScript and Python.
+				My expertise lies in TypeScript and Python.
 			</InfoCard>
 			<InfoCard orientation="right">
 				Graduated from the Indian Institute of Technology, Kharagpur
@@ -57,7 +57,6 @@ const AboutMob: React.FC = () => {
 							src={badge.icon}
 							height={30}
 							width={100}
-							style={{ width: "auto" }}
 						/>
 					</div>
 				))}

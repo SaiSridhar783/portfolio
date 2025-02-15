@@ -115,7 +115,7 @@ const ContactPage: React.FC = () => {
 			</Link>
 			{/* Main Content */}
 			<div className="contact-main">
-				<h1>Connect With Me</h1>
+				<h1 className="font-bold text-3xl">Connect With Me</h1>
 				<div>
 					<Image
 						priority
@@ -285,7 +285,7 @@ const ContactPage: React.FC = () => {
 			{/* Badge */}
 			<a
 				className="resume-badge"
-				href="https://drive.google.com/file/d/1nX-D6T81UhOkbOiVNzUyFOZjHDKXHHyj/view?usp=sharing"
+				href="https://drive.google.com/file/d/1UA8ROT6MRdFNf5U26B7J9Y2zdZeo5WA6/view?usp=drive_link"
 				target="_blank"
 				rel="noopener noreferrer"
 			>

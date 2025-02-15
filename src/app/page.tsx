@@ -10,7 +10,7 @@ const Home: React.FC = () => {
 				<h2>
 					I am&nbsp;
 					<span color="blue.400">Akula Sai Sridhar</span>, a
-					proficient Software Developer skilled in building scalable
+					proficient Software Engineer skilled in building scalable
 					and reliable applications.
 				</h2>
 				<Link href="/home" passHref>

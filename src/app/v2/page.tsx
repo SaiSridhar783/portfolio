@@ -10,7 +10,7 @@ const Home2: React.FC = () => {
 					<p className="hello">Hello There!</p>
 					<p className="intro">
 						I am&nbsp;<span>Akula Sai Sridhar</span>, a proficient
-						Software Developer skilled in building scalable and
+						Software Engineer skilled in building scalable and
 						reliable applications.
 					</p>
 				</div>

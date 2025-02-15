@@ -10,7 +10,7 @@ const Overview: React.FC = () => {
 					<span>Akula Sai Sridhar&nbsp;</span>
 					is my name.
 				</p>
-				<p>Fullstack Development is my domain.</p>
+				<p>Fullstack Engineering is my domain.</p>
 			</div>
 			<div className="overview-tabs">
 				<SummaryTab
@@ -22,7 +22,7 @@ const Overview: React.FC = () => {
 					linkText="Check out my projects"
 				>
 					I build fullstack applications that are scalable and
-					reliable. My expertise lies in JavaScript and Python.
+					reliable. My expertise lies in TypeScript and Python.
 				</SummaryTab>
 				<SummaryTab
 					style={{
