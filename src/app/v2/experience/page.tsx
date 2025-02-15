@@ -90,7 +90,7 @@ const ExperienceMob: React.FC = () => {
 				<ExperienceCard
 					title="UI Development Intern"
 					company="Dotgo Pvt. Ltd."
-					logo="/images/company/dotgo.jfif"
+					logo="/images/company/dotgo.jpg"
 					duration="May 03, 2021 - June 30, 2021"
 					compURL="https://dotgo.com/"
 					text="Improved user onboarding experience by adding
