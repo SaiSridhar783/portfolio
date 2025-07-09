@@ -1,21 +1,15 @@
 [
 	{
-		"id": 1,
-		"name": "React.js",
-		"icon": "https://cdn.svgporn.com/logos/react.svg",
-		"color": "#00070d"
-	},
-	{
-		"id": 2,
-		"name": "JavaScript",
-		"icon": "https://cdn.svgporn.com/logos/javascript.svg",
-		"color": "#f7df1e"
-	},
-	{
-		"id": 3,
+		"id": 30,
 		"name": "Python",
 		"icon": "https://cdn.svgporn.com/logos/python.svg",
 		"color": "#1e405d"
+	},
+	{
+		"id": 8,
+		"name": "FastAPI",
+		"icon": "https://cdn.svgporn.com/logos/fastapi-icon.svg",
+		"color": "#ddd"
 	},
 	{
 		"id": 4,
@@ -30,6 +24,18 @@
 		"color": "#3178c6"
 	},
 	{
+		"id": 1,
+		"name": "React.js",
+		"icon": "https://cdn.svgporn.com/logos/react.svg",
+		"color": "#00070d"
+	},
+	{
+		"id": 2,
+		"name": "JavaScript",
+		"icon": "https://cdn.svgporn.com/logos/javascript.svg",
+		"color": "#f7df1e"
+	},
+	{
 		"id": 6,
 		"name": "NodeJS",
 		"icon": "https://cdn.svgporn.com/logos/nodejs-icon.svg",
@@ -40,12 +46,6 @@
 		"name": "Express.js",
 		"icon": "https://cdn.svgporn.com/logos/express.svg",
 		"color": "#eee"
-	},
-	{
-		"id": 8,
-		"name": "FastAPI",
-		"icon": "https://cdn.svgporn.com/logos/fastapi-icon.svg",
-		"color": "#ddd"
 	},
 	{
 		"id": 9,
@@ -84,6 +84,12 @@
 		"color": "#eee"
 	},
 	{
+		"id": 3,
+		"name": "Elasticsearch",
+		"icon": "https://cdn.svgporn.com/logos/elasticsearch.svg",
+		"color": "#eee"
+	},
+	{
 		"id": 15,
 		"name": "NginX",
 		"icon": "https://cdn.svgporn.com/logos/nginx.svg",
@@ -93,6 +99,12 @@
 		"id": 16,
 		"name": "MongoDB",
 		"icon": "https://cdn.svgporn.com/logos/mongodb.svg",
+		"color": "#eee"
+	},
+	{
+		"id": 29,
+		"name": "MariaDB",
+		"icon": "https://cdn.svgporn.com/logos/mariadb.svg",
 		"color": "#eee"
 	},
 	{
