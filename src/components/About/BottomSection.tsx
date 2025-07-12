@@ -7,7 +7,8 @@ const BottomSection: React.FC = () => {
 				Well, enough talk about me. Tell me about you. Connect with me!
 			</p>
 			<p className="copyright">
-				&copy; Copyright 2024. Akula Sai Sridhar. All Rights Reserved.
+				&copy; Copyright {new Date().getFullYear()}. Sai Sridhar Akula.
+				All Rights Reserved.
 			</p>
 		</div>
 	);
