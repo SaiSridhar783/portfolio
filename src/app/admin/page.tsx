@@ -28,7 +28,6 @@ async function getData() {
 
 const Admin: React.FC = async () => {
 	const data = await getData();
-
 	return (
 		<main className="admin">
 			<AdminMain data={data} />
