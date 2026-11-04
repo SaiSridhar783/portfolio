@@ -2,6 +2,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/admin.scss";
 import AdminMain from "@/components/AdminMain";
+import { headers } from "next/headers";
+import { notFound } from "next/navigation";
+import { isAdmin } from "@/lib/adminAuth";
 import { prisma } from "@/utils/prisma";
 
 type Mess = {
@@ -27,6 +30,7 @@ async function getData() {
 }
 
 const Admin: React.FC = async () => {
+	if (!isAdmin((await headers()).get("authorization"))) notFound();
 	const data = await getData();
 	return (
 		<main className="admin">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { motion } from "motion/react";
+import { notFound } from "next/navigation";
 import proJSON from "@/data/projects.json";
 import "@/styles/projects.scss";
 
@@ -19,6 +20,7 @@ const mainDelay = 0;
 const EachProject: React.FC<IProjectdata> = ({ params }) => {
 	const { slug } = use(params);
 	const data = proJSON.find((pro) => pro.slug === slug);
+	if (!data) notFound();
 
 	return (
 		<div className="each-project">

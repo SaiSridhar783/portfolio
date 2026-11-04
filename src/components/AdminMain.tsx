@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { deleteMessage } from "@/app/admin/actions";
 
 interface IAdminMainProps {
 	data: any;
@@ -9,20 +10,9 @@ interface IAdminMainProps {
 
 const AdminMain: React.FC<IAdminMainProps> = ({ data }) => {
 	const [display, setDisplay] = useState(data);
-	async function deleteHandler(id: number) {
-		let res: any;
+	async function deleteHandler(id: string) {
 		try {
-			res = await fetch("/api/hello", {
-				method: "DELETE",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ id }),
-			});
-
-			if (!res.ok) {
-				throw new Error(res.statusText);
-			}
+			await deleteMessage(id);
 
 			setDisplay(display.filter((row: any) => row.id !== id));
 			toast.success("Message deleted successfully!");

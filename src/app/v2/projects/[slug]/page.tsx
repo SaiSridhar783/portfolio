@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import proJSON from "@/data/projects.json";
 import "@/styles/projects.scss";
 
@@ -11,6 +12,7 @@ type IProjectdata = {
 const EachProjectMob: React.FC<IProjectdata> = async ({ params }) => {
 	const { slug } = await params;
 	const data = proJSON.find((pro) => pro.slug === slug);
+	if (!data) notFound();
 
 	return (
 		<div className="each-project-mob">

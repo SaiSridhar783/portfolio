@@ -1,6 +1,17 @@
 import { NextRequest, NextResponse, userAgent } from "next/server";
+import { isAdmin } from "@/lib/adminAuth";
 
 export function proxy(request: NextRequest) {
+	if (
+		request.nextUrl.pathname.startsWith("/admin") &&
+		!isAdmin(request.headers.get("authorization"))
+	) {
+		return new NextResponse("Authentication required", {
+			status: 401,
+			headers: { "WWW-Authenticate": 'Basic realm="admin"' },
+		});
+	}
+
 	const { device } = userAgent(request);
 	const isMobile = device.type === "mobile";
 
