@@ -1,6 +1,6 @@
 "use client";
 import proJSON from "@/data/projects.json";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 

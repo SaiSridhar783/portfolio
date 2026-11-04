@@ -159,65 +159,6 @@
 	}
 }
 
-.parallax {
-	border-radius: 2rem;
-}
-
-.visiting-card {
-	position: relative;
-	z-index: 12;
-	min-width: 25rem;
-	height: 15rem;
-	animation: slideAndSkew 2.2s ease-in-out;
-	background-color: #171923;
-	border-radius: 2rem;
-	padding: 1rem;
-	margin: 0.2rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	box-shadow: rgb(0 0 0 / 90%) 2px -1px 4px,
-		rgb(255 255 255 / 30%) 3px -2px 0px 1px;
-
-	.company-text {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		cursor: pointer;
-
-		p {
-			background-color: #aaa;
-			color: transparent;
-			text-shadow: 1px 1px 3.5px #171923;
-			background-clip: text;
-			font-weight: 700;
-		}
-	}
-
-	.card-title {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-size: 1.4rem;
-		font-weight: 800;
-		background-color: #aaa;
-		color: transparent;
-		text-shadow: 1px 1px 3.5px #171923;
-		background-clip: text;
-	}
-
-	.card-duration {
-		display: flex;
-		justify-content: flex-end;
-		font-weight: 600;
-		font-size: 0.95rem;
-		background-color: #aaa;
-		color: transparent;
-		text-shadow: 1px 1px 3.5px #171923;
-		background-clip: text;
-	}
-}
-
 .learn-more-btn {
 	position: relative;
 	top: 1rem;
@@ -334,15 +275,6 @@ div[popover] {
 	}
 	100% {
 		transform: scale(1);
-	}
-}
-
-@keyframes slideAndSkew {
-	from {
-		transform: translateY(-500px) skewY(20deg) skewX(20deg);
-	}
-	to {
-		transform: translateY(0) skewY(0deg) skewX(0deg);
 	}
 }
 

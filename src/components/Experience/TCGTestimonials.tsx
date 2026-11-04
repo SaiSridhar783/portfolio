@@ -14,7 +14,7 @@ function TCGTestimonials() {
       <Carousel className="w-full">
         <CarouselContent className="-ml-2 md:-ml-4">
           <CarouselItem className="pl-2 md:pl-4">
-            <div className="relative aspect-[4/3] md:aspect-[2/1] w-full overflow-hidden rounded-lg">
+            <div className="relative aspect-4/3 md:aspect-[2/1] w-full overflow-hidden rounded-lg">
               <Image
                 src="/images/company/tcg/spot-award.jpg"
                 alt="TCG Spot Award Recognition"
@@ -25,7 +25,7 @@ function TCGTestimonials() {
             </div>
           </CarouselItem>
           <CarouselItem className="pl-2 md:pl-4">
-            <div className="relative aspect-[4/3] md:aspect-[2/1] w-full overflow-hidden rounded-lg">
+            <div className="relative aspect-4/3 md:aspect-[2/1] w-full overflow-hidden rounded-lg">
               <Image
                 src="/images/company/tcg/annual-excellence-award.jpeg"
                 alt="TCG Annual Excellence Award"

@@ -1,16 +1,21 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import NavItem from "./NavItem";
-import Drawer from "react-modern-drawer";
-import "react-modern-drawer/dist/index.css";
 
 const SideDrawer: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const toggleDrawer = () => {
 		setIsOpen((prevState) => !prevState);
 	};
+
+	useEffect(() => {
+		if (!isOpen) return;
+		const onKey = (e: KeyboardEvent) => e.key === "Escape" && setIsOpen(false);
+		window.addEventListener("keydown", onKey);
+		return () => window.removeEventListener("keydown", onKey);
+	}, [isOpen]);
 
 	return (
 		<>
@@ -26,11 +31,16 @@ const SideDrawer: React.FC = () => {
 				}}
 			/>
 
-			<Drawer
-				className="side-drawer"
-				open={isOpen}
-				onClose={toggleDrawer}
-				direction="left"
+			{isOpen && (
+				<div
+					className="fixed inset-0 z-100 bg-black/40"
+					onClick={toggleDrawer}
+				/>
+			)}
+			<nav
+				className={`side-drawer fixed top-0 left-0 z-100 h-screen w-[250px] bg-white shadow-[0_0_10px_5px_rgba(0,0,0,0.1)] transition-all duration-500 ${
+					isOpen ? "visible translate-x-0" : "invisible -translate-x-full"
+				}`}
 			>
 				<h1>Pick a Section!</h1>
 				<NavItem
@@ -69,7 +79,7 @@ const SideDrawer: React.FC = () => {
 					image="/images/contact.jpg"
 					href="/contact"
 				/>
-			</Drawer>
+			</nav>
 		</>
 	);
 };

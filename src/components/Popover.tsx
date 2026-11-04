@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { FaChevronRight } from "react-icons/fa";
 
 interface IPopoverProps {
@@ -12,7 +11,7 @@ const Popover: React.FC<IPopoverProps> = ({ children, id, hide }) => {
 		<>
 			<div popover="auto" className="popover-content" id={id}>
 				{children}
-				<button type="button" className="close-btn" popovertarget={id}>
+				<button type="button" className="close-btn" popoverTarget={id}>
 					Close
 				</button>
 			</div>
@@ -21,7 +20,7 @@ const Popover: React.FC<IPopoverProps> = ({ children, id, hide }) => {
 				<button
 					type="button"
 					className="learn-more-btn"
-					popovertarget={id}
+					popoverTarget={id}
 				>
 					Learn More <FaChevronRight size={15} />
 				</button>

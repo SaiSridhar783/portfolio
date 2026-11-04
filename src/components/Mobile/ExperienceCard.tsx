@@ -47,8 +47,7 @@ const ExperienceCard: React.FC<IExperienceCardProps> = ({
 					<button
 						type="button"
 						className="learn-more"
-						// @ts-ignore
-						popovertarget={props.title}
+						popoverTarget={props.title}
 					>
 						Learn More <FaArrowAltCircleRight size={12} />
 					</button>

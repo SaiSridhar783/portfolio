@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import badgesData from "@/data/badges.json";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import "@/styles/about.scss";
 
 const SkillsSection: React.FC = () => {

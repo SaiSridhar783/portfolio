@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import CertiTab from "@/components/CertiTab";
 import BookView from "@/components/Certifications/BookView";
 import Education from "@/components/Certifications/Education";

@@ -1,22 +1,24 @@
 "use client";
 
+import { use } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import proJSON from "@/data/projects.json";
 import "@/styles/projects.scss";
 
 type IProjectdata = {
-	params: {
+	params: Promise<{
 		slug: string;
-	};
+	}>;
 };
 
 const mainDelay = 0;
 
 const EachProject: React.FC<IProjectdata> = ({ params }) => {
-	const data = proJSON.find((pro) => pro.slug === params.slug);
+	const { slug } = use(params);
+	const data = proJSON.find((pro) => pro.slug === slug);
 
 	return (
 		<div className="each-project">

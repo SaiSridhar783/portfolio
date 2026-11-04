@@ -3,13 +3,14 @@ import proJSON from "@/data/projects.json";
 import "@/styles/projects.scss";
 
 type IProjectdata = {
-	params: {
+	params: Promise<{
 		slug: string;
-	};
+	}>;
 };
 
-const EachProjectMob: React.FC<IProjectdata> = ({ params }) => {
-	const data = proJSON.find((pro) => pro.slug === params.slug);
+const EachProjectMob: React.FC<IProjectdata> = async ({ params }) => {
+	const { slug } = await params;
+	const data = proJSON.find((pro) => pro.slug === slug);
 
 	return (
 		<div className="each-project-mob">
