@@ -41,39 +41,39 @@
 		overflow: hidden;
 		z-index: 2;
 		flex-shrink: 0;
-		animation: scaleAnimation 0.8s ease-in-out;
+		box-shadow: 0 0 0 2px var(--accent);
 
-		@media screen and (width <800px) {
+		@container page (width < 800px) {
 			height: 90px;
 		}
 	}
 
 	h1 {
-		font-size: clamp(1rem, 5vw, 1.6rem);
+		font-size: clamp(1.6rem, 5vw, 3rem);
 		font-weight: 700;
-		letter-spacing: 1px;
-		color: $blue;
-		background-color: #3ba13f;
-		padding: 0.5rem 0;
+		color: white;
+		position: relative;
+		padding-bottom: 0.4rem;
 
-		&:after {
-			position: relative;
-			content: "BBBBBBB";
-			max-width: 50%;
-			background-color: $blue;
-			right: -10%;
-			padding: 1rem;
-			border-radius: 50%;
+		// Accent underline that draws in after the letters
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			height: 3px;
+			border-radius: 3px;
+			background: linear-gradient(90deg, var(--accent), var(--aurora-2));
+			transform-origin: left;
+			animation: drawLine var(--dur-slow) var(--ease-out) 0.4s both;
 		}
+	}
+}
 
-		&:before {
-			position: relative;
-			content: "BBBBBBB";
-			background-color: $blue;
-			left: -10%;
-			padding: 1rem;
-			border-radius: 50%;
-		}
+@keyframes drawLine {
+	from {
+		scale: 0 1;
 	}
 }
 
@@ -194,4 +194,88 @@
 	100% {
 		scale: 1;
 	}
+}
+
+/* Side drawer: narrow viewports only; desktop navigates via /home and back arrows */
+.nav-item {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+	padding: 0.8rem;
+	border-radius: 1rem;
+	margin-bottom: 0.5rem;
+}
+
+.hamburger {
+	color: #ddd;
+}
+
+.side-drawer {
+	padding: 1rem;
+
+	h1 {
+		border-bottom: 1px solid #ddd;
+		font-weight: 500;
+		font-size: 1.5rem;
+		padding-bottom: 0.5rem;
+		margin-bottom: 1rem;
+	}
+}
+
+// Fixed to the viewport, so a media query rather than a container query
+@media (width >= #{$narrow}) {
+	.hamburger,
+	.side-drawer,
+	.drawer-overlay {
+		display: none;
+	}
+}
+
+// The hamburger takes the back arrow's spot
+@container page (width < #{$narrow}) {
+	.back-arrow {
+		visibility: hidden;
+	}
+}
+
+@container page (width < #{$narrow}) {
+	.page-header {
+		padding: 0.75rem 1rem;
+		gap: 0.5rem;
+
+		.page-header-badge {
+			height: 64px;
+		}
+	}
+}
+
+@container page (width < #{$narrow}) {
+	.social-wrapper {
+		display: flex;
+		min-width: 0;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	// No hover on touch: compact, always-coloured icons
+	.social-button,
+	.social-button:hover {
+		width: 48px;
+		height: 48px;
+		margin: 0.25rem;
+
+		.social-icon {
+			height: 48px;
+		}
+
+		svg {
+			color: #fff;
+		}
+	}
+
+	.social-button:nth-child(1) .social-icon { background: #e1306c; }
+	.social-button:nth-child(2) .social-icon { background: #4267b2; }
+	.social-button:nth-child(3) .social-icon { background: #1da1f2; }
+	.social-button:nth-child(4) .social-icon { background: #0e76a8; }
+	.social-button:nth-child(5) .social-icon { background: #333; }
 }

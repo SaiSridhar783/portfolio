@@ -63,3 +63,9 @@ h6 {
 #__next {
 	isolation: isolate;
 }
+/*
+  9. Page-wide query container; responsive rules use @container page
+*/
+.page {
+	container: page / inline-size;
+}

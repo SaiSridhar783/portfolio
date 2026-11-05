@@ -4,6 +4,7 @@ import Card from "@/components/Card";
 import Image from "next/image";
 import "@/styles/experience.scss";
 import TCGTestimonials from "@/components/Experience/TCGTestimonials";
+import PageTransition from "@/components/PageTransition";
 
 const workExperiences = [
   {
@@ -13,7 +14,7 @@ const workExperiences = [
     duration: "Aug 01, 2023 - Present",
     compURL: "https://www.tcgdigital.com/",
     text: "Engineered and built a real-time football commentary translator using Whisper, gpt-4o, NGINX, and FFmpeg, streaming to 5M+ viewers over 27 broadcasting channels.",
-    delay: "0.5s",
+    delay: "0.1s",
     achievements: [
       "Implemented a real-time aviation system in Python with a microservice architecture, achieving 700+ TPS, leveraging Kafka event streaming, Redis caching, and Kubernetes orchestration while maintaining data integrity via PostgreSQL.",
       "Engineered a real-time AI football commentary translator using Whisper, OpenAI gpt-4o, NGINX, and FFmpeg to translate live audio into multiple languages, streaming to 5M+ viewers over 27 broadcasting channels via HLS and SRT protocols.",
@@ -30,7 +31,7 @@ const workExperiences = [
     duration: "May 09, 2022 - July 08, 2022",
     compURL: "https://www.nobroker.in/",
     text: "Developed a dynamic Tree Visualizer using React.js and Redux covering a catalog of 20+ services, improving understanding and decision-making.",
-    delay: "1s",
+    delay: "0.2s",
     achievements: [
       "Built a dynamic Tree Visualizer using React.js and Redux covering a comprehensive catalog of 20+ services, improving understanding and decision-making.",
       "Devised node management capabilities for concurrent users using Java Spring Boot, ensuring seamless data updates, reducing conflicts by 80%.",
@@ -45,7 +46,7 @@ const workExperiences = [
     duration: "May 03, 2021 - June 30, 2021",
     compURL: "https://dotgo.com/",
     text: "Enhanced the user onboarding experience by adding filters for country selection and search functionalities for carriers enabling quick user navigation.",
-    delay: "1.5s",
+    delay: "0.3s",
     achievements: [
       "Enhanced the user onboarding experience by adding filters for country selection and search functionalities for carriers.",
       "Implemented advanced filtering and nested search features, allowing users to efficiently navigate through the data.",
@@ -112,47 +113,49 @@ ExperienceSection.displayName = "ExperienceSection";
 
 const Experience: React.FC = () => {
   return (
-    <div className="experience">
-      <ExperienceSection title="Work">
-        {workExperiences.map((exp, index) => (
-          <ExperienceCard
-            key={exp.company}
-            title={exp.title}
-            company={exp.company}
-            logo={exp.logo}
-            duration={exp.duration}
-            compURL={exp.compURL}
-            text={exp.text}
-            delay={exp.delay}
-          >
-            {exp.hasTestimonials && (
-              <>
-                <h2>Testimonials</h2>
-                <TCGTestimonials />
-              </>
-            )}
-            <h2>Achievements</h2>
-            <ul>
-              {exp.achievements.map((achievement, i) => (
-                <li key={i}>{achievement}</li>
-              ))}
-            </ul>
-          </ExperienceCard>
-        ))}
-      </ExperienceSection>
+    <PageTransition>
+      <div className="experience">
+        <ExperienceSection title="Work">
+          {workExperiences.map((exp, index) => (
+            <ExperienceCard
+              key={exp.company}
+              title={exp.title}
+              company={exp.company}
+              logo={exp.logo}
+              duration={exp.duration}
+              compURL={exp.compURL}
+              text={exp.text}
+              delay={exp.delay}
+            >
+              {exp.hasTestimonials && (
+                <>
+                  <h2>Testimonials</h2>
+                  <TCGTestimonials />
+                </>
+              )}
+              <h2>Achievements</h2>
+              <ul>
+                {exp.achievements.map((achievement, i) => (
+                  <li key={i}>{achievement}</li>
+                ))}
+              </ul>
+            </ExperienceCard>
+          ))}
+        </ExperienceSection>
 
-      <ExperienceSection title="Others">
-        {otherExperiences.map((exp, index) => (
-          <Card key={exp.title} title={exp.title} src={exp.src} href={exp.href}>
-            <ul>
-              {exp.achievements.map((achievement, i) => (
-                <li key={i}>{achievement}</li>
-              ))}
-            </ul>
-          </Card>
-        ))}
-      </ExperienceSection>
-    </div>
+        <ExperienceSection title="Others">
+          {otherExperiences.map((exp, index) => (
+            <Card key={exp.title} title={exp.title} src={exp.src} href={exp.href}>
+              <ul>
+                {exp.achievements.map((achievement, i) => (
+                  <li key={i}>{achievement}</li>
+                ))}
+              </ul>
+            </Card>
+          ))}
+        </ExperienceSection>
+      </div>
+    </PageTransition>
   );
 };
 

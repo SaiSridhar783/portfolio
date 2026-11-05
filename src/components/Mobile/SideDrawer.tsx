@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import NavItem from "./NavItem";
+import "@/styles/components.scss";
 
 const SideDrawer: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ const SideDrawer: React.FC = () => {
 
 			{isOpen && (
 				<div
-					className="fixed inset-0 z-100 bg-black/40"
+					className="drawer-overlay fixed inset-0 z-100 bg-black/40"
 					onClick={toggleDrawer}
 				/>
 			)}
@@ -47,7 +48,7 @@ const SideDrawer: React.FC = () => {
 					closeDrawer={toggleDrawer}
 					image="/images/home.png"
 					title="home"
-					href=""
+					href="/"
 				/>
 				<NavItem
 					closeDrawer={toggleDrawer}

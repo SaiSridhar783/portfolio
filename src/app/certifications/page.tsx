@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { motion } from "motion/react";
+import { easeOut } from "@/lib/motion";
 import CertiTab from "@/components/CertiTab";
 import BookView from "@/components/Certifications/BookView";
 import Education from "@/components/Certifications/Education";
 import Technical from "@/components/Certifications/Technical";
 import eduJSON from "@/data/education.json";
 import certiJSON from "@/data/certificates.json";
+import PageTransition from "@/components/PageTransition";
 import "@/styles/certifications.scss";
 
 // export const metadata: Metadata = {
@@ -41,83 +43,88 @@ const CertificationsPage: React.FC = () => {
 	};
 
 	return (
-		<div className="certifications">
-			<div className="book-container">
-				{/* Book Snip */}
-				<div className="book-snip"></div>
-
-				{/* Education List */}
-				<motion.div
-					className="edu-list"
-					animate={{
-						rotateY: [180, 0],
-						transformOrigin: ["100%", "100%"],
-						backgroundColor: [
-							"rgba(200,200,200,1)",
-							"rgba(200,200,200,0.7)",
-						],
-						skewY: [-5, -10, 10, 0],
-					}}
-					transition={{ duration: 2, delay: 0.5 }}
-				>
-					<CertiTab title="Education" />
-					<ol>
-						{eduJSON.map((item, idx) => (
-							<BookView
-								key={idx + "edu"}
-								item={JSON.stringify(item)}
-								onMouseEnter={() =>
-									onMouseEnterEduHandler(item)
-								}
-								onMouseLeave={onMouseLeaveHandler}
-							/>
-						))}
-					</ol>
-				</motion.div>
-
-				{/* Technical List */}
-				<div className="tech-list">
-					<CertiTab title="Technical" />
-					<ol>
-						{certiJSON.map((item, idx) => (
-							<BookView
-								href={item.link}
-								key={idx + "edu"}
-								item={JSON.stringify(item)}
-								onMouseEnter={() =>
-									onMouseEnterCertiHandler(item)
-								}
-								onMouseLeave={onMouseLeaveHandler}
-							/>
-						))}
-					</ol>
-				</div>
-			</div>
-			{/* Hover View */}
-			<motion.div
-				className="hover-view"
-				animate={{
-					rotateX: [-90, 0],
-					skewX: [0, -8, 8, 0],
-				}}
-				transition={{ duration: 1.5, delay: 2.2 }}
-			>
-				<div className="hover-card">
-					<div className="badge-preview">{badge}</div>
-					<div className="card-preview">
-						{hoverDisplay &&
-							(hoverDisplay === "edu" ? (
-								// @ts-ignore
-								<Education {...cardProps} />
-							) : (
-								// @ts-ignore
-								<Technical {...cardProps} />
+		<PageTransition>
+			<div className="certifications">
+				<div className="book-container">
+					{/* Education List */}
+					<motion.div
+						className="edu-list"
+						// Left page swings open from the spine
+						style={{ transformOrigin: "100% 50%", transformPerspective: 1600 }}
+						initial={{ rotateY: 180 }}
+						animate={{ rotateY: 0 }}
+						transition={{ duration: 1, delay: 0.15, ease: easeOut }}
+					>
+						<CertiTab title="Education" />
+						<ol>
+							{eduJSON.map((item, idx) => (
+								<BookView
+									key={idx + "edu"}
+									item={JSON.stringify(item)}
+									onMouseEnter={() =>
+										onMouseEnterEduHandler(item)
+									}
+									onMouseLeave={onMouseLeaveHandler}
+								/>
 							))}
-						{!hoverDisplay && <Fallback />}
+						</ol>
+					</motion.div>
+
+					{/* Technical List */}
+					<div className="tech-list">
+						<CertiTab title="Technical" />
+						<ol>
+							{certiJSON.map((item, idx) => (
+								<BookView
+									href={item.link}
+									key={idx + "edu"}
+									item={JSON.stringify(item)}
+									onMouseEnter={() =>
+										onMouseEnterCertiHandler(item)
+									}
+									onMouseLeave={onMouseLeaveHandler}
+								/>
+							))}
+						</ol>
 					</div>
 				</div>
-			</motion.div>
-		</div>
+				{/* Hover View */}
+				<motion.div
+					className="hover-view"
+					animate={{
+						rotateX: [-90, 0],
+						skewX: [0, -8, 8, 0],
+					}}
+					transition={{ duration: 0.8, delay: 0.4, ease: easeOut }}
+				>
+					<div className="hover-card">
+						<div className="badge-preview">{badge}</div>
+						<div className="card-preview">
+							{hoverDisplay &&
+								(hoverDisplay === "edu" ? (
+									// @ts-ignore
+									<Education {...cardProps} />
+								) : (
+									// @ts-ignore
+									<Technical {...cardProps} />
+								))}
+							{!hoverDisplay && <Fallback />}
+						</div>
+					</div>
+				</motion.div>
+				{/* Touch-friendly list; replaces the hover book in narrow containers */}
+				<div className="certi-list">
+					<CertiTab title="Education" />
+					{eduJSON.map((item, idx) => (
+						<Education key={idx} {...item} />
+					))}
+					<CertiTab title="Technical" />
+					{certiJSON.map((item, idx) => (
+						<Technical makeLink key={idx} {...item} />
+					))}
+				</div>
+			</div>
+		</PageTransition>
 	);
 };
 

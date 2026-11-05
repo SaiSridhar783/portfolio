@@ -4,26 +4,27 @@ import "@/styles/about.scss";
 
 interface ISummaryTabProps {
 	children: React.ReactNode;
+	label: string;
 	linkText: string;
 	link: string;
-	style: React.CSSProperties;
 }
 
 const SummaryTab: React.FC<ISummaryTabProps> = ({
 	children,
+	label,
 	link,
 	linkText,
-	style,
 }) => {
 	return (
-		<p className="summary-tab" style={style}>
-			{children}
-			<Link href={link}>
+		<div className="summary-tab reveal">
+			<p className="summary-label">{label}</p>
+			<p>{children}</p>
+			<Link href={link} transitionTypes={["nav-forward"]}>
 				<span className="link">
-					{linkText} <FaChevronRight size={15} />
+					{linkText} <FaChevronRight size={13} />
 				</span>
 			</Link>
-		</p>
+		</div>
 	);
 };
 

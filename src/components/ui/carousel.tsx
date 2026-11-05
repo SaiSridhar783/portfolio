@@ -195,7 +195,7 @@ const CarouselItem = React.forwardRef<
 CarouselItem.displayName = "CarouselItem";
 
 const buttonClass =
-	"absolute inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-200 bg-white shadow-xs transition-colors hover:bg-neutral-100 hover:text-neutral-900 focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus-visible:ring-neutral-300";
+	"absolute inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/15 text-white shadow-lg backdrop-blur-md transition-[background-color,color,opacity] duration-200 hover:bg-[var(--accent)] hover:text-[var(--accent-ink)] disabled:pointer-events-none disabled:opacity-0";
 
 const CarouselPrevious = React.forwardRef<
 	HTMLButtonElement,

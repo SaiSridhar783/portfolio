@@ -1,86 +1,69 @@
 import SummaryTab from "./SummaryTab";
 import Image from "next/image";
+import SplitText from "../SplitText";
+import Stats from "./Stats";
 import "@/styles/about.scss";
 
 const Overview: React.FC = () => {
   return (
-    <div className="overview">
-      <div className="overview-head">
-        <p>
-          <span>Sai Sridhar Akula&nbsp;</span>
-          is my name.
-        </p>
-        <p>Software Engineering is my domain.</p>
-      </div>
-      <div className="overview-tabs">
-        <SummaryTab
-          style={{
-            scale: 1.2,
-            translate: "-120px -14px -32px",
-          }}
-          link="/projects"
-          linkText="Check out my projects"
-        >
-          I design and build fullstack applications that are scalable and
-          reliable. My expertise lies in Python and TypeScript.
-        </SummaryTab>
-        <SummaryTab
-          style={{
-            scale: 1.2,
-            translate: "0 -8px -32px",
-            left: "3rem",
-            top: "-3px",
-          }}
-          link="/certifications"
-          linkText="Learn more about my education"
-        >
-          <span>
-            Graduated from the&nbsp;
-            <span
-              style={{
-                fontWeight: 600,
-              }}
-            >
-              Indian Institute of Technology, Kharagpur (IIT KGP)
-            </span>
-            , with a Bachelor&apos;s degree in Mining Engineering.
-          </span>
-        </SummaryTab>
-      </div>
-      <div className="overview-tabs-2">
-        <SummaryTab
-          style={{
-            scale: 1.45,
-            translate: "-13rem 0 -64px",
-            top: "50px",
-          }}
-          link="/experience"
-          linkText="More about my experience"
-        >
-          Currently working as a Software Engineering Consultant at TCG Digital
-          Solutions Pvt. Ltd.
-        </SummaryTab>
-        <SummaryTab
-          style={{
-            scale: 1.45,
-            translate: "7rem 0 -64px",
-            top: "50px",
-          }}
-          link="/contact"
-          linkText="Connect with me!"
-        >
-          Curious to learn more about me or simply want to say hi? Feel free to
-          message me anytime!
-        </SummaryTab>
-      </div>
+    <>
+      <section className="about-hero">
+        <div className="about-hero-text">
+          <p className="about-eyebrow">
+            Hi, I&apos;m <span>Sai Sridhar Akula</span>.
+          </p>
+          <h1>
+            <SplitText
+              text="I build software that holds up under real traffic."
+              delay={0.2}
+              stagger={0.018}
+            />
+          </h1>
+          <p className="about-lede">
+            Fullstack engineer at TCG Digital and an IIT Kharagpur graduate. I
+            work across the stack in Python and TypeScript, from event-driven
+            backends and AI pipelines to the interfaces people actually use.
+          </p>
+        </div>
+        <div className="about-portrait">
+          <Image
+            src="/images/about/profile.png"
+            alt="Portrait of Sai Sridhar Akula"
+            width={550}
+            height={800}
+            priority
+          />
+        </div>
+      </section>
 
-      <Image
-        src="/images/about/profile.png"
-        alt="A cool shot of Sai"
-        width={550}
-        height={800}
-      />
-    </div>
+      <Stats />
+
+      <section className="about-cards">
+        <SummaryTab label="What I do" link="/projects" linkText="See what I've built">
+          I design and ship products end to end: APIs, data pipelines, real-time
+          streaming and the UI on top, mostly in Python and TypeScript.
+        </SummaryTab>
+        <SummaryTab
+          label="Where I studied"
+          link="/certifications"
+          linkText="Education and certifications"
+        >
+          B.Tech from{" "}
+          <strong>Indian Institute of Technology, Kharagpur</strong>. I studied
+          Mining Engineering, graduated in 2023 with a CGPA of 8.85, and moved
+          into software full time.
+        </SummaryTab>
+        <SummaryTab label="Where I work" link="/experience" linkText="My experience">
+          Software Engineer at <strong>TCG Digital</strong> since 2023, building
+          event-driven systems with Kafka, Redis and Kubernetes. Recognised with
+          the Spot Award and the Annual Excellence Award.
+        </SummaryTab>
+        <SummaryTab label="Say hello" link="/contact" linkText="Get in touch">
+          Hiring, collaborating, or just curious about something I&apos;ve built?
+          My inbox is open, and I reply.
+        </SummaryTab>
+      </section>
+    </>
   );
 };
 

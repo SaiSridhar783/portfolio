@@ -2,11 +2,12 @@
 
 .certifications {
 	display: flex;
-	animation: fadeIn 1s ease-in-out;
-	transition: all 3s;
+	animation: fadeIn var(--dur-slow) var(--ease-out);
+	transition: all var(--dur-base);
 
 	ol {
 		align-self: flex-start;
+		width: 100%;
 		margin: 0;
 		list-style-type: none;
 
@@ -18,65 +19,41 @@
 		}
 	}
 
+	// Pages: cream paper that darkens toward the spine, paper edges stacked below
+	.edu-list,
 	.tech-list {
+		width: 50%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		width: 50%;
-		background: rgba(200, 200, 200, 0.6);
-		border-radius: 1.5rem;
-		border-bottom-left-radius: 0;
 		overflow: hidden;
+		color: #2b2a26;
+		box-shadow:
+			0 2px 0 #ddd6c7,
+			0 4px 0 #cbc3b1,
+			0 6px 0 #b8af9b;
 
 		ol {
-			overflow-y: scroll;
+			overflow-y: auto;
 		}
-
-		// &:before {
-		// 	content: "";
-		// 	position: absolute;
-		// 	width: 22%;
-		// 	height: 69.3%;
-		// 	top: 183px;
-		// 	left: 32.5%;
-		// 	z-index: 1;
-		// 	background: #ccc;
-		// 	animation: dissolve 1s ease-in-out forwards;
-		// }
 	}
 
 	.edu-list {
-		width: 50%;
-		background-color: rgba(200, 200, 200, 0.7);
-		border-radius: 1.5rem;
-		border-bottom-right-radius: 0;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		overflow: hidden;
 		z-index: 3;
-		transform-origin: 100% 100%;
-		transform: rotateY(180deg) skewY(-5deg);
-		background-color: rgba(200, 200, 200, 1);
-		// animation: rotateAndSkew 3s 0.5s forwards
-		// 	cubic-bezier(0.42, 0.8, 0.58, 1);
+		border-radius: 14px 4px 4px 14px;
+		background: linear-gradient(90deg, #ebe5d8, #f6f2ea 55%, #f1ece2 85%, #d9d1bf);
+		backface-visibility: hidden;
 	}
 
-	.book-snip {
-		height: 5rem;
-		aspect-ratio: 1 / 1;
-		background: $blue;
-		position: relative;
-		top: -10%;
-		left: 50.3%;
-		rotate: z 45deg;
-		z-index: 5;
+	.tech-list {
+		border-radius: 4px 14px 14px 4px;
+		background: linear-gradient(90deg, #d9d1bf, #f1ece2 15%, #f6f2ea 45%, #ebe5d8);
 	}
 
 	.hover-view {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
+		align-items: center;
 		justify-content: center;
 		height: 75vh;
 		width: 40%;
@@ -84,7 +61,7 @@
 		transform: rotateX(-90deg);
 		z-index: 10;
 
-		@media screen and (max-width: 1310px) {
+		@container page (width <= 1310px) {
 			align-items: center;
 		}
 
@@ -99,11 +76,14 @@
 		border-radius: 1rem;
 		overflow: hidden;
 		color: rgba(255, 255, 255, 0.6);
-		background-image: radial-gradient(#d6d7d8, #78808a);
+		background: var(--surface);
+		border: 1px solid var(--border);
 
 		.badge-preview {
 			position: relative;
-			background-color: black;
+			background-color: var(--accent);
+			color: var(--accent-ink);
+			font-weight: 600;
 			height: 25px;
 			width: 100%;
 			text-align: center;
@@ -121,7 +101,7 @@
 		}
 
 		.fallback {
-			color: black;
+			color: var(--text-muted);
 			font-size: 1.5rem;
 			font-weight: 500;
 			width: 50%;
@@ -129,15 +109,77 @@
 		}
 	}
 
+	// Hardcover: dark green cloth framing two paper pages, resting at a slight angle
 	.book-container {
+		position: relative;
 		display: flex;
 		width: clamp(600px, 75%, 750px);
 		height: 75vh;
-		border-radius: 1.5rem;
-		margin-left: 2%;
+		padding: 12px 12px 18px;
+		border-radius: 20px;
+		margin-left: max(2%, 3rem);
+		background: linear-gradient(145deg, #1d3a2f, #102019 60%, #0b1612);
+		border: 1px solid color-mix(in oklab, var(--accent) 22%, transparent);
+		transform: perspective(2000px) rotateY(6deg) rotateX(2deg);
+		box-shadow:
+			inset 0 1px 0 rgb(255 255 255 / 0.08),
+			0 30px 40px -25px rgb(0 0 0 / 0.7),
+			0 60px 100px -40px rgb(0 0 0 / 0.9);
+		transition: transform var(--dur-slow) var(--ease-out);
+
+		&:hover {
+			transform: perspective(2000px) rotateY(2deg) rotateX(1deg);
+		}
+
+		// Spine: the fold where the pages meet
+		&::after {
+			content: "";
+			position: absolute;
+			top: 12px;
+			bottom: 18px;
+			left: 50%;
+			width: 4rem;
+			translate: -50% 0;
+			background: linear-gradient(
+				90deg,
+				transparent,
+				rgb(60 45 20 / 0.12) 35%,
+				rgb(40 30 10 / 0.3) 50%,
+				rgb(60 45 20 / 0.12) 65%,
+				transparent
+			);
+			pointer-events: none;
+			z-index: 4;
+		}
+
+		// Page headings: printed, not tabs
+		.certi-tab {
+			width: 82%;
+			height: auto;
+			padding: 1.4rem 0 0.9rem;
+			background: none;
+			color: #1f4d3a;
+			font-family: var(--font-display), sans-serif;
+			font-size: 0.95rem;
+			font-weight: 700;
+			letter-spacing: 0.25em;
+			text-transform: uppercase;
+			border-bottom: 2px solid #1f4d3a;
+			margin-bottom: 0.25rem;
+		}
 	}
 
-	@media screen and (width<1150px) {
+	.hover-card {
+		transform: perspective(1800px) rotateY(-6deg);
+		box-shadow: -30px 40px 70px -25px rgb(0 0 0 / 0.8);
+		transition: transform var(--dur-slow) var(--ease-out);
+
+		&:hover {
+			transform: perspective(1800px) rotateY(-2deg);
+		}
+	}
+
+	@container page (width < 1150px) {
 		flex-direction: column-reverse;
 		align-items: center;
 		justify-content: center;
@@ -160,35 +202,48 @@
 	}
 }
 
+// A printed entry; hover sweeps a highlighter across it
 .book-view {
 	position: relative;
 	width: 100%;
-	background: rgba(0, 0, 0, 0.1);
-	padding: 1rem;
-	height: 5rem;
-	overflow: hidden;
+	min-height: 4.5rem;
+	padding: 0.9rem 1.5rem 0.9rem 1.75rem;
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid black;
-	// animation: slideLeft 2s ease-out;
+	font-size: 0.95rem;
+	line-height: 1.4;
+	border-bottom: 1px dashed rgb(43 42 38 / 0.18);
+	background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 35%, transparent), transparent) no-repeat;
+	background-size: 0% 100%;
+	transition: background-size var(--dur-base) var(--ease-out);
 
-	&:hover {
-		filter: contrast(1.5);
-		background: rgba(0, 0, 0, 0.4);
+	&:hover,
+	&:focus-within {
+		background-size: 100% 100%;
+
+		&::before {
+			background: #1f4d3a;
+			color: #f6f2ea;
+		}
 	}
 
-	&:before {
+	&::before {
 		content: counter(list);
-		background: #53bf89;
-		color: #fff;
-		font-size: 13px;
-		text-align: center;
+		flex-shrink: 0;
+		display: grid;
+		place-items: center;
+		width: 1.9rem;
+		aspect-ratio: 1;
+		margin-right: 1rem;
+		border: 1.5px solid #1f4d3a;
 		border-radius: 50%;
-		min-width: 2.2em;
-		min-height: 2.2em;
-		line-height: 2.3em;
-		display: inline-block;
-		margin-right: 1em;
+		color: #1f4d3a;
+		font-family: var(--font-display), sans-serif;
+		font-size: 0.8rem;
+		font-weight: 700;
+		transition:
+			background var(--dur-fast),
+			color var(--dur-fast);
 	}
 }
 
@@ -210,7 +265,7 @@
 	top: -3.8rem;
 	border-radius: 1rem;
 	opacity: 0;
-	animation: fadeIn 1s forwards;
+	animation: fadeIn var(--dur-base) var(--ease-out) forwards;
 
 	.edu-card-top {
 		display: flex;
@@ -244,7 +299,7 @@
 	position: relative;
 	top: -3.8rem;
 	border-radius: 1rem;
-	animation: fadeIn 1s forwards;
+	animation: fadeIn var(--dur-base) var(--ease-out) forwards;
 
 	.tech-card-top {
 		display: flex;
@@ -338,4 +393,69 @@
 		transform: rotateY(0deg) skewY(0deg);
 		background-color: rgba(200, 200, 200, 0.7);
 	}
+}
+
+.certi-list {
+	display: none;
+}
+
+// Touch-friendly list instead of the hover book
+@mixin list-layout {
+	.certifications {
+		.book-container,
+		.hover-view {
+			display: none;
+		}
+
+		.certi-list {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			padding-bottom: 3rem;
+			gap: 2.5rem;
+			color: rgba(255, 255, 255, 0.8);
+
+			.certi-tab {
+				height: auto;
+				font-size: 1.8rem;
+				color: white;
+				background-color: var(--surface);
+				font-weight: 500;
+				position: sticky;
+				top: 0;
+				z-index: 1;
+			}
+
+			.edu-card,
+			.tech-card {
+				top: 0;
+				width: 85%;
+				box-shadow: 0 0 0 8px #8c8e90;
+			}
+
+			.edu-card p,
+			.tech-card-last p {
+				font-size: 0.9rem;
+			}
+
+			.tech-card-top img {
+				height: 60px;
+				width: 60px;
+			}
+
+			.tech-card-bottom p {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}
+
+@container page (width < #{$narrow}) {
+	@include list-layout;
+}
+
+// Wide touch screens (tablets) have no hover either
+@media (hover: none) {
+	@include list-layout;
 }

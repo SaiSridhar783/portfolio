@@ -14,12 +14,12 @@ interface INavItemProps {
 const NavItem: React.FC<INavItemProps> = (props) => {
 	const pathname = usePathname();
 	return (
-		<Link href={"/v2" + props.href} passHref>
+		<Link href={props.href} passHref>
 			<div
 				className="nav-item"
 				style={{
 					backgroundColor:
-						pathname === `/v2${props.href}`
+						pathname === props.href
 							? "#eee"
 							: "transparent",
 				}}

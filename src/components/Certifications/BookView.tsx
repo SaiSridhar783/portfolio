@@ -18,6 +18,8 @@ const BookView: React.FC<IBookViewProps> = ({
 		<li
 			onMouseEnter={onMouseEnter}
 			onMouseLeave={onMouseLeave}
+			onFocus={onMouseEnter}
+			onBlur={onMouseLeave}
 			className="book-view"
 		>
 			<a href={href} target={href === "#" ? "_self" : "_blank"}>

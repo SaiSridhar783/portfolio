@@ -39,7 +39,14 @@ const ExperienceCard: React.FC<IExperienceCardProps> = ({
 			</div>
 			<div className="info-box">
 				<p className="title">{props.title}</p>
-				<Popover hide id={props.title}>
+				<Popover
+					hide
+					id={props.title}
+					title={props.title}
+					subtitle={props.company}
+					meta={props.duration}
+					logo={props.logo}
+				>
 					{children}
 				</Popover>
 				<p className="text">{props.text}</p>

@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
+import SideDrawer from "@/components/Mobile/SideDrawer";
+import MotionProvider from "@/components/MotionProvider";
 import "@/styles/globals.css";
 import "@/styles/imports.scss";
 
-const monstserrat = Montserrat({ subsets: ["latin"] });
+const body = DM_Sans({ subsets: ["latin"], variable: "--font-body" });
+const display = Space_Grotesk({
+	subsets: ["latin"],
+	variable: "--font-display",
+});
 
 export const metadata: Metadata = {
 	title: "Sai Sridhar's Portfolio",
@@ -36,8 +42,19 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body suppressHydrationWarning className={monstserrat.className}>
-				{children}
+			<body
+				suppressHydrationWarning
+				className={`${body.variable} ${display.variable}`}
+			>
+				<div className="aurora" aria-hidden>
+					<span />
+					<span />
+					<span />
+				</div>
+				<MotionProvider>
+					<SideDrawer />
+					<div className="page">{children}</div>
+				</MotionProvider>
 			</body>
 		</html>
 	);
