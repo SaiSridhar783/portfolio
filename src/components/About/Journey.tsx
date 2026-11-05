@@ -1,4 +1,4 @@
-import "@/styles/about.scss";
+import "@/styles/about.css";
 
 // Newest first; keep in sync with the experience page
 const milestones = [

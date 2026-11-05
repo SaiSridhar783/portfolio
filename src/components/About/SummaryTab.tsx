@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
-import "@/styles/about.scss";
+import "@/styles/about.css";
 
 interface ISummaryTabProps {
 	children: React.ReactNode;

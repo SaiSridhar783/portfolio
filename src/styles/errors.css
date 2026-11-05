@@ -1,0 +1,225 @@
+/* 404 / error screens: glitching code, orbiting zeros, staggered entrance */
+.error-screen {
+	min-height: 100svh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 2rem 1.5rem;
+	text-align: center;
+
+	> * {
+		animation: errorRise var(--dur-slow) var(--ease-out) both;
+	}
+
+	> :nth-child(1) { animation-delay: 0.1s; }
+	> :nth-child(2) { animation-delay: 0.2s; }
+	> :nth-child(3) { animation-delay: 0.3s; }
+	> :nth-child(4) { animation-delay: 0.4s; }
+}
+
+.error-code-wrap {
+	margin-bottom: 1rem;
+}
+
+.error-code {
+	display: flex;
+	align-items: center;
+	gap: 0.08em;
+	font-family: var(--font-display), sans-serif;
+	font-size: clamp(6rem, 22vw, 15rem);
+	font-weight: 700;
+	line-height: 1;
+	color: white;
+	user-select: none;
+}
+
+/* Each character bobs on its own rhythm and glitches now and then */
+.error-char {
+	position: relative;
+	display: inline-block;
+	background: linear-gradient(180deg, #fff 30%, color-mix(in oklab, var(--accent) 60%, #fff));
+	background-clip: text;
+	color: transparent;
+	animation: errorFloat 4s var(--ease-in-out) infinite alternate;
+	animation-delay: calc(var(--i) * -1.3s);
+
+	&::before,
+	&::after {
+		content: attr(data-char);
+		position: absolute;
+		inset: 0;
+		background: none;
+		opacity: 0.8;
+		pointer-events: none;
+	}
+
+	&::before {
+		color: var(--accent);
+		animation: glitchA 3.5s steps(1) infinite;
+		animation-delay: calc(var(--i) * 0.4s);
+	}
+
+	&::after {
+		color: var(--aurora-2);
+		animation: glitchB 3.5s steps(1) infinite;
+		animation-delay: calc(var(--i) * 0.4s);
+	}
+}
+
+/* "0": a ring with a dot circling it */
+.error-orbit {
+	position: relative;
+	display: inline-block;
+	width: 0.62em;
+	height: 0.78em;
+	border: 0.11em solid white;
+	border-radius: 50%;
+	box-shadow:
+		0 0 40px color-mix(in oklab, var(--accent) 35%, transparent),
+		inset 0 0 30px color-mix(in oklab, var(--accent) 25%, transparent);
+	animation: errorFloat 4s var(--ease-in-out) infinite alternate;
+	animation-delay: calc(var(--i) * -1.3s);
+
+	.orbit-track {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 1.05em;
+		aspect-ratio: 1;
+		translate: -50% -50%;
+		border: 1px dashed color-mix(in oklab, var(--accent) 45%, transparent);
+		border-radius: 50%;
+		animation: orbitSpin 5s linear infinite;
+		animation-delay: calc(var(--i) * -0.8s);
+
+		i {
+			position: absolute;
+			top: -0.06em;
+			left: 50%;
+			width: 0.12em;
+			aspect-ratio: 1;
+			translate: -50% 0;
+			border-radius: 50%;
+			background: var(--accent);
+			box-shadow: 0 0 16px 4px color-mix(in oklab, var(--accent) 70%, transparent);
+		}
+	}
+}
+
+.error-title {
+	color: white;
+	font-size: clamp(1.6rem, 4vw, 2.4rem);
+	font-weight: 700;
+}
+
+.error-message {
+	max-width: 44ch;
+	color: var(--text-muted);
+	line-height: 1.6;
+}
+
+.error-digest {
+	display: block;
+	margin-top: 0.75rem;
+	font-family: ui-monospace, monospace;
+	font-size: 0.8rem;
+	opacity: 0.7;
+}
+
+.error-actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	margin-top: 1.5rem;
+}
+
+.error-btn {
+	display: inline-block;
+	padding: 0.8rem 1.6rem;
+	border-radius: 999px;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		background-color var(--dur-fast),
+		border-color var(--dur-fast),
+		box-shadow var(--dur-base) var(--ease-out);
+
+	&.primary {
+		background-color: var(--accent);
+		color: var(--accent-ink);
+
+		&:hover {
+			box-shadow: 0 0 32px 4px color-mix(in oklab, var(--accent) 40%, transparent);
+		}
+	}
+
+	&.ghost {
+		color: var(--text);
+		border: 1px solid var(--border);
+		background-color: rgb(255 255 255 / 0.04);
+
+		&:hover {
+			border-color: var(--accent);
+		}
+	}
+}
+
+@keyframes errorRise {
+	from {
+		opacity: 0;
+		translate: 0 24px;
+	}
+}
+
+@keyframes errorFloat {
+	from {
+		transform: translateY(-0.04em);
+	}
+	to {
+		transform: translateY(0.04em);
+	}
+}
+
+@keyframes orbitSpin {
+	to {
+		rotate: 360deg;
+	}
+}
+
+/* Mostly idle; brief sliced offsets near the end of each cycle */
+@keyframes glitchA {
+	0%,
+	88%,
+	100% {
+		clip-path: inset(0 0 100% 0);
+		translate: 0;
+	}
+	90% {
+		clip-path: inset(15% 0 55% 0);
+		translate: -0.04em 0;
+	}
+	93% {
+		clip-path: inset(60% 0 10% 0);
+		translate: 0.03em 0;
+	}
+}
+
+@keyframes glitchB {
+	0%,
+	89%,
+	100% {
+		clip-path: inset(0 0 100% 0);
+		translate: 0;
+	}
+	91% {
+		clip-path: inset(40% 0 35% 0);
+		translate: 0.05em 0;
+	}
+	94% {
+		clip-path: inset(5% 0 80% 0);
+		translate: -0.03em 0;
+	}
+}

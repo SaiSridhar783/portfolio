@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import NavItem from "./NavItem";
-import "@/styles/components.scss";
+import "@/styles/components.css";
 
 const SideDrawer: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);

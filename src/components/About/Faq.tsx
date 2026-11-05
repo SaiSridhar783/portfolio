@@ -1,5 +1,5 @@
 import { jsonLd, personId } from "@/lib/site";
-import "@/styles/about.scss";
+import "@/styles/about.css";
 
 // Each answer stands on its own and leads with the fact; FAQPage schema mirrors the visible text
 const faqs = [

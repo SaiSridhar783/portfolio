@@ -1,4 +1,4 @@
-import "@/styles/certifications.scss";
+import "@/styles/certifications.css";
 
 interface IBookViewProps {
 	item: string;

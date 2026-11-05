@@ -2,7 +2,7 @@ import { memo } from "react";
 import ExperienceCard from "@/components/Mobile/ExperienceCard";
 import Card from "@/components/Card";
 import Image from "next/image";
-import "@/styles/experience.scss";
+import "@/styles/experience.css";
 import TCGTestimonials from "@/components/Experience/TCGTestimonials";
 import PageTransition from "@/components/PageTransition";
 import { workExperiences } from "@/data/experience";

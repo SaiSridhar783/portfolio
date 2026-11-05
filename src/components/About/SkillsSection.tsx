@@ -4,7 +4,7 @@ import Image from "next/image";
 import badgesData from "@/data/badges.json";
 import { motion } from "motion/react";
 import { easeOut } from "@/lib/motion";
-import "@/styles/about.scss";
+import "@/styles/about.css";
 
 // Group order follows first appearance in badges.json
 const groups = [...new Set(badgesData.map((b) => b.group))];

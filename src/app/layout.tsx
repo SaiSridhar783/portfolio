@@ -4,7 +4,8 @@ import { jsonLd, person, personId, site } from "@/lib/site";
 import SideDrawer from "@/components/Mobile/SideDrawer";
 import MotionProvider from "@/components/MotionProvider";
 import "@/styles/globals.css";
-import "@/styles/imports.scss";
+import "@/styles/base.css";
+import "@/styles/animations.css";
 
 const body = DM_Sans({ subsets: ["latin"], variable: "--font-body" });
 const display = Space_Grotesk({

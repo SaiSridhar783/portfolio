@@ -162,7 +162,7 @@ const CarouselContent = React.forwardRef<
 				ref={ref}
 				className={cn(
 					"flex",
-					orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+					orientation === "horizontal" ? "-ml-2 md:-ml-4" : "-mt-4 flex-col",
 					className
 				)}
 				{...props}
@@ -185,7 +185,7 @@ const CarouselItem = React.forwardRef<
 			aria-roledescription="slide"
 			className={cn(
 				"min-w-0 shrink-0 grow-0 basis-full",
-				orientation === "horizontal" ? "pl-4" : "pt-4",
+				orientation === "horizontal" ? "pl-2 md:pl-4" : "pt-4",
 				className
 			)}
 			{...props}
@@ -195,7 +195,7 @@ const CarouselItem = React.forwardRef<
 CarouselItem.displayName = "CarouselItem";
 
 const buttonClass =
-	"absolute inline-flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/15 text-white shadow-lg backdrop-blur-md transition-[background-color,color,opacity] duration-200 hover:bg-[var(--accent)] hover:text-[var(--accent-ink)] disabled:pointer-events-none disabled:opacity-0";
+	"absolute hidden sm:flex h-8 w-8 md:h-10 md:w-10 cursor-pointer items-center justify-center rounded-full border border-white/25 bg-white/15 text-white shadow-lg backdrop-blur-md transition-[background-color,color,opacity] duration-200 hover:bg-[var(--accent)] hover:text-[var(--accent-ink)] disabled:pointer-events-none disabled:opacity-0";
 
 const CarouselPrevious = React.forwardRef<
 	HTMLButtonElement,
@@ -209,7 +209,7 @@ const CarouselPrevious = React.forwardRef<
 			className={cn(
 				buttonClass,
 				orientation === "horizontal"
-					? "-left-12 top-1/2 -translate-y-1/2"
+					? "-left-2 md:-left-4 top-1/2 -translate-y-1/2"
 					: "-top-12 left-1/2 -translate-x-1/2 rotate-90",
 				className
 			)}
@@ -236,7 +236,7 @@ const CarouselNext = React.forwardRef<
 			className={cn(
 				buttonClass,
 				orientation === "horizontal"
-					? "-right-12 top-1/2 -translate-y-1/2"
+					? "-right-2 md:-right-4 top-1/2 -translate-y-1/2"
 					: "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
 				className
 			)}

@@ -12,7 +12,7 @@ import LocalTime from "@/components/Contact/LocalTime";
 import SplitText from "@/components/SplitText";
 import { FaArrowLeft } from "react-icons/fa";
 import PageTransition from "@/components/PageTransition";
-import "@/styles/contact.scss";
+import "@/styles/contact.css";
 
 const ContactPage: React.FC = () => {
 	const [sender, setSender] = useState<Sender | null>(null);

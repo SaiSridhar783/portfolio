@@ -2,7 +2,7 @@ import { FaArrowLeft } from "react-icons/fa";
 import Link from "next/link";
 import { Shared } from "./PageTransition";
 import SplitText from "./SplitText";
-import "@/styles/components.scss";
+import "@/styles/components.css";
 
 interface IPageHeaderProps {
 	title: string;

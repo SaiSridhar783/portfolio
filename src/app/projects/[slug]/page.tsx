@@ -11,7 +11,7 @@ import Magnetic from "@/components/Magnetic";
 import TechDock from "@/components/Projects/TechDock";
 import { dur, easeOut } from "@/lib/motion";
 import proJSON from "@/data/projects.json";
-import "@/styles/projects.scss";
+import "@/styles/projects.css";
 
 type IProjectdata = {
 	params: Promise<{

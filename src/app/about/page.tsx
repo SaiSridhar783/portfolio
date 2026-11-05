@@ -6,7 +6,7 @@ import BottomSection from "@/components/About/BottomSection";
 import Journey from "@/components/About/Journey";
 import Faq from "@/components/About/Faq";
 import PageTransition from "@/components/PageTransition";
-import "@/styles/about.scss";
+import "@/styles/about.css";
 
 const About: React.FC = () => {
 	return (

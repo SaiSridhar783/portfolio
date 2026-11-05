@@ -1,6 +1,6 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "@/styles/admin.scss";
+import "@/styles/admin.css";
 import AdminMain from "@/components/AdminMain";
 import { headers } from "next/headers";
 import { notFound } from "next/navigation";

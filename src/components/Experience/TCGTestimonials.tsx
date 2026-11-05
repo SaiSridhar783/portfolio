@@ -12,8 +12,8 @@ function TCGTestimonials() {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <Carousel className="w-full">
-        <CarouselContent className="-ml-2 md:-ml-4">
-          <CarouselItem className="pl-2 md:pl-4">
+        <CarouselContent>
+          <CarouselItem>
             <div className="relative aspect-4/3 md:aspect-[2/1] w-full overflow-hidden rounded-lg">
               <Image
                 src="/images/company/tcg/spot-award.jpg"
@@ -24,7 +24,7 @@ function TCGTestimonials() {
               />
             </div>
           </CarouselItem>
-          <CarouselItem className="pl-2 md:pl-4">
+          <CarouselItem>
             <div className="relative aspect-4/3 md:aspect-[2/1] w-full overflow-hidden rounded-lg">
               <Image
                 src="/images/company/tcg/annual-excellence-award.jpeg"
@@ -38,8 +38,8 @@ function TCGTestimonials() {
         </CarouselContent>
 
         {/* Navigation buttons - hidden on very small screens, visible on larger mobile and up */}
-        <CarouselPrevious className="hidden sm:flex -left-2 md:-left-4 h-8 w-8 md:h-10 md:w-10" />
-        <CarouselNext className="hidden sm:flex -right-2 md:-right-4 h-8 w-8 md:h-10 md:w-10" />
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
 
       {/* Mobile-friendly indicators */}

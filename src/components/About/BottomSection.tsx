@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Magnetic from "../Magnetic";
-import "@/styles/about.scss";
+import "@/styles/about.css";
 
 const BottomSection: React.FC = () => {
 	return (

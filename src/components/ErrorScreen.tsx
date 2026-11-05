@@ -1,5 +1,5 @@
 import Tilt from "./Tilt";
-import "@/styles/errors.scss";
+import "@/styles/errors.css";
 
 interface IErrorScreenProps {
 	code: string;

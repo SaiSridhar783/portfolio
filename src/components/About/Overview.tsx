@@ -2,7 +2,7 @@ import SummaryTab from "./SummaryTab";
 import Image from "next/image";
 import SplitText from "../SplitText";
 import Stats from "./Stats";
-import "@/styles/about.scss";
+import "@/styles/about.css";
 
 const Overview: React.FC = () => {
   return (

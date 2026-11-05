@@ -3,7 +3,7 @@ import HeroOrb from "@/components/HeroOrb";
 import NavTab from "@/components/NavTab";
 import PageTransition from "@/components/PageTransition";
 import SplitText from "@/components/SplitText";
-import "@/styles/homepage.scss";
+import "@/styles/homepage.css";
 
 export const metadata: Metadata = {
   alternates: {

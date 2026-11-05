@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { FiArrowUpRight } from "react-icons/fi";
 import certiJSON from "../../data/certificates.json";
-import "@/styles/certifications.scss";
+import "@/styles/certifications.css";
 
 type ITechnicalProps = {
 	makeLink?: boolean;

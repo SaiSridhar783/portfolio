@@ -1,4 +1,4 @@
-import "@/styles/components.scss";
+import "@/styles/components.css";
 
 interface ICertiTabProps {
 	title: string;

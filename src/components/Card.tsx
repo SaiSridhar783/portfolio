@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "@/styles/experience.scss";
+import "@/styles/experience.css";
 
 interface ICardProps {
 	title: string;

@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import PageTransition from "@/components/PageTransition";
 import ProjectCard from "@/components/Projects/ProjectCard";
 import proJSON from "@/data/projects.json";
-import "@/styles/projects.scss";
+import "@/styles/projects.css";
 
 export const metadata: Metadata = {
 	title: "Projects",

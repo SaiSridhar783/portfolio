@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Project notes
 
-Personal portfolio: Next.js 16 App Router, React 19, TypeScript, SCSS + Tailwind 4, `motion`, Prisma 6 (MongoDB). Deployed on Vercel.
+Personal portfolio: Next.js 16 App Router, React 19, TypeScript, plain CSS (native nesting) + Tailwind 4, `motion`, Prisma 6 (MongoDB). Deployed on Vercel.
 
 ### Tooling
 - Use `bun` / `bunx` only (never npm/npx). `bun dev`, `bun run build`, `bun run lint` (oxlint), `bunx tsc --noEmit -p .`.
@@ -24,8 +24,8 @@ Personal portfolio: Next.js 16 App Router, React 19, TypeScript, SCSS + Tailwind
 - The contact form posts to `/api/hello`, which validates name ≤100, email ≤254, message ≤5000. Keep `ContactForm` limits in sync.
 
 ### Styling conventions
-- Design tokens live at the top of `src/styles/globals.css` (`--bg`, `--surface`, `--accent`, `--dur-*`, `--ease-*`). Use them instead of raw colours. SCSS `$green`/`$blue` are aliases.
-- Responsive rules use container queries on the `.page` wrapper: `@container page (width < #{$narrow})` (48rem). Only viewport-fixed things use `@media`.
+- Design tokens live at the top of `src/styles/globals.css` (`--bg`, `--surface`, `--accent`, `--dur-*`, `--ease-*`). Use them instead of raw colours.
+- Responsive rules use container queries on the `.page` wrapper: `@container page (width < 48rem)`. Only viewport-fixed things use `@media`.
 - Motion: shared presets in `src/lib/motion.ts`. `MotionProvider` and a global CSS rule honour `prefers-reduced-motion`; keep both working.
 - Page transitions: wrap page content (not layouts) in `PageTransition`; use `Shared` for elements that morph between routes.
 - Body text colour is not set globally (many legacy components rely on inherited black on light backgrounds); set colours explicitly on new components.

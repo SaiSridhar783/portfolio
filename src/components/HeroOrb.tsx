@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Tilt from "./Tilt";
-import "@/styles/hero-orb.scss";
+import "@/styles/hero-orb.css";
 
 // Tech icons riding the two orbits (files in /public/images/lang)
 const inner = ["python", "typescript", "react"];

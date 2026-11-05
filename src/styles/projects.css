@@ -1,0 +1,328 @@
+/* Even grid; cards tilt and stagger in (see ProjectCard) */
+.projects {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+	grid-auto-flow: dense;
+	gap: 1.5rem;
+	max-width: 1200px;
+	margin: 1rem auto 0;
+	padding: 0 2rem 5rem;
+}
+
+.project-cell,
+.project-tilt,
+.project-tilt > a {
+	display: block;
+	height: 100%;
+}
+
+.project-card {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 1rem;
+	overflow: hidden;
+	cursor: pointer;
+	transition:
+		border-color var(--dur-base) var(--ease-out),
+		box-shadow var(--dur-base) var(--ease-out);
+
+	&:hover {
+		border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+		box-shadow: 0 20px 50px -20px color-mix(in oklab, var(--accent) 45%, transparent);
+
+		.project-image img {
+			scale: 1.06;
+		}
+	}
+
+	.project-info {
+		display: flex;
+		flex-direction: column;
+		padding: 1.25rem 1.5rem 1.5rem;
+	}
+
+	.project-type {
+		color: var(--accent);
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 0.75rem;
+		letter-spacing: 0.15em;
+		margin-bottom: 0.5rem;
+	}
+
+	.project-date {
+		color: var(--text-muted);
+		margin-top: 1rem;
+		font-size: 0.9rem;
+	}
+
+	.project-name {
+		color: white;
+		font-family: var(--font-display), sans-serif;
+		font-weight: 700;
+		font-size: 1.35rem;
+	}
+
+	.project-desc {
+		display: -webkit-box;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		line-clamp: 2;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		color: var(--text-muted);
+	}
+
+	.project-image {
+		height: 12rem;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+			transition: scale var(--dur-slow) var(--ease-out);
+		}
+	}
+}
+
+.each-project {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	padding: 5%;
+
+	@container page (width < 1050px) {
+		height: fit-content;
+		overflow: visible;
+	}
+}
+
+.each-project-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10%;
+
+	@container page (width < 1050px) {
+		flex-direction: column;
+		gap: 3rem;
+		margin-top: 5%;
+	}
+
+	.project-image {
+		position: relative;
+		min-height: 20rem;
+		min-width: 500px;
+		height: 100%;
+		width: 50%;
+		max-height: 300px;
+		top: 0 !important;
+	}
+
+	.project-info {
+		display: flex;
+		flex-direction: column;
+		width: 50%;
+		color: white;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1.5rem;
+
+		@container page (width < 1050px) {
+			height: fit-content;
+			width: 80%;
+		}
+	}
+
+	.project-desc {
+		font-size: 1.1rem;
+		text-align: justify;
+		color: var(--text-muted);
+		line-height: 1.7;
+	}
+
+	.project-type {
+		color: var(--accent);
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.8rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+
+	.project-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem 1.5rem;
+	}
+
+	/* Fixed height so the magnified icons grow upward without shifting the page */
+	.tech-dock {
+		display: flex;
+		align-items: flex-end;
+		gap: 0.75rem;
+		height: 88px;
+		padding-top: 0.5rem;
+	}
+
+	.dock-icon {
+		position: relative;
+		flex-shrink: 0;
+		border-radius: 50%;
+		background-color: rgb(255 255 255 / 0.08);
+		box-shadow: 0 0 0 2px rgb(255 255 255 / 0.85);
+		outline-offset: 4px;
+		cursor: default;
+		transition: box-shadow var(--dur-base) var(--ease-out);
+
+		img {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+		}
+
+		&:hover {
+			box-shadow:
+				0 0 0 2px var(--accent),
+				0 10px 30px -6px color-mix(in oklab, var(--accent) 60%, transparent);
+		}
+	}
+
+	.dock-label {
+		position: absolute;
+		bottom: calc(100% + 0.6rem);
+		left: 50%;
+		padding: 0.3rem 0.75rem;
+		white-space: nowrap;
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--accent);
+		background-color: var(--surface-2);
+		border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+		border-radius: 999px;
+		box-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	.github-link {
+		background-color: #2d3748;
+		width: 10rem;
+		color: rgba(255, 255, 255, 0.7);
+		font-weight: 600;
+		display: grid;
+		place-items: center;
+		border-radius: 999px;
+		padding: 0.6rem 1rem;
+		transition: all 0.3s;
+
+		&:hover,
+		&:active {
+			background-color: var(--surface);
+		}
+	}
+
+	.download-link {
+		font-weight: 600;
+		width: 10rem;
+		display: grid;
+		place-items: center;
+		border-radius: 999px;
+		padding: 0.6rem 1rem;
+		transition: all 0.3s;
+		background-color: var(--accent);
+		color: var(--accent-ink);
+
+		&:hover,
+		&:active {
+			filter: brightness(0.8);
+		}
+	}
+
+	.project-image {
+		position: relative;
+		border-radius: 1.5rem;
+		overflow: hidden;
+		border: 1px solid var(--border);
+		box-shadow: 0 30px 80px -30px rgb(0 0 0 / 0.8);
+		width: 45vw;
+		height: 100%;
+	}
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+
+	.tooltiptext {
+		visibility: hidden;
+		background-color: #eee;
+		color: black;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+		width: 120px;
+		bottom: 115%;
+		left: 50%;
+		margin-left: -60px;
+		box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.3);
+		text-transform: uppercase;
+
+		/* Position the tooltip */
+		position: absolute;
+		z-index: 1;
+
+		opacity: 0;
+		transition: opacity 1s;
+
+		&:after {
+			content: " ";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			margin-left: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: rgb(18, 18, 20) transparent transparent transparent;
+		}
+	}
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
+
+@container page (width < 48rem) {
+	.each-project {
+		padding: 4rem 1rem 2rem;
+		overflow-x: clip; /* tech icons slide in from off-screen */
+	}
+
+	.each-project-content {
+		.project-image {
+			min-width: 0;
+			min-height: 0;
+			width: 100%;
+		}
+
+		.project-info {
+			width: 100%;
+		}
+
+		.tech-dock {
+			flex-wrap: wrap;
+			height: auto;
+		}
+	}
+}

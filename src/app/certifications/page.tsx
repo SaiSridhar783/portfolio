@@ -10,7 +10,7 @@ import Technical from "@/components/Certifications/Technical";
 import eduJSON from "@/data/education.json";
 import certiJSON from "@/data/certificates.json";
 import PageTransition from "@/components/PageTransition";
-import "@/styles/certifications.scss";
+import "@/styles/certifications.css";
 
 // export const metadata: Metadata = {
 // 	title: "Certifications of Sai Sridhar",
