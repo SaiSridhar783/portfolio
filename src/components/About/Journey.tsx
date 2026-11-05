@@ -3,9 +3,14 @@ import "@/styles/about.scss";
 // Newest first; keep in sync with the experience page
 const milestones = [
 	{
-		when: "2023 – now",
+		when: "2025 – now",
+		title: "Technical Lead, TCG Digital",
+		text: "Architected a live AI football commentary translator (self-hosted Whisper, LLMs, FFmpeg) streamed to 5M+ viewers on 27 channels, a Chinese-to-English audiovisual translation pipeline feeding an enterprise knowledge graph, and 14+ ETL workflows that cut reporting from 3 hours to 10 minutes.",
+	},
+	{
+		when: "2023 – 2025",
 		title: "Software Engineer, TCG Digital",
-		text: "Real-time aviation and broadcast systems, an AI football commentary translator streamed to 5M+ viewers, and mentoring 2 developers and 4 interns.",
+		text: "Delivered a Kafka, Redis and Kubernetes aviation system at 700+ TPS, automated reporting that saved 16+ hours a week, and mentored 2 developers and 4 interns.",
 	},
 	{
 		when: "2023",

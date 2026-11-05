@@ -4,6 +4,7 @@ import Overview from "@/components/About/Overview";
 import SkillsSection from "@/components/About/SkillsSection";
 import BottomSection from "@/components/About/BottomSection";
 import Journey from "@/components/About/Journey";
+import Faq from "@/components/About/Faq";
 import PageTransition from "@/components/PageTransition";
 import "@/styles/about.scss";
 
@@ -21,6 +22,7 @@ const About: React.FC = () => {
 				<Overview />
 				<Journey />
 				<SkillsSection />
+				<Faq />
 				<BottomSection />
 			</div>
 		</PageTransition>

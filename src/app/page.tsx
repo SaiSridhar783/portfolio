@@ -1,8 +1,22 @@
+import type { Metadata } from "next";
 import HeroOrb from "@/components/HeroOrb";
 import NavTab from "@/components/NavTab";
 import PageTransition from "@/components/PageTransition";
 import SplitText from "@/components/SplitText";
 import "@/styles/homepage.scss";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    // Machine-readable summaries for AI assistants
+    types: {
+      "text/plain": [
+        { url: "/llms.txt", title: "llms.txt" },
+        { url: "/llms-full.txt", title: "llms-full.txt" },
+      ],
+    },
+  },
+};
 
 // Sections placed around the orb, clockwise from the top
 const sections = [
@@ -19,14 +33,15 @@ const Home: React.FC = () => {
     <PageTransition>
       <div className="home-container">
         <div className="home-intro">
-          <p className="home-eyebrow">Software Engineer · Fullstack</p>
+          <p className="home-eyebrow">Software Architect · Technical Lead</p>
           <h1 className="home-hello">
-            <SplitText text="200 OK. You've found the right developer." delay={0.15} />
+            <SplitText text="200 OK. You've found the right architect." delay={0.15} />
           </h1>
           <h2>
-            I&apos;m <span>Sai Sridhar Akula</span>, a fullstack engineer
-            who builds real-time systems that scale, like an AI commentary
-            translator streamed live to 5M+ viewers.
+            I&apos;m <span>Sai Sridhar Akula</span>, a software architect and
+            engineer who designs real-time AI and data systems, then builds
+            them: a live commentary translator streamed to 5M+ viewers, and
+            event-driven backends at 700+ TPS.
           </h2>
           <p className="home-hint">Pick a section to dive in.</p>
         </div>

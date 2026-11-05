@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
+import { jsonLd, person, personId, site } from "@/lib/site";
 import SideDrawer from "@/components/Mobile/SideDrawer";
 import MotionProvider from "@/components/MotionProvider";
 import "@/styles/globals.css";
@@ -12,27 +13,50 @@ const display = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-	title: "Sai Sridhar's Portfolio",
-	description:
-		"A portfolio of Akula Sai Sridhar showcasing his skills and experience as a Fullstack Engineer building scalable and distributed applications. Learn more about his work and experience.",
+	metadataBase: new URL(site.url),
+	title: {
+		default: site.title,
+		template: "%s | Sai Sridhar Akula",
+	},
+	description: site.description,
+	authors: [{ name: site.name, url: site.url }],
+	creator: site.name,
 	openGraph: {
-		type: "website",
-		url: "https://saisridhar.vercel.app",
+		type: "profile",
+		url: site.url,
 		countryName: "India",
-		title: "Portfolio of Sai Sridhar",
-		description:
-			"A portfolio of Akula Sai Sridhar showcasing his skills and experience as a Fullstack Engineer building scalable and distributed applications. Learn more about his work and experience.",
-		siteName: "Sai Sridhar's Portfolio",
-		images: "https://res.cloudinary.com/djkp8vliu/image/upload/v1712044200/opengraph-image_kjemky.png",
+		title: site.title,
+		description: site.description,
+		siteName: site.name,
+		firstName: "Sai Sridhar",
+		lastName: "Akula",
+		images: site.image,
 	},
 	twitter: {
-		title: "Portfolio of Sai Sridhar",
-		description:
-			"A portfolio of Akula Sai Sridhar showcasing his skills and experience as a Fullstack Engineer building scalable and distributed applications. Learn more about his work and experience.",
-		site: "https://saisridhar.vercel.app",
+		title: site.title,
+		description: site.description,
+		site: site.twitter,
+		creator: site.twitter,
 		card: "summary_large_image",
-		images: "https://res.cloudinary.com/djkp8vliu/image/upload/v1712044200/opengraph-image_kjemky.png",
+		images: site.image,
 	},
+};
+
+// Site-wide entities: who the site is about, and the site itself
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		person,
+		{
+			"@type": "WebSite",
+			"@id": `${site.url}/#website`,
+			url: site.url,
+			name: site.name,
+			description: site.description,
+			inLanguage: "en",
+			publisher: { "@id": personId },
+		},
+	],
 };
 
 export default function RootLayout({
@@ -51,6 +75,10 @@ export default function RootLayout({
 					<span />
 					<span />
 				</div>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}
+				/>
 				<MotionProvider>
 					<SideDrawer />
 					<div className="page">{children}</div>

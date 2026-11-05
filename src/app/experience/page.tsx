@@ -5,55 +5,7 @@ import Image from "next/image";
 import "@/styles/experience.scss";
 import TCGTestimonials from "@/components/Experience/TCGTestimonials";
 import PageTransition from "@/components/PageTransition";
-
-const workExperiences = [
-  {
-    title: "Software Engineer",
-    company: "TCG Digital Solutions Pvt. Ltd.",
-    logo: "/images/company/tcgdigital.jpg",
-    duration: "Aug 01, 2023 - Present",
-    compURL: "https://www.tcgdigital.com/",
-    text: "Engineered and built a real-time football commentary translator using Whisper, gpt-4o, NGINX, and FFmpeg, streaming to 5M+ viewers over 27 broadcasting channels.",
-    delay: "0.1s",
-    achievements: [
-      "Implemented a real-time aviation system in Python with a microservice architecture, achieving 700+ TPS, leveraging Kafka event streaming, Redis caching, and Kubernetes orchestration while maintaining data integrity via PostgreSQL.",
-      "Engineered a real-time AI football commentary translator using Whisper, OpenAI gpt-4o, NGINX, and FFmpeg to translate live audio into multiple languages, streaming to 5M+ viewers over 27 broadcasting channels via HLS and SRT protocols.",
-      "Directed end-to-end refactoring of legacy petrochemical systems with Python, Node.js services and Elasticsearch, resulting in a 40% cost reduction and a substantial drop in support tickets through improved reliability and efficiency.",
-      "Spearheaded automation of statistical reports using Python, Docker, MariaDB, S3 that generated charts and distributed them to stakeholders via email, cutting manual effort by 16+ hours per week, ensuring timely data-driven decision making.",
-      "Mentored 2 developers and 4 interns to build different full-stack solutions with FastAPI services and Next.js/React UI to streamline data management, increasing efficiency across 4 departments by 60%.",
-    ],
-    hasTestimonials: true,
-  },
-  {
-    title: "SDE Intern",
-    company: "NoBroker Technologies Pvt. Ltd.",
-    logo: "/images/company/Nobroker.png",
-    duration: "May 09, 2022 - July 08, 2022",
-    compURL: "https://www.nobroker.in/",
-    text: "Developed a dynamic Tree Visualizer using React.js and Redux covering a catalog of 20+ services, improving understanding and decision-making.",
-    delay: "0.2s",
-    achievements: [
-      "Built a dynamic Tree Visualizer using React.js and Redux covering a comprehensive catalog of 20+ services, improving understanding and decision-making.",
-      "Devised node management capabilities for concurrent users using Java Spring Boot, ensuring seamless data updates, reducing conflicts by 80%.",
-      "Consolidated network hierarchies, eliminating 95% of data inconsistencies, while streamlining data export processes.",
-      "Boosted data handling efficiency by 60% through bulk updates via CSV file uploads and downloads slashing manual work.",
-    ],
-  },
-  {
-    title: "UI Development Intern",
-    company: "Dotgo Pvt. Ltd.",
-    logo: "/images/company/dotgo.jpg",
-    duration: "May 03, 2021 - June 30, 2021",
-    compURL: "https://dotgo.com/",
-    text: "Enhanced the user onboarding experience by adding filters for country selection and search functionalities for carriers enabling quick user navigation.",
-    delay: "0.3s",
-    achievements: [
-      "Enhanced the user onboarding experience by adding filters for country selection and search functionalities for carriers.",
-      "Implemented advanced filtering and nested search features, allowing users to efficiently navigate through the data.",
-      "Enhanced search functionality with alphabetical sorting that persists through filters, enabling quicker user navigation.",
-    ],
-  },
-];
+import { workExperiences } from "@/data/experience";
 
 const otherExperiences = [
   {
@@ -118,14 +70,15 @@ const Experience: React.FC = () => {
         <ExperienceSection title="Work">
           {workExperiences.map((exp, index) => (
             <ExperienceCard
-              key={exp.company}
+              key={`${exp.company}-${exp.title}`}
               title={exp.title}
               company={exp.company}
               logo={exp.logo}
               duration={exp.duration}
               compURL={exp.compURL}
               text={exp.text}
-              delay={exp.delay}
+              // Stagger by position, capped so later entries do not wait long
+              delay={`${Math.min(index + 1, 5) / 10}s`}
             >
               {exp.hasTestimonials && (
                 <>

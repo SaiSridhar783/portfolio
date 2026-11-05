@@ -2,7 +2,10 @@ import PageHeader from "@/components/PageHeader";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Certifications of Sai Sridhar",
+	title: "Education and Certifications",
+	description:
+		"Sai Sridhar Akula holds a B.Tech in Mining Engineering from IIT Kharagpur (2023, CGPA 8.85) plus certifications in React, Python and front-end development.",
+	alternates: { canonical: "/certifications" },
 };
 
 export default function RootLayout({

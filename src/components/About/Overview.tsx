@@ -14,15 +14,16 @@ const Overview: React.FC = () => {
           </p>
           <h1>
             <SplitText
-              text="I build software that holds up under real traffic."
+              text="I design systems that hold up under real traffic, then build them."
               delay={0.2}
               stagger={0.018}
             />
           </h1>
           <p className="about-lede">
-            Fullstack engineer at TCG Digital and an IIT Kharagpur graduate. I
-            work across the stack in Python and TypeScript, from event-driven
-            backends and AI pipelines to the interfaces people actually use.
+            Software architect and Technical Lead at TCG Digital, and an IIT
+            Kharagpur graduate. I design real-time AI pipelines, event-driven
+            microservices and data platforms, write the code in Python and
+            TypeScript, and lead the engineers who ship them.
           </p>
         </div>
         <div className="about-portrait">
@@ -40,8 +41,9 @@ const Overview: React.FC = () => {
 
       <section className="about-cards">
         <SummaryTab label="What I do" link="/projects" linkText="See what I've built">
-          I design and ship products end to end: APIs, data pipelines, real-time
-          streaming and the UI on top, mostly in Python and TypeScript.
+          I own the architecture and the delivery: LLM and speech pipelines,
+          Kafka-based microservices, Spark and Delta Lake data platforms, and
+          the APIs and UI on top.
         </SummaryTab>
         <SummaryTab
           label="Where I studied"
@@ -54,9 +56,10 @@ const Overview: React.FC = () => {
           into software full time.
         </SummaryTab>
         <SummaryTab label="Where I work" link="/experience" linkText="My experience">
-          Software Engineer at <strong>TCG Digital</strong> since 2023, building
-          event-driven systems with Kafka, Redis and Kubernetes. Recognised with
-          the Spot Award and the Annual Excellence Award.
+          Technical Lead at <strong>TCG Digital</strong> since September 2025,
+          after two years as a Software Engineer there. I lead AI translation,
+          enterprise data intelligence and ETL work. Recognised with the Spot
+          Award and the Annual Excellence Award.
         </SummaryTab>
         <SummaryTab label="Say hello" link="/contact" linkText="Get in touch">
           Hiring, collaborating, or just curious about something I&apos;ve built?

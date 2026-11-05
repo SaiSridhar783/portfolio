@@ -1,0 +1,61 @@
+// Shared by the experience page and llms-full.txt
+export const workExperiences = [
+  {
+    title: "Technical Lead",
+    company: "TCG Digital Solutions Pvt. Ltd.",
+    logo: "/images/company/tcgdigital.jpg",
+    duration: "Sep 01, 2025 - Present",
+    compURL: "https://www.tcgdigital.com/",
+    text: "Architected a real-time commentary translator for german football using LLMs, FFmpeg, Kafka and NGINX streaming to 5M+ viewers over 27 broadcasting channels.",
+    achievements: [
+      "Architected a real-time AI football commentary translator using self-hosted Whisper, LLM calls, NGINX, and FFmpeg to translate live audio into multiple languages, streaming to 5M+ viewers over 27 broadcasting channels via HLS and SRT protocols.",
+      "Directed end-to-end refactoring of legacy petrochemical systems with Python, Node.js services and Elasticsearch, resulting in a 40% cost reduction and a substantial drop in support tickets through improved reliability and efficiency.",
+      "Led AI driven enterprise data intelligence initiatives, integrating SAP with a 40+ year design repository, streamlining data discovery, reducing manual effort, and enabling data-driven business decisions via AI insights.",
+      "Designed and automated 14+ ETL workflows for financial reporting, reconciliation, and multi-period aggregation (daily, monthly, and yearly), reducing report generation time from 3 hours to 10 minutes.",
+      "Engineered a real-time Chinese-to-English audiovisual translation pipeline, processing live video and audio streams, and designed domain-specific ontologies to extract structured information and populate an enterprise knowledge graph for semantic search and AI-driven intelligence.",
+    ],
+    hasTestimonials: true,
+  },
+  {
+    title: "Software Engineer",
+    company: "TCG Digital Solutions Pvt. Ltd.",
+    logo: "/images/company/tcgdigital.jpg",
+    duration: "Aug 01, 2023 - Aug 31, 2025",
+    compURL: "https://www.tcgdigital.com/",
+    text: "Delivered a real-time aviation system achieving 700+ TPS using Kafka event streaming, Redis, Python microservices and Kubernetes.",
+    achievements: [
+      "Delivered a real-time aviation system in Python with a microservice architecture, achieving 700+ TPS, leveraging Kafka event streaming, Redis caching, and Kubernetes orchestration while maintaining data integrity via PostgreSQL.",
+      "Spearheaded automation of statistical reports using Python, Docker, MariaDB, S3 that generated charts and distributed them to stakeholders via email, cutting manual effort by 16+ hours per week, ensuring timely data-driven decision making.",
+      "Automated bidirectional synchronization between Microsoft Dynamics 365 and Jira using webhooks, eliminating manual updates and ensuring data consistency across project and effort records.",
+      "Mentored 2 developers and 4 interns to deliver different full-stack solutions with FastAPI services and Next.js/React UI to streamline data management, increasing efficiency across 4 departments by 60%.",
+    ],
+    hasTestimonials: true,
+  },
+  {
+    title: "SDE Intern",
+    company: "NoBroker Technologies Pvt. Ltd.",
+    logo: "/images/company/Nobroker.png",
+    duration: "May 09, 2022 - July 08, 2022",
+    compURL: "https://www.nobroker.in/",
+    text: "Developed a dynamic Tree Visualizer using React.js and Redux covering a catalog of 20+ services, improving understanding and decision-making.",
+    achievements: [
+      "Built a dynamic Tree Visualizer using React.js and Redux covering a comprehensive catalog of 20+ services, improving understanding and decision-making.",
+      "Devised node management capabilities for concurrent users using Java Spring Boot, ensuring seamless data updates, reducing conflicts by 80%.",
+      "Consolidated network hierarchies, eliminating 95% of data inconsistencies, while streamlining data export processes.",
+      "Boosted data handling efficiency by 60% through bulk updates via CSV file uploads and downloads slashing manual work.",
+    ],
+  },
+  {
+    title: "UI Development Intern",
+    company: "Dotgo Pvt. Ltd.",
+    logo: "/images/company/dotgo.jpg",
+    duration: "May 03, 2021 - June 30, 2021",
+    compURL: "https://dotgo.com/",
+    text: "Enhanced the user onboarding experience by adding filters for country selection and search functionalities for carriers enabling quick user navigation.",
+    achievements: [
+      "Enhanced the user onboarding experience by adding filters for country selection and search functionalities for carriers.",
+      "Implemented advanced filtering and nested search features, allowing users to efficiently navigate through the data.",
+      "Improved search functionality with alphabetical sorting that persists through filters, enabling quicker user navigation.",
+    ],
+  },
+];

@@ -6,7 +6,10 @@ import proJSON from "@/data/projects.json";
 import "@/styles/projects.scss";
 
 export const metadata: Metadata = {
-	title: "Projects of Sai Sridhar",
+	title: "Projects",
+	description:
+		"Projects built by Sai Sridhar Akula: an OpenAI RAG chat app (FastAPI, Next.js), a cross-platform Electron app for Hoek-Brown rock mass parameters, a Django and React e-commerce site, React Native apps and more, with source on GitHub.",
+	alternates: { canonical: "/projects" },
 };
 
 const Projects: React.FC = () => {

@@ -150,6 +150,22 @@
 		max-width: 22ch;
 	}
 
+	.badge-group {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		max-width: 900px;
+	}
+
+	.badge-group-title {
+		color: var(--accent);
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
 	.badge-container {
 		display: flex;
 		flex-wrap: wrap;
@@ -327,13 +343,57 @@
 }
 
 // Highlights strip with counting numbers
+// Highlights strip: cursor spotlight plus a border that lights up near the cursor
 .about-stats {
+	position: relative;
+	isolation: isolate;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	border: 1px solid var(--border);
 	border-radius: 1.25rem;
-	background-color: color-mix(in oklab, var(--surface) 70%, transparent);
+	background:
+		linear-gradient(180deg, color-mix(in oklab, var(--surface-2) 60%, transparent), transparent 70%),
+		color-mix(in oklab, var(--surface) 70%, transparent);
 	overflow: hidden;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity var(--dur-base) var(--ease-out);
+	}
+
+	// Soft glow under the cursor
+	&::before {
+		z-index: -1;
+		background: radial-gradient(
+			420px circle at var(--mx, 50%) var(--my, 50%),
+			color-mix(in oklab, var(--accent) 14%, transparent),
+			transparent 65%
+		);
+	}
+
+	// Brighter ring, masked to the 1px border
+	&::after {
+		padding: 1px;
+		background: radial-gradient(
+			260px circle at var(--mx, 50%) var(--my, 50%),
+			color-mix(in oklab, var(--accent) 80%, transparent),
+			transparent 70%
+		);
+		mask:
+			linear-gradient(#000 0 0) content-box exclude,
+			linear-gradient(#000 0 0);
+	}
+
+	&:hover::before,
+	&:hover::after {
+		opacity: 1;
+	}
 
 	.stat {
 		padding: 1.75rem 1.5rem;
@@ -341,22 +401,70 @@
 		& + .stat {
 			border-left: 1px solid var(--border);
 		}
+
+		&:hover {
+			.stat-icon {
+				transform: translateY(-3px);
+				box-shadow: 0 8px 24px -6px color-mix(in oklab, var(--accent) 60%, transparent);
+			}
+
+			.stat-value {
+				background-position: 100% 0;
+			}
+		}
 	}
 
+	.stat-icon {
+		display: inline-grid;
+		place-items: center;
+		width: 2.4rem;
+		height: 2.4rem;
+		margin-bottom: 1.1rem;
+		border-radius: 0.75rem;
+		border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+		background-color: color-mix(in oklab, var(--accent) 12%, transparent);
+		color: var(--accent);
+		font-size: 1.1rem;
+		transition:
+			transform var(--dur-base) var(--ease-out),
+			box-shadow var(--dur-base) var(--ease-out);
+	}
+
+	// Gradient twice as wide as the text, so hover can slide the sheen across
 	.stat-value {
 		display: block;
 		font-family: var(--font-display), sans-serif;
 		font-size: clamp(2rem, 4vw, 3rem);
 		font-weight: 700;
 		line-height: 1;
-		background: linear-gradient(90deg, var(--accent), var(--aurora-2));
+		background: linear-gradient(
+			90deg,
+			var(--accent),
+			var(--aurora-2) 50%,
+			var(--aurora-3) 75%,
+			var(--accent)
+		);
+		background-size: 200% 100%;
+		background-position: 0 0;
 		background-clip: text;
 		color: transparent;
 		font-variant-numeric: tabular-nums;
+		transition: background-position var(--dur-slow) var(--ease-out);
+	}
+
+	.stat-bar {
+		display: block;
+		width: 3.5rem;
+		height: 3px;
+		margin-top: 1rem;
+		border-radius: 999px;
+		background: linear-gradient(90deg, var(--accent), var(--aurora-2));
+		transform-origin: left;
+		box-shadow: 0 0 12px color-mix(in oklab, var(--accent) 50%, transparent);
 	}
 
 	.stat-label {
-		margin-top: 0.6rem;
+		margin-top: 0.8rem;
 		color: var(--text-muted);
 		font-size: 0.9rem;
 		line-height: 1.5;
@@ -423,6 +531,30 @@
 
 	.journey-text {
 		margin-top: 0.4rem;
+		color: var(--text-muted);
+		line-height: 1.65;
+	}
+}
+
+.about-faq {
+	padding: 4rem 0 2rem;
+
+	dl {
+		display: grid;
+		gap: 2rem;
+		max-width: 720px;
+		margin: 0 auto;
+	}
+
+	dt {
+		color: white;
+		font-family: var(--font-display), sans-serif;
+		font-size: 1.2rem;
+		font-weight: 700;
+	}
+
+	dd {
+		margin: 0.4rem 0 0;
 		color: var(--text-muted);
 		line-height: 1.65;
 	}
