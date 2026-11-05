@@ -13,7 +13,7 @@ const PageHeader: React.FC<IPageHeaderProps> = ({ title, image }) => {
 	return (
 		<div className="page-header">
 			<Link
-				href="/home"
+				href="/"
 				aria-label="Back to navigation"
 				transitionTypes={["nav-back"]}
 			>

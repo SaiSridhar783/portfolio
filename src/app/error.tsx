@@ -36,7 +36,7 @@ export default function Error({
 				</button>
 			</Magnetic>
 			<Magnetic>
-				<Link href="/home" className="error-btn ghost">
+				<Link href="/" className="error-btn ghost">
 					Back to navigation
 				</Link>
 			</Magnetic>

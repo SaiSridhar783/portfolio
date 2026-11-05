@@ -1,41 +1,608 @@
+@use "variables" as *;
+
+// Admin inbox: stats, search, message list + reading pane
 .admin {
-	animation: fadeIn 1.5s ease-in-out;
+	animation: fadeIn var(--dur-slow) var(--ease-out);
+	padding: 0 2rem 4rem;
+	// Faint dot grid so the dashboard reads as a workspace
+	background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+	background-size: 22px 22px;
+}
 
-	.admin-display {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		width: 95%;
+.inbox {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+}
+
+// Overview: stat cards on the left, activity chart on the right
+.inbox-overview {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+	gap: 1.25rem;
+}
+
+.stat-cards {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.75rem;
+	align-content: start;
+}
+
+.stat-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	padding: 1.1rem 1.2rem;
+	border: 1px solid transparent;
+	border-radius: 1rem;
+	background:
+		linear-gradient(160deg, color-mix(in oklab, var(--accent) 10%, var(--surface)), var(--surface) 60%) padding-box,
+		linear-gradient(160deg, color-mix(in oklab, var(--accent) 45%, transparent), var(--border) 50%) border-box;
+	overflow: hidden;
+
+	.stat-icon {
+		display: grid;
+		place-items: center;
+		width: 2.2rem;
+		height: 2.2rem;
+		margin-bottom: 0.6rem;
+		border-radius: 0.65rem;
+		color: var(--accent);
+		background-color: color-mix(in oklab, var(--accent) 14%, transparent);
 	}
 
-	.admin-card {
-		background-color: gray;
-		margin-bottom: 2rem;
-		border-radius: 1rem;
-		padding: 1.2rem;
-		width: 500px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-around;
-		align-items: center;
+	.stat-num {
+		font-family: var(--font-display), sans-serif;
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1;
+		color: white;
+		font-variant-numeric: tabular-nums;
 	}
 
-	.admin-info {
+	.stat-label {
+		color: var(--text-muted);
+		font-size: 0.8rem;
+	}
+}
+
+.stat-latest {
+	grid-column: 1 / -1;
+	color: var(--text-muted);
+	font-size: 0.85rem;
+
+	time {
+		color: var(--accent);
+		font-weight: 600;
+	}
+}
+
+// One-series bar chart: accent bars, 4px rounded tops, 2px gaps, hover readout
+.activity {
+	display: flex;
+	flex-direction: column;
+	padding: 1.1rem 1.25rem 0.9rem;
+	border: 1px solid var(--border);
+	border-radius: 1rem;
+	background-color: var(--surface);
+
+	figcaption {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
+		gap: 1rem;
+		font-size: 0.8rem;
+	}
 
-		.heading {
-			font-weight: 600;
-			font-size: 1.2rem;
+	.activity-title {
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.activity-range {
+		color: var(--text-muted);
+	}
+
+	.activity-readout {
+		margin: 0.35rem 0 0.75rem;
+		color: var(--text-muted);
+		font-size: 0.85rem;
+
+		strong {
+			color: white;
+			font-family: var(--font-display), sans-serif;
+			font-size: 1.3rem;
 		}
 	}
 
-	.admin-message {
+	.activity-bars {
+		flex: 1;
+		min-height: 6rem;
+		display: grid;
+		grid-template-columns: repeat(12, 1fr);
+		gap: 2px;
+		align-items: end;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.bar-slot {
+		position: relative;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		cursor: default;
+
+		.bar {
+			width: min(70%, 22px);
+			border-radius: 4px 4px 0 0;
+			background-color: color-mix(in oklab, var(--accent) 55%, transparent);
+			transition: background-color var(--dur-fast);
+			animation: barGrow var(--dur-slow) var(--ease-out) both;
+			transform-origin: bottom;
+		}
+
+		.bar-tick {
+			position: absolute;
+			top: 100%;
+			margin-top: 0.3rem;
+			color: var(--text-muted);
+			font-size: 0.65rem;
+		}
+
+		&.active .bar {
+			background-color: var(--accent);
+		}
+	}
+
+	@for $i from 1 through 12 {
+		.bar-slot:nth-child(#{$i}) .bar {
+			animation-delay: 0.03s * $i;
+		}
+	}
+
+	// Room for the month ticks under the baseline
+	padding-bottom: 1.6rem;
+}
+
+@keyframes barGrow {
+	from {
+		scale: 1 0;
+	}
+}
+
+.inbox-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	.inbox-search {
+		flex: 1;
+	}
+}
+
+.kbd-hint {
+	color: var(--text-muted);
+	font-size: 0.8rem;
+	white-space: nowrap;
+
+	kbd {
+		display: inline-grid;
+		place-items: center;
+		min-width: 1.6rem;
+		padding: 0.1rem 0.35rem;
+		border: 1px solid var(--border);
+		border-bottom-width: 2px;
+		border-radius: 0.4rem;
+		color: var(--text);
+		background-color: var(--surface-2);
+		font-family: inherit;
+		font-size: 0.75rem;
+	}
+}
+
+.group-label {
+	margin: 0.75rem 0 0.4rem 0.25rem;
+	color: var(--accent);
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.inbox-list > li:first-child .group-label {
+	margin-top: 0;
+}
+
+.inbox-search {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.8rem 1.1rem;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	background-color: var(--surface);
+	color: var(--text-muted);
+	transition: border-color var(--dur-fast);
+
+	&:focus-within {
+		border-color: var(--accent);
+	}
+
+	input {
+		flex: 1;
+		min-width: 0;
+		background: none;
+		color: var(--text);
+
+		&::placeholder {
+			color: var(--text-muted);
+		}
+
+		&:focus-visible {
+			outline: none !important;
+		}
+	}
+
+	.result-count {
+		font-size: 0.8rem;
+		white-space: nowrap;
+	}
+}
+
+.inbox-panes {
+	display: grid;
+	grid-template-columns: minmax(300px, 380px) minmax(0, 1fr);
+	gap: 1.25rem;
+	align-items: start;
+}
+
+.inbox-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	list-style: none;
+	max-height: calc(100svh - 18rem);
+	overflow-y: auto;
+	padding-right: 0.25rem;
+}
+
+.inbox-item {
+	width: 100%;
+	display: flex;
+	gap: 0.85rem;
+	padding: 0.9rem 1rem;
+	text-align: left;
+	color: var(--text);
+	background-color: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 0.9rem;
+	cursor: pointer;
+	transition:
+		border-color var(--dur-fast),
+		background-color var(--dur-fast);
+
+	&:hover {
+		border-color: color-mix(in oklab, var(--accent) 35%, transparent);
+	}
+
+	&.active {
+		border-color: var(--accent);
+		background-color: color-mix(in oklab, var(--accent) 8%, var(--surface));
+	}
+
+	.item-main {
+		flex: 1;
+		min-width: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.1rem;
+	}
+
+	.item-top {
 		display: flex;
 		justify-content: space-between;
+		gap: 0.75rem;
+
+		time {
+			flex-shrink: 0;
+			color: var(--text-muted);
+			font-size: 0.75rem;
+		}
+	}
+
+	.item-name {
+		font-weight: 600;
+		color: white;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.item-email,
+	.item-snippet {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		font-size: 0.85rem;
+	}
+
+	.item-email {
+		color: var(--accent);
+	}
+
+	.item-snippet {
+		color: var(--text-muted);
+	}
+}
+
+.avatar {
+	flex-shrink: 0;
+	display: grid;
+	place-items: center;
+	width: 2.6rem;
+	height: 2.6rem;
+	border-radius: 50%;
+	font-family: var(--font-display), sans-serif;
+	font-size: 0.9rem;
+	font-weight: 700;
+	color: white;
+	background: linear-gradient(
+		135deg,
+		oklch(0.55 0.13 var(--h)),
+		oklch(0.38 0.1 calc(var(--h) + 40))
+	);
+}
+
+.inbox-reader {
+	position: sticky;
+	top: 1rem;
+	min-height: 22rem;
+	padding: 2rem;
+	border: 1px solid var(--border);
+	border-radius: 1.25rem;
+	background:
+		radial-gradient(80% 40% at 50% 0%, color-mix(in oklab, var(--accent) 10%, transparent), transparent),
+		var(--surface);
+	box-shadow: inset 0 1px 0 color-mix(in oklab, var(--accent) 35%, transparent);
+
+	.reader-empty {
+		display: flex;
+		flex-direction: column;
 		align-items: center;
-		width: 100%;
+		gap: 1rem;
+		margin-top: 7rem;
+		color: var(--text-muted);
+
+		svg {
+			color: color-mix(in oklab, var(--accent) 50%, transparent);
+		}
+	}
+}
+
+.detail {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+
+	.detail-head {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding-bottom: 1.25rem;
+		border-bottom: 1px solid var(--border);
+
+		> div {
+			flex: 1;
+			min-width: 0;
+		}
+
+		time {
+			color: var(--text-muted);
+			font-size: 0.85rem;
+			text-align: right;
+		}
+
+		.avatar {
+			width: 3.2rem;
+			height: 3.2rem;
+			font-size: 1.1rem;
+		}
+	}
+
+	.detail-name {
+		color: white;
+		font-family: var(--font-display), sans-serif;
+		font-size: 1.35rem;
+		font-weight: 700;
+	}
+
+	.detail-email {
+		color: var(--accent);
+		word-break: break-all;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.detail-meta {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.5rem 1rem;
+		margin-top: -0.75rem;
+		color: var(--text-muted);
+		font-size: 0.82rem;
+
+		span {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
+		}
+	}
+
+	// The message reads like a quoted letter: accent rail, oversized quote mark
+	.detail-body {
+		position: relative;
+		padding: 1.5rem 4.5rem 1.5rem 1.75rem; // right side clears the quote mark
+		color: var(--text);
+		font-size: 1.05rem;
+		line-height: 1.75;
+		white-space: pre-wrap;
+		overflow-wrap: anywhere;
+		border-left: 3px solid var(--accent);
+		border-radius: 0 1rem 1rem 0;
+		background: linear-gradient(90deg, color-mix(in oklab, var(--accent) 8%, transparent), transparent 70%);
+
+		.detail-quote {
+			position: absolute;
+			right: 1rem;
+			top: 0.75rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			color: color-mix(in oklab, var(--accent) 18%, transparent);
+		}
+	}
+
+	.detail-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.confirm {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.6rem;
+		color: #fca5a5;
+		font-size: 0.9rem;
+	}
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.55rem 1.1rem;
+	border-radius: 999px;
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--text);
+	background-color: var(--surface-2);
+	border: 1px solid var(--border);
+	cursor: pointer;
+	transition:
+		background-color var(--dur-fast),
+		border-color var(--dur-fast),
+		color var(--dur-fast);
+
+	&:hover {
+		border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+	}
+
+	&.primary {
+		color: var(--accent-ink);
+		background-color: var(--accent);
+		border-color: transparent;
+	}
+
+	&.ghost-danger {
+		color: #f87171;
+		background: none;
+
+		&:hover {
+			border-color: #f87171;
+		}
+	}
+
+	&.danger {
+		color: white;
+		background-color: #dc2626;
+		border-color: transparent;
+	}
+}
+
+.inbox-empty {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	padding: 5rem 0;
+	color: var(--text-muted);
+}
+
+.no-results {
+	padding: 2rem 1rem;
+	color: var(--text-muted);
+	text-align: center;
+}
+
+.inline-detail {
+	display: none;
+}
+
+// Narrow: single column; the selected message opens under its row
+@container page (width < 900px) {
+	.inbox-overview {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.inbox-panes {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.inbox-reader {
+		display: none;
+	}
+
+	.inbox-list {
+		max-height: none;
+		overflow: visible;
+	}
+
+	.inline-detail {
+		display: block;
+		margin-top: 0.5rem;
+		padding: 1.25rem;
+		border: 1px solid var(--border);
+		border-radius: 0.9rem;
+		background-color: var(--surface);
+
+		.detail-head {
+			flex-wrap: wrap;
+
+			time {
+				width: 100%;
+				text-align: left;
+			}
+		}
+	}
+}
+
+@container page (width < #{$narrow}) {
+	.admin {
+		padding: 0 1rem 3rem;
+	}
+
+	.stat-card {
+		padding: 0.9rem;
+
+		.stat-num {
+			font-size: 1.5rem;
+		}
+
+		.stat-label {
+			font-size: 0.7rem;
+		}
+	}
+
+	.kbd-hint {
+		display: none;
 	}
 }

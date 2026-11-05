@@ -12,7 +12,7 @@ const About: React.FC = () => {
 		<PageTransition>
 			<div className="about">
 				<Link
-					href="/home"
+					href="/"
 					aria-label="Back to navigation"
 					transitionTypes={["nav-back"]}
 				>

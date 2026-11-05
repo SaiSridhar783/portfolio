@@ -1,16 +1,18 @@
 @use "variables" as *;
 
+// Landing + navigation: intro on the left, section ring on the right
 .home-container {
-	display: flex;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
 	align-items: center;
-	width: 100vw;
-	min-height: 100vh;
-	overflow-x: hidden;
-	padding: 2rem;
+	gap: clamp(2rem, 5vw, 5rem);
+	max-width: 1320px;
+	min-height: 100svh;
+	margin: 0 auto;
+	padding: 3rem clamp(2rem, 5vw, 4rem);
+	overflow-x: clip;
 
 	.home-intro {
-		width: 60%;
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
@@ -27,14 +29,14 @@
 
 	.home-hello {
 		color: white;
-		font-size: clamp(2.6rem, 6vw, 4.5rem);
+		font-size: clamp(2.4rem, 5vw, 4.2rem);
 		line-height: 1.05;
 		font-weight: 700;
 	}
 
 	h2 {
 		color: var(--text-muted);
-		font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+		font-size: clamp(1.1rem, 2vw, 1.4rem);
 		line-height: 1.5;
 		font-weight: 400;
 		max-width: 38ch;
@@ -46,127 +48,123 @@
 		}
 	}
 
-	.cta {
-		display: inline-block;
-		padding: 0.8rem 1.6rem;
-		border-radius: 999px;
-		background-color: $green;
-		color: var(--accent-ink);
-		font-weight: 700;
-		margin-top: 1.5rem;
-		box-shadow: 0 0 0 0 color-mix(in oklab, var(--accent) 50%, transparent);
-		transition:
-			background-color var(--dur-fast),
-			box-shadow var(--dur-base) var(--ease-out);
+	.home-hint {
+		margin-top: 0.5rem;
+		color: var(--text-muted);
+		font-size: 0.9rem;
 		animation: slideInFromLeft var(--dur-slow) var(--ease-out) 0.5s both;
 
-		&:hover {
-			background-color: $greenHover;
-			box-shadow: 0 0 32px 4px color-mix(in oklab, var(--accent) 40%, transparent);
+		&::after {
+			content: " →";
+			color: var(--accent);
 		}
-	}
-
-	.home-intro > :last-child {
-		align-self: flex-start;
-	}
-
-	.floating-person {
-		z-index: 1;
-		animation: floatingPersonAnimation 0.9s var(--ease-out) 0.2s both;
-		scale: 1.2;
 	}
 
 	@container page (width < 1000px) {
-		flex-direction: column-reverse;
-
-		.floating-person {
-			scale: 1;
-		}
+		grid-template-columns: minmax(0, 1fr);
+		justify-items: center;
+		padding-top: 5rem;
+		text-align: center;
 
 		.home-intro {
 			align-items: center;
 		}
 
-		h2 {
-			text-align: center;
-		}
-
-		.home-intro > :last-child {
-			align-self: center;
+		.home-hint::after {
+			content: " ↓";
 		}
 	}
 }
 
-.home-wrap {
-	height: 100vh;
-	width: 100vw;
-	padding: 2rem;
-	padding-top: 0;
-	display: grid;
-	place-items: center;
-}
+// Orb in the middle, sections spaced evenly on a circle around it
+.hub-ring {
+	--ring: min(600px, 44vw);
+	--node: clamp(84px, calc(var(--ring) * 0.2), 120px);
+	--r: calc(var(--ring) / 2 - var(--node) / 2);
+	position: relative;
+	width: var(--ring);
+	aspect-ratio: 1;
 
-.homepanel {
-	max-height: 100vh;
-	max-width: 1100px;
-	display: grid;
-	place-items: center;
-	grid-template-columns: repeat(10, 1fr);
-	grid-template-rows: repeat(5, 1fr);
-	grid-template-areas:
-		". . . person person person person . . ."
-		"projects . . person person person person . . certifications"
-		". experience experience . about about . contact contact ."
-		". experience experience . about about . contact contact ."
-		". . . . about about . . . .";
-
-	a[href="/projects"] {
-		grid-area: projects;
+	// Faint track the sections sit on
+	&::before {
+		content: "";
+		position: absolute;
+		inset: calc(var(--node) / 2);
+		border-radius: 50%;
+		border: 1px dashed rgb(255 255 255 / 0.08);
 	}
 
-	a[href="/certifications"] {
-		grid-area: certifications;
+	.hub-orb {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		animation: orbIn 0.9s var(--ease-out) 0.2s both;
 	}
 
-	a[href="/experience"] {
-		grid-area: experience;
+	.hub-node {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%) rotate(var(--a)) translateX(var(--r))
+			rotate(calc(-1 * var(--a)));
+		z-index: 2;
+
+		.nav-tab {
+			height: var(--node);
+			padding-bottom: calc(var(--node) * 0.14);
+			font-size: clamp(0.75rem, calc(var(--node) * 0.11), 0.95rem);
+		}
 	}
 
-	a[href="/about"] {
-		grid-area: about;
+	@container page (width < 1000px) {
+		--ring: min(560px, 88vw);
 	}
 
-	a[href="/contact"] {
-		grid-area: contact;
-	}
+	// Phones: orb on top, sections in a wrapped row beneath it
+	@container page (width < 600px) {
+		--ring: 88vw;
+		--node: 50px; // five circles plus the wider gaps must fit one row
+		width: 100%;
+		aspect-ratio: auto;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.6rem 1.4rem; // row gap leaves room for the labels below
 
-	.float-person-nav {
-		grid-area: person;
-		animation: floatingNav var(--dur-slow) var(--ease-out);
-		margin-bottom: -5rem;
-
-		@container page (width < 1024px) {
+		&::before {
 			display: none;
 		}
-	}
 
-	@container page (width < 768px) {
-		grid-template-columns: repeat(5, 1fr);
-		grid-template-rows: repeat(3, 1fr);
-		grid-template-areas:
-			". projects . certifications ."
-			"experience . about . contact"
-			". . about . .";
-	}
+		.hub-orb {
+			position: static;
+			width: 100%;
+			margin-bottom: 1rem;
+		}
 
-	@container page (width < 680px) {
-		grid-template-columns: repeat(3, 1fr);
-		grid-template-rows: repeat(5, 1fr);
-		grid-template-areas:
-			"projects . certifications"
-			"projects . certifications"
-			"experience . contact"
-			". about .";
+		.hub-node {
+			position: static;
+			transform: none;
+
+			// Too small for a label inside the circle, so it sits underneath
+			.nav-tab {
+				overflow: visible;
+				padding-bottom: 0;
+			}
+
+			.nav-tab-title {
+				position: absolute;
+				top: calc(100% + 0.4rem);
+				left: 50%;
+				width: auto;
+				translate: -50% 0;
+				white-space: nowrap;
+				background: none;
+				mix-blend-mode: normal;
+				color: var(--text-muted);
+				font-size: 0.65rem;
+			}
+		}
 	}
 }
 
@@ -219,20 +217,10 @@
 	}
 }
 
-@keyframes floatingPersonAnimation {
+@keyframes orbIn {
 	from {
-		translate: 40px -40px;
-		scale: 1.05;
+		scale: 0.85;
 		opacity: 0;
-	}
-}
-
-@keyframes floatingNav {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
 	}
 }
 
@@ -247,20 +235,6 @@
 
 @container page (width < #{$narrow}) {
 	.home-container {
-		padding: 5rem 1rem 1rem;
-
-		.floating-person {
-			scale: 0.75;
-		}
-	}
-
-	.home-wrap {
-		padding: 4rem 1rem 1rem;
-	}
-
-	.nav-tab {
-		height: 96px;
-		padding-bottom: 1rem;
-		font-size: 0.85rem;
+		padding: 5rem 1rem 2rem;
 	}
 }

@@ -15,7 +15,7 @@ export default function NotFound() {
 			message="The link may be broken, or the page may have moved. Let's get you somewhere useful."
 		>
 			<Magnetic>
-				<Link href="/home" className="error-btn primary">
+				<Link href="/" className="error-btn primary">
 					Back to navigation
 				</Link>
 			</Magnetic>

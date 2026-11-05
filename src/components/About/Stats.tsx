@@ -20,7 +20,7 @@ const stats = [
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
 	const ref = useRef<HTMLSpanElement>(null);
-	const inView = useInView(ref, { once: true, margin: "0px 0px -15% 0px" });
+	const inView = useInView(ref, { once: true });
 	const count = useMotionValue(0);
 	const rounded = useTransform(count, (v) => Math.round(v));
 

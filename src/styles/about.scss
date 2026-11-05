@@ -16,8 +16,7 @@
 }
 
 .about-hero {
-	min-height: 100svh;
-	padding: 6rem 0 3rem;
+	padding: 5rem 0 3rem; // just clears the back arrow
 	display: grid;
 	grid-template-columns: 1.3fr 1fr;
 	align-items: center;
@@ -49,7 +48,7 @@
 	animation: aboutRise var(--dur-slow) var(--ease-out) 0.3s both;
 
 	img {
-		width: min(100%, 420px);
+		width: min(100%, 340px);
 		height: auto;
 		border-radius: 2rem;
 		border: 1px solid var(--border);
@@ -209,11 +208,32 @@
 		text-align: center;
 
 		.about-portrait {
+			// Head-and-shoulders crop of the full-length photo in a 4:5 frame
 			grid-row: 1;
+			position: relative;
+			width: min(55vw, 220px);
+			aspect-ratio: 4 / 5;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			border-radius: 1.5rem;
+			background: radial-gradient(
+					circle at 50% 30%,
+					color-mix(in oklab, var(--accent) 22%, transparent),
+					transparent 70%
+				),
+				var(--surface);
+			box-shadow: 0 30px 70px -30px color-mix(in oklab, var(--accent) 55%, transparent);
 
 			img {
-				width: min(70%, 320px);
-				margin: 0 auto;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 189%; // face and shoulders span ~53% of the image width
+				max-width: none;
+				transform: translate(-22.5%, -5%);
+				border: none;
+				border-radius: 0;
+				box-shadow: none;
 			}
 		}
 	}
