@@ -1,6 +1,16 @@
 import type { NextConfig } from "next";
+import { site } from "./src/lib/site";
 
 const nextConfig: NextConfig = {
+	// Easter egg for anyone reading the Network tab
+	async headers() {
+		return [
+			{
+				source: "/:path*",
+				headers: [{ key: "X-Hire-Me", value: `${site.url}/contact` }],
+			},
+		];
+	},
 	// Old mobile-only routes; pages are responsive now
 	async redirects() {
 		return [

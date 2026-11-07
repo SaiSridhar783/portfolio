@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import PrintResume from "@/components/PrintResume";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function RootLayout({
 		<main>
 			<PageHeader title="Experience" image="/images/experience.png" />
 			{children}
+			<PrintResume />
 		</main>
 	);
 }

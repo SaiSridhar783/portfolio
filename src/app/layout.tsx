@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import { jsonLd, person, personId, site } from "@/lib/site";
 import SideDrawer from "@/components/Mobile/SideDrawer";
+import EasterEggs from "@/components/EasterEggs";
 import MotionProvider from "@/components/MotionProvider";
 import "@/styles/globals.css";
 import "@/styles/base.css";
@@ -78,6 +79,7 @@ export default function RootLayout({
 					type="application/ld+json"
 					dangerouslySetInnerHTML={{ __html: jsonLd(structuredData) }}
 				/>
+				<EasterEggs />
 				<MotionProvider>
 					<SideDrawer />
 					<div className="page">{children}</div>

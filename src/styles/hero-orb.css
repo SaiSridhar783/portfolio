@@ -130,6 +130,58 @@
 	}
 }
 
+/* Easter egg: seven quick clicks on the orb (see SecretOrb) */
+.secret-orb {
+	position: relative;
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+
+	.orb-glow {
+		transition: inset var(--dur-slow) var(--ease-out);
+	}
+
+	&.is-found {
+		.hero-orb {
+			animation: orbFlare 2s var(--ease-in-out) 2;
+		}
+
+		.orb-glow {
+			inset: -8%;
+		}
+	}
+}
+
+/* Sits over the core: the nav circles ring the orb, so there is no free space around it */
+.secret-orb-note {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	pointer-events: none;
+
+	&:not(:empty) {
+		padding: 0.5rem 0.9rem;
+		border: 1px solid color-mix(in oklab, var(--accent) 40%, transparent);
+		border-radius: 999px;
+		background: color-mix(in oklab, var(--bg) 85%, transparent);
+		color: var(--accent);
+		font-size: 0.85rem;
+		white-space: nowrap;
+	}
+}
+
+@keyframes orbFlare {
+	0%,
+	100% {
+		filter: none;
+	}
+	50% {
+		filter: hue-rotate(160deg) brightness(1.35) saturate(1.3);
+	}
+}
+
 @keyframes orbSpin {
 	to {
 		rotate: 360deg;

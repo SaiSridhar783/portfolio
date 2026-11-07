@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import HeroOrb from "@/components/HeroOrb";
 import NavTab from "@/components/NavTab";
 import PageTransition from "@/components/PageTransition";
-import SplitText from "@/components/SplitText";
+import SecretOrb from "@/components/SecretOrb";
+import StatusHeadline from "@/components/StatusHeadline";
 import "@/styles/homepage.css";
 
 export const metadata: Metadata = {
@@ -34,9 +35,7 @@ const Home: React.FC = () => {
       <div className="home-container">
         <div className="home-intro">
           <p className="home-eyebrow">Software Architect · Technical Lead</p>
-          <h1 className="home-hello">
-            <SplitText text="200 OK. You've found the right architect." delay={0.15} />
-          </h1>
+          <StatusHeadline />
           <h2>
             I&apos;m <span>Sai Sridhar Akula</span>, a software architect and
             engineer who designs real-time AI and data systems, then builds
@@ -48,7 +47,9 @@ const Home: React.FC = () => {
 
         <nav className="hub-ring" aria-label="Sections">
           <div className="hub-orb">
-            <HeroOrb size="calc(var(--ring) * 0.5)" />
+            <SecretOrb>
+              <HeroOrb size="calc(var(--ring) * 0.5)" />
+            </SecretOrb>
           </div>
           {sections.map((s, i) => (
             <span

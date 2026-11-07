@@ -23,6 +23,26 @@
 	margin-bottom: 1rem;
 }
 
+/* Easter egg: click the code to watch it retry (BackoffRetry) */
+.error-retry-wrap {
+	position: relative;
+	cursor: pointer;
+}
+
+/* Absolutely placed so the status line never shifts the page */
+.error-retry {
+	position: absolute;
+	top: calc(100% - 1rem);
+	left: 50%;
+	transform: translateX(-50%);
+	width: max-content;
+	max-width: 90vw;
+	font-family: ui-monospace, Consolas, monospace;
+	font-size: 0.85rem;
+	color: var(--accent);
+	text-align: center;
+}
+
 .error-code {
 	display: flex;
 	align-items: center;

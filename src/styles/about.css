@@ -467,6 +467,40 @@
 		font-size: 0.9rem;
 		line-height: 1.5;
 	}
+
+	/* Easter egg: each tile plays a short log when clicked */
+	.stat {
+		position: relative;
+		cursor: pointer;
+	}
+
+	.stat-stream {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: 0.2rem;
+		padding: 1rem;
+		overflow: hidden;
+		background: var(--bg);
+		font-family: ui-monospace, Consolas, monospace;
+		font-size: 0.7rem;
+		line-height: 1.4;
+		color: var(--accent);
+
+		span {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		/* The result line wraps instead of truncating on narrow tiles */
+		.stat-result {
+			color: var(--text);
+			white-space: normal;
+		}
+	}
 }
 
 .section-heading {

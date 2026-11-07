@@ -31,6 +31,9 @@
 		line-height: 1.1;
 		font-weight: 700;
 		margin-bottom: 1rem;
+		/* Easter egg: clicking cycles HTTP statuses (StatusHeadline) */
+		cursor: pointer;
+		user-select: none;
 	}
 
 	h2 {

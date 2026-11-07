@@ -1,0 +1,91 @@
+/* Easter egg: printing the experience page gives a plain résumé (PrintResume) */
+.print-resume {
+	display: none;
+}
+
+@media print {
+	@page {
+		size: A4;
+		margin: 12mm 14mm;
+	}
+
+	html,
+	body {
+		background: #fff !important;
+	}
+
+	/* Everything on screen except the résumé */
+	.aurora,
+	.hamburger,
+	.page-header,
+	.experience,
+	[popover] {
+		display: none !important;
+	}
+
+	.print-resume {
+		display: block;
+		color: #111;
+		font-family: var(--font-body), system-ui, sans-serif;
+		font-size: 9.5pt;
+		line-height: 1.4;
+
+		header {
+			margin-bottom: 0.6em;
+			padding-bottom: 0.5em;
+			border-bottom: 1.5px solid #111;
+		}
+
+		h1 {
+			font-size: 20pt;
+			line-height: 1.1;
+		}
+
+		.print-role {
+			font-size: 11pt;
+		}
+
+		.print-links {
+			color: #444;
+		}
+
+		h2 {
+			margin: 0.9em 0 0.3em;
+			font-size: 10.5pt;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+			border-bottom: 0.5px solid #999;
+		}
+
+		h3 {
+			font-size: 10pt;
+			font-weight: 600;
+		}
+
+		section {
+			margin-bottom: 0.5em;
+			break-inside: avoid;
+		}
+
+		.print-row {
+			display: flex;
+			justify-content: space-between;
+			gap: 1em;
+
+			span {
+				flex-shrink: 0;
+				color: #444;
+			}
+		}
+
+		ul {
+			margin-top: 0.15em;
+			padding-left: 1.1em;
+			list-style: disc;
+		}
+
+		li + li {
+			margin-top: 0.1em;
+		}
+	}
+}
