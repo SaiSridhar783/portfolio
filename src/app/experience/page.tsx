@@ -88,9 +88,23 @@ const Experience: React.FC = () => {
               )}
               <h2>Achievements</h2>
               <ul>
-                {exp.achievements.map((achievement, i) => (
-                  <li key={i}>{achievement}</li>
-                ))}
+                {exp.achievements.map((achievement, i) =>
+                  typeof achievement === "string" ? (
+                    <li key={i}>{achievement}</li>
+                  ) : (
+                    <li key={i}>
+                      {achievement.text}{" "}
+                      <a
+                        className="achievement-link"
+                        href={achievement.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {achievement.label} ↗
+                      </a>
+                    </li>
+                  ),
+                )}
               </ul>
             </ExperienceCard>
           ))}

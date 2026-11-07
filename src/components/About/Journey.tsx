@@ -5,7 +5,7 @@ const milestones = [
 	{
 		when: "2025 – now",
 		title: "Technical Lead, TCG Digital",
-		text: "Architected a live AI football commentary translator (self-hosted Whisper, LLMs, FFmpeg) streamed to 5M+ viewers on 27 channels, a Chinese-to-English audiovisual translation pipeline feeding an enterprise knowledge graph, and 14+ ETL workflows that cut reporting from 3 hours to 10 minutes.",
+		text: "Architected a live AI football commentary translator (self-hosted Whisper, LLMs, FFmpeg) feeding 27 broadcasters across the Indian subcontinent, a Chinese-to-English audiovisual translation pipeline feeding an enterprise knowledge graph, and 14+ ETL workflows that cut reporting from 3 hours to 10 minutes.",
 	},
 	{
 		when: "2023 – 2025",

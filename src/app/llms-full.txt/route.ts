@@ -11,7 +11,7 @@ export function GET() {
 	const work = workExperiences
 		.map(
 			(w) =>
-				`### ${w.title}, ${w.company}\n\n${w.duration}. ${w.compURL}\n\n${w.achievements.map((a) => `- ${a}`).join("\n")}`,
+				`### ${w.title}, ${w.company}\n\n${w.duration}. ${w.compURL}\n\n${w.achievements.map((a) => (typeof a === "string" ? `- ${a}` : `- ${a.text} (${a.url})`)).join("\n")}`,
 		)
 		.join("\n\n");
 
@@ -46,7 +46,7 @@ Last updated: ${new Date().toISOString().slice(0, 10)}. Canonical site: ${site.u
 - Role: Technical Lead at TCG Digital Solutions Pvt. Ltd. since September 2025; Software Engineer there from August 2023 to August 2025
 - Education: B.Tech in Mining Engineering, IIT Kharagpur, 2023, CGPA 8.85
 - Core stack: ${site.knowsAbout.join(", ")}
-- Highlights: architected an AI football commentary translator streamed to 5M+ viewers over 27 channels; real-time Chinese-to-English audiovisual translation feeding an enterprise knowledge graph; 14+ ETL workflows cutting report generation from 3 hours to 10 minutes; real-time aviation system at 700+ transactions per second; 40% cost cut from refactoring legacy systems
+- Highlights: architected an AI football commentary translator feeding 27 broadcasters across the Indian subcontinent (5M+ combined viewers); real-time Chinese-to-English audiovisual translation feeding an enterprise knowledge graph; 14+ ETL workflows cutting report generation from 3 hours to 10 minutes; real-time aviation system at 700+ transactions per second; 40% cost cut from refactoring legacy systems
 - Recognition: Spot Award and Annual Excellence Award at TCG Digital
 - Profiles: ${site.sameAs.join(", ")}
 - Contact: ${site.url}/contact

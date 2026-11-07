@@ -31,7 +31,6 @@ export const metadata: Metadata = {
 		siteName: site.name,
 		firstName: "Sai Sridhar",
 		lastName: "Akula",
-		images: site.image,
 	},
 	twitter: {
 		title: site.title,
@@ -39,7 +38,6 @@ export const metadata: Metadata = {
 		site: site.twitter,
 		creator: site.twitter,
 		card: "summary_large_image",
-		images: site.image,
 	},
 };
 

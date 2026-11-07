@@ -9,7 +9,7 @@ const faqs = [
 	},
 	{
 		q: "What systems has Sai Sridhar architected?",
-		a: "He architected a live AI football commentary translator (self-hosted Whisper, LLMs, NGINX, FFmpeg) streamed to 5M+ viewers over 27 channels, a Chinese-to-English audiovisual translation pipeline that feeds an enterprise knowledge graph, 14+ ETL workflows that cut reporting from 3 hours to 10 minutes, and a Kafka-based aviation system at 700+ TPS.",
+		a: "He architected a live AI football commentary translator (self-hosted Whisper, LLMs, NGINX, FFmpeg) feeding 27 broadcasters across the Indian subcontinent (5M+ combined viewers), a Chinese-to-English audiovisual translation pipeline that feeds an enterprise knowledge graph, 14+ ETL workflows that cut reporting from 3 hours to 10 minutes, and a Kafka-based aviation system at 700+ TPS.",
 	},
 	{
 		q: "Which AI and LLM tools does Sai Sridhar work with?",

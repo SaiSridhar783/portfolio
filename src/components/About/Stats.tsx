@@ -16,7 +16,7 @@ type StatData = { value: number; suffix: string; label: string; icon: IconType }
 
 // Figures from the experience page
 const stats: StatData[] = [
-	{ value: 5, suffix: "M+", label: "viewers reached by a live AI translator", icon: FiRadio },
+	{ value: 27, suffix: "", label: "broadcasters fed live by an AI commentary translator", icon: FiRadio },
 	{ value: 700, suffix: "+", label: "transactions per second in production", icon: FiZap },
 	{ value: 40, suffix: "%", label: "cost cut by refactoring legacy systems", icon: FiTrendingDown },
 	{ value: 18, suffix: "x", label: "faster financial reports, 3 hours down to 10 minutes", icon: FiClock },

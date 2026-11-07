@@ -1,13 +1,11 @@
 // Facts shared by metadata, JSON-LD, sitemap and llms.txt. Keep them in sync with the visible pages.
 export const site = {
-	url: "https://saisridhar.vercel.app",
+	url: "https://saisridhar.is-a.dev",
 	name: "Sai Sridhar Akula",
 	title: "Sai Sridhar Akula, Software Architect and Engineer",
 	jobTitle: "Technical Lead and Software Architect",
 	description:
-		"Sai Sridhar Akula is a software architect and Technical Lead at TCG Digital and an IIT Kharagpur graduate. He designs and builds real-time AI pipelines, event-driven microservices and data platforms, including an AI football commentary translator streamed live to 5M+ viewers.",
-	image:
-		"https://res.cloudinary.com/djkp8vliu/image/upload/v1712044200/opengraph-image_kjemky.png",
+		"Sai Sridhar Akula is a software architect and Technical Lead at TCG Digital and an IIT Kharagpur graduate. He designs and builds real-time AI pipelines, event-driven microservices and data platforms, including a live AI football commentary translator feeding 27 broadcasters across the Indian subcontinent.",
 	sameAs: [
 		"https://www.linkedin.com/in/akula-sai-sridhar/",
 		"https://github.com/SaiSridhar783",

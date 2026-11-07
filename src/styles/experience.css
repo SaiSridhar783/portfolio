@@ -405,6 +405,15 @@ div[popover] {
 					background-color: var(--accent);
 				}
 			}
+
+			.achievement-link {
+				color: var(--accent);
+				white-space: nowrap;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
 		}
 	}
 }

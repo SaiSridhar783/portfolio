@@ -6,9 +6,13 @@ export const workExperiences = [
     logo: "/images/company/tcgdigital.jpg",
     duration: "Sep 01, 2025 - Present",
     compURL: "https://www.tcgdigital.com/",
-    text: "Architected a real-time commentary translator for german football using LLMs, FFmpeg, Kafka and NGINX streaming to 5M+ viewers over 27 broadcasting channels.",
+    text: "Architected a real-time commentary translator for German football using LLMs, FFmpeg, Kafka and NGINX, feeding 27 broadcasters across the Indian subcontinent with a combined audience of 5M+ viewers.",
     achievements: [
-      "Architected a real-time AI football commentary translator using self-hosted Whisper, LLM calls, NGINX, and FFmpeg to translate live audio into multiple languages, streaming to 5M+ viewers over 27 broadcasting channels via HLS and SRT protocols.",
+      {
+        text: "Architected a real-time AI football commentary translator using self-hosted Whisper, LLM calls, NGINX, and FFmpeg to translate live audio into multiple languages, distributing the feeds via HLS and SRT to 27 broadcasters across the Indian subcontinent with a combined audience of 5M+ viewers.",
+        url: "https://www.tcgdigital.com/from-commentary-to-commercial-engine-scaling-dfbs-reach-in-south-asia/",
+        label: "Read the case study",
+      },
       "Directed end-to-end refactoring of legacy petrochemical systems with Python, Node.js services and Elasticsearch, resulting in a 40% cost reduction and a substantial drop in support tickets through improved reliability and efficiency.",
       "Led AI driven enterprise data intelligence initiatives, integrating SAP with a 40+ year design repository, streamlining data discovery, reducing manual effort, and enabling data-driven business decisions via AI insights.",
       "Designed and automated 14+ ETL workflows for financial reporting, reconciliation, and multi-period aggregation (daily, monthly, and yearly), reducing report generation time from 3 hours to 10 minutes.",
@@ -24,7 +28,11 @@ export const workExperiences = [
     compURL: "https://www.tcgdigital.com/",
     text: "Delivered a real-time aviation system achieving 700+ TPS using Kafka event streaming, Redis, Python microservices and Kubernetes.",
     achievements: [
-      "Delivered a real-time aviation system in Python with a microservice architecture, achieving 700+ TPS, leveraging Kafka event streaming, Redis caching, and Kubernetes orchestration while maintaining data integrity via PostgreSQL.",
+      {
+        text: "Delivered a real-time aviation system in Python with a microservice architecture, achieving 700+ TPS, leveraging Kafka event streaming, Redis caching, and Kubernetes orchestration while maintaining data integrity via PostgreSQL.",
+        url: "https://aviation.tcgdigital.com/intellibag/",
+        label: "See IntelliBag",
+      },
       "Spearheaded automation of statistical reports using Python, Docker, MariaDB, S3 that generated charts and distributed them to stakeholders via email, cutting manual effort by 16+ hours per week, ensuring timely data-driven decision making.",
       "Automated bidirectional synchronization between Microsoft Dynamics 365 and Jira using webhooks, eliminating manual updates and ensuring data consistency across project and effort records.",
       "Mentored 2 developers and 4 interns to deliver different full-stack solutions with FastAPI services and Next.js/React UI to streamline data management, increasing efficiency across 4 departments by 60%.",

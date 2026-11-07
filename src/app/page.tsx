@@ -40,8 +40,8 @@ const Home: React.FC = () => {
           <h2>
             I&apos;m <span>Sai Sridhar Akula</span>, a software architect and
             engineer who designs real-time AI and data systems, then builds
-            them: a live commentary translator streamed to 5M+ viewers, and
-            event-driven backends at 700+ TPS.
+            them: a live commentary translator feeding 27 broadcasters across
+            the Indian subcontinent, and event-driven backends at 700+ TPS.
           </h2>
           <p className="home-hint">Pick a section to dive in.</p>
         </div>
